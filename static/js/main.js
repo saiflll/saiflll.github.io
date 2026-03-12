@@ -165,12 +165,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function initRepoMarquee() {
+        const marquee = document.getElementById('repo-marquee');
+        if (!marquee) return;
+
+        // Determine correct path to repos_data.json regardless of page depth
+        const pathPrefix = window.location.pathname.includes('/page/') ? '../' : './';
+        
         try {
-            const response = await fetch('repos_data.json');
+            const response = await fetch(pathPrefix + 'repos_data.json');
+            if (!response.ok) throw new Error('Data telemetry source offline.');
             repoData = await response.json();
             renderMarquee(localStorage.getItem('selectedLang') || 'en');
         } catch (error) {
-            console.error('Showcase Telemetry Error:', error);
+            console.warn('Showcase Telemetry Error: Loading fallback data.');
+            // Fallback for local testing if file is missing or fetch fails (CORS)
+            repoData = [
+                { name: "system-core-alpha", private: true, description: "Automated mission-critical orchestration module.", language: "Go" },
+                { name: "legacy-bridge-v1", private: true, description: "Industrial hardware bus decoder and telemetry sync.", language: "C++" },
+                { name: "saiflll-interface", private: false, description: "Dynamic portfolio project with real-time GitHub sync.", language: "JavaScript" }
+            ];
+            renderMarquee(localStorage.getItem('selectedLang') || 'en');
         }
     }
 

@@ -1,53 +1,57 @@
 import requests
 import json
 import os
-import base64
 
+# Ambil token dari env
 TOKEN = os.getenv('MY_GITHUB_TOKEN')
+
+# Header khusus GitHub API
 headers = {
     'Authorization': f'Bearer {TOKEN}',
-    'Accept': 'application/vnd.github+json'
+    'Accept': 'application/vnd.github+json',
+    'X-GitHub-Api-Version': '2022-11-28'
 }
 
-# Ambil semua repo (Public & Private)
-# Untuk Fine-grained PAT, endpoint /user/repos tetap berfungsi selama scope diberikan
-response = requests.get('https://api.github.com/user/repos?per_page=100&type=all', headers=headers)
-
-if response.status_code != 200:
-    print(f"Error fetching repos: {response.status_code}")
-    print(response.text)
-    exit(1)
-
-repos = response.json()
-showcase_data = []
-
-for repo in repos:
-    name = repo['name']
-    is_private = repo['private']
-    
-    # Ambil snippet README jika repo bukan fork (opsional) atau butuh detail lebih
-    # Default ke description repo
-    snippet = repo.get('description') or ""
+def fetch_repos():
+    # Ambil semua repo yang lo punya (Public & Private)
+    url = 'https://api.github.com/user/repos?per_page=100&affiliation=owner'
     
     try:
-        readme_req = requests.get(f'https://api.github.com/repos/{repo["owner"]["login"]}/{name}/readme', headers=headers)
-        if readme_req.status_code == 200:
-            content_b64 = readme_req.json().get('content', '')
-            if content_b64:
-                decoded = base64.b64decode(content_b64).decode('utf-8', errors='ignore')
-                # Ambil 150 karakter pertama README sebagai snippet jika deskripsi kosong
-                if not snippet:
-                    snippet = decoded[:150].replace('\n', ' ').strip() + "..."
+        response = requests.get(url, headers=headers)
+        response.raise_for_status()
+        repos = response.json()
+        
+        showcase_data = []
+        
+        for repo in repos:
+            name = repo['name']
+            
+            # Abaikan repo website ini sendiri
+            if name == "saiflll.github.io":
+                continue
+                
+            print(f"Scanning: {name}...")
+            
+            # Format data simpel buat web
+            showcase_data.append({
+                "name": name,
+                "is_private": repo['private'],
+                "description": repo.get('description') or "Engineering project at CK3.",
+                "tech_stack": repo.get('language') or "Hardware/Embedded",
+                "last_update": repo.get('updated_at')[:10] # Ambil tanggalnya aja (YYYY-MM-DD)
+            })
+            
+        return showcase_data
+
     except Exception as e:
-        print(f"Warning: Could not fetch README for {name}: {e}")
+        print(f"Error pas ngambil data: {e}")
+        return []
 
-    showcase_data.append({
-        "name": name,
-        "private": is_private,
-        "description": snippet or "Internal strategic module.",
-        "language": repo.get('language') or "Binary"
-    })
-
-# Simpan ke file JSON buat dibaca Website
-with open('repos_data.json', 'w') as f:
-    json.dump(showcase_data, f, indent=4)
+if __name__ == "__main__":
+    data = fetch_repos()
+    
+    # Simpan ke repos_data.json
+    with open('repos_data.json', 'w') as f:
+        json.dump(data, f, indent=4)
+        
+    print(f"Selesai! {len(data)} repo berhasil di-mapping ke repos_data.json")

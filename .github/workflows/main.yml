@@ -1,28 +1,38 @@
 name: Update Repo Data
 on:
   schedule:
-    - cron: '0 0 * * *' # Jalan otomatis tiap jam 12 malam
-  workflow_dispatch: # Bisa dijalankan manual
+    - cron: '0 0 * * *' # Jalan tiap tengah malam
+  workflow_dispatch: # Biar lo bisa klik "Run Workflow" manual
+
+permissions:
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true 
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
+
       - name: Install dependencies
         run: pip install requests
-      - name: Run script
+
+      - name: Run Repo Scanner
         env:
           MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
         run: python update_repos.py
-      - name: Commit and Push
+
+      - name: Commit and Push Results
         run: |
-          git config --global user.name 'github-actions'
-          git config --global user.email 'action@github.com'
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add repos_data.json
-          git commit -m "Update repo showcase data" || exit 0
-          git push
+          # Hanya commit jika ada perubahan, biar nggak error kalau datanya sama
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update repo showcase data" && git push)
