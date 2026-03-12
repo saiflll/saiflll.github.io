@@ -89,7 +89,11 @@ const translations = {
         "footer_slogan": "Kemandirian Strategis Terintegrasi.",
         "project_wms_tag": "ORKESTRASI",
         "project_plc_tag": "REKAYASA BALIK",
-        "project_wsn_tag": "ILMIAH"
+        "project_wsn_tag": "ILMIAH",
+        "cv_engineer": "Sebagai Insinyur",
+        "cv_developer": "Sebagai Pengembang",
+        "status_private": "🔒 Misi Privat",
+        "status_public": "🌐 Antarmuka Publik"
     },
     "en": {
         "nav_profile": "Profile",
@@ -181,7 +185,11 @@ const translations = {
         "footer_slogan": "Integrated Strategic Independence.",
         "project_wms_tag": "ORCHESTRATION",
         "project_plc_tag": "HARDWARE REVERSE",
-        "project_wsn_tag": "SCIENTIFIC"
+        "project_wsn_tag": "SCIENTIFIC",
+        "cv_engineer": "As Engineer",
+        "cv_developer": "As Developer",
+        "status_private": "🔒 Private Mission",
+        "status_public": "🌐 Public Interface"
     },
     "jp": {
         "nav_profile": "プロフィール",
@@ -273,7 +281,11 @@ const translations = {
         "footer_slogan": "統合された戦略的独立。",
         "project_wms_tag": "オーケストレーション",
         "project_plc_tag": "ハードウェアリバース",
-        "project_wsn_tag": "科学的"
+        "project_wsn_tag": "科学的",
+        "cv_engineer": "エンジニアとして",
+        "cv_developer": "開発者として",
+        "status_private": "🔒 秘密任務",
+        "status_public": "🌐 公開インターフェース"
     },
     "cn": {
         "nav_profile": "个人资料",
@@ -365,6 +377,10 @@ const translations = {
         "footer_slogan": "集成战略自主。",
         "project_wms_tag": "编排",
         "project_plc_tag": "硬件逆向",
-        "project_wsn_tag": "科学"
+        "project_wsn_tag": "科学",
+        "cv_engineer": "作为工程师",
+        "cv_developer": "作为开发者",
+        "status_private": "🔒 私人项目",
+        "status_public": "🌐 公共接口"
     }
 };

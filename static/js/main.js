@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const langPicker = document.getElementById('lang-picker');
     const currentLang = localStorage.getItem('selectedLang') || 'en';
 
+    let repoData = [];
+
     function applyTranslations(lang) {
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
@@ -13,14 +15,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         localStorage.setItem('selectedLang', lang);
+        
+        // Update marquee labels if data already exists
+        if (repoData.length > 0) renderMarquee(lang);
     }
 
     if (langPicker) {
-        langPicker.value = currentLang;
+        langPicker.value = localStorage.getItem('selectedLang') || 'en';
         langPicker.addEventListener('change', (e) => applyTranslations(e.target.value));
     }
 
-    applyTranslations(currentLang);
+    applyTranslations(localStorage.getItem('selectedLang') || 'en');
 
     // --- Modal Logic: Mechanical-Humanist ---
     const modal = document.getElementById('image-modal');
@@ -114,4 +119,60 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // --- CV Dropdown Click Support (Mobile/Touch) ---
+    const cvToggle = document.getElementById('cv-toggle');
+    const cvDropdown = document.getElementById('cv-dropdown');
+
+    if (cvToggle && cvDropdown) {
+        cvToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            cvDropdown.classList.toggle('active-click');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!cvDropdown.contains(e.target)) {
+                cvDropdown.classList.remove('active-click');
+            }
+        });
+    }
+
+    // --- Auto-scrolling Repo Showcase ---
+    function renderMarquee(lang) {
+        const marquee = document.getElementById('repo-marquee');
+        if (!marquee || repoData.length === 0) return;
+
+        const itemsHtml = repoData.map(repo => {
+            const statusLabel = repo.private ? 
+                (translations[lang]?.status_private || '🔒 Private Mission') : 
+                (translations[lang]?.status_public || '🌐 Public Interface');
+            
+            return `
+                <div class="repo-marquee-item">
+                    <div class="repo-status ${repo.private ? 'status-private' : 'status-public'}">
+                        ${statusLabel}
+                    </div>
+                    <h4 class="text-white font-black italic mb-2 uppercase tracking-tight">${repo.name}</h4>
+                    <p class="text-[11px] text-slate-500 leading-relaxed mb-3 line-clamp-2">${repo.description}</p>
+                    <div class="flex items-center gap-2">
+                        <span class="text-[9px] font-mono text-slate-400 p-1 bg-white/5 rounded border border-white/5">${repo.language || 'Binary'}</span>
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        marquee.innerHTML = itemsHtml + itemsHtml;
+    }
+
+    async function initRepoMarquee() {
+        try {
+            const response = await fetch('repos_data.json');
+            repoData = await response.json();
+            renderMarquee(localStorage.getItem('selectedLang') || 'en');
+        } catch (error) {
+            console.error('Showcase Telemetry Error:', error);
+        }
+    }
+
+    initRepoMarquee();
 });

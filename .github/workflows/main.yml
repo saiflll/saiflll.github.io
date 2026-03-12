@@ -1,0 +1,28 @@
+name: Update Repo Data
+on:
+  schedule:
+    - cron: '0 0 * * *' # Jalan otomatis tiap jam 12 malam
+  workflow_dispatch: # Bisa dijalankan manual
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: pip install requests
+      - name: Run script
+        env:
+          MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+        run: python update_repos.py
+      - name: Commit and Push
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'action@github.com'
+          git add repos_data.json
+          git commit -m "Update repo showcase data" || exit 0
+          git push

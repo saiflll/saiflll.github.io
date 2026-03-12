@@ -1,0 +1,26 @@
+[
+    {
+        "name": "internal-iot-gateway",
+        "private": true,
+        "description": "Critical infrastructure module for secure sensor data orchestration.",
+        "language": "Go"
+    },
+    {
+        "name": "plc-reverse-engine",
+        "private": true,
+        "description": "Industrial protocol decoder for legacy hardware interfacing.",
+        "language": "C++"
+    },
+    {
+        "name": "public-portfolio",
+        "private": false,
+        "description": "Current interactive portfolio built with vanilla JS and Tailwind.",
+        "language": "JavaScript"
+    },
+    {
+        "name": "wsn-optimization-v2",
+        "private": false,
+        "description": "Wireless Sensor Network power management research repository.",
+        "language": "Python"
+    }
+]
