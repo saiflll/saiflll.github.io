@@ -50,8 +50,10 @@ def fetch_repos():
 if __name__ == "__main__":
     data = fetch_repos()
     
-    # Simpan ke repos_data.json
-    with open('repos_data.json', 'w') as f:
-        json.dump(data, f, indent=4)
-        
-    print(f"Selesai! {len(data)} repo berhasil di-mapping ke repos_data.json")
+    # Hanya simpan jika data tidak kosong agar tidak menimpa file dengan [] jika error
+    if data:
+        with open('repos_data.json', 'w') as f:
+            json.dump(data, f, indent=4)
+        print(f"Selesai! {len(data)} repo berhasil di-mapping ke repos_data.json")
+    else:
+        print("PERINGATAN: Data kosong atau error. repos_data.json tidak diperbarui untuk mencegah tampilan blank.")

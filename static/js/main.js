@@ -140,7 +140,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Auto-scrolling Repo Showcase ---
     function renderMarquee(lang) {
         const marquee = document.getElementById('repo-marquee');
-        if (!marquee || repoData.length === 0) return;
+        if (!marquee) return;
+
+        // If no data, show a "Systems initializing" placeholder
+        if (repoData.length === 0) {
+            marquee.innerHTML = `<div class="p-10 text-slate-500 font-mono text-[10px] animate-pulse">/ INITIALIZING REPOSITORY TELEMETRY...</div>`;
+            return;
+        }
 
         const itemsHtml = repoData.map(repo => {
             const statusLabel = repo.is_private ? 
@@ -176,14 +182,20 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch(pathPrefix + 'repos_data.json');
             if (!response.ok) throw new Error('Data telemetry source offline.');
             repoData = await response.json();
+            
+            // If the file exists but is empty (GitHub Action error), force fallback
+            if (!repoData || repoData.length === 0) {
+                throw new Error('Data stream empty.');
+            }
+            
             renderMarquee(localStorage.getItem('selectedLang') || 'en');
         } catch (error) {
             console.warn('Showcase Telemetry Error: Loading fallback data.');
             // Fallback for local testing if file is missing or fetch fails (CORS)
             repoData = [
-                { name: "system-core-alpha", private: true, description: "Automated mission-critical orchestration module.", language: "Go" },
-                { name: "legacy-bridge-v1", private: true, description: "Industrial hardware bus decoder and telemetry sync.", language: "C++" },
-                { name: "saiflll-interface", private: false, description: "Dynamic portfolio project with real-time GitHub sync.", language: "JavaScript" }
+                { name: "system-core-alpha", is_private: true, description: "Automated mission-critical orchestration module.", tech_stack: "Go", last_update: "2026-03-12" },
+                { name: "legacy-bridge-v1", is_private: true, description: "Industrial hardware bus decoder and telemetry sync.", tech_stack: "C++", last_update: "2026-03-11" },
+                { name: "saiflll-interface", is_private: false, description: "Dynamic portfolio project with real-time GitHub sync.", tech_stack: "JavaScript", last_update: "2026-03-10" }
             ];
             renderMarquee(localStorage.getItem('selectedLang') || 'en');
         }
