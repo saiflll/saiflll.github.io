@@ -1,26 +1,93 @@
 [
     {
-        "name": "internal-iot-gateway",
-        "private": true,
-        "description": "Critical infrastructure module for secure sensor data orchestration.",
-        "language": "Go"
+        "name": "code-node-univ",
+        "is_private": false,
+        "description": "setup mqtt,wifi,pin useful, and treshold via web ap",
+        "tech_stack": "C++",
+        "last_update": "2026-02-25"
     },
     {
-        "name": "plc-reverse-engine",
-        "private": true,
-        "description": "Industrial protocol decoder for legacy hardware interfacing.",
-        "language": "C++"
+        "name": "Interactive-exhaust-system",
+        "is_private": false,
+        "description": "Engineering project at CK3.",
+        "tech_stack": "C++",
+        "last_update": "2025-04-15"
     },
     {
-        "name": "public-portfolio",
-        "private": false,
-        "description": "Current interactive portfolio built with vanilla JS and Tailwind.",
-        "language": "JavaScript"
+        "name": "IoT-Mon-Pump",
+        "is_private": false,
+        "description": "Monitoring water pump using ESP32 + Flask",
+        "tech_stack": "HTML",
+        "last_update": "2025-04-15"
     },
     {
-        "name": "wsn-optimization-v2",
-        "private": false,
-        "description": "Wireless Sensor Network power management research repository.",
-        "language": "Python"
+        "name": "IoT-Project-abonden",
+        "is_private": false,
+        "description": "Engineering project at CK3.",
+        "tech_stack": "PHP",
+        "last_update": "2025-04-15"
+    },
+    {
+        "name": "Keyyles-nrf",
+        "is_private": false,
+        "description": "Engineering project at CK3.",
+        "tech_stack": "C++",
+        "last_update": "2026-02-25"
+    },
+    {
+        "name": "Mach_Liver1",
+        "is_private": false,
+        "description": "klasifikasi liver",
+        "tech_stack": "Hardware/Embedded",
+        "last_update": "2025-07-24"
+    },
+    {
+        "name": "Notifier-based-espnow",
+        "is_private": false,
+        "description": "The system aims to provide ping notifications to nodes (clients) with the system mesh with painless ",
+        "tech_stack": "C++",
+        "last_update": "2026-02-25"
+    },
+    {
+        "name": "ota",
+        "is_private": false,
+        "description": "Engineering project at CK3.",
+        "tech_stack": "JavaScript",
+        "last_update": "2026-02-25"
+    },
+    {
+        "name": "ota-raw",
+        "is_private": false,
+        "description": "Engineering project at CK3.",
+        "tech_stack": "C++",
+        "last_update": "2026-02-25"
+    },
+    {
+        "name": "Random-select-number",
+        "is_private": false,
+        "description": "Anyone, you can select be a number to correct the random  number, it\"s game :v",
+        "tech_stack": "HTML",
+        "last_update": "2025-04-15"
+    },
+    {
+        "name": "saiflll",
+        "is_private": false,
+        "description": "Engineering project at CK3.",
+        "tech_stack": "Hardware/Embedded",
+        "last_update": "2026-03-11"
+    },
+    {
+        "name": "Serial-website",
+        "is_private": false,
+        "description": "Engineering project at CK3.",
+        "tech_stack": "Python",
+        "last_update": "2026-02-25"
+    },
+    {
+        "name": "t12-solder-station",
+        "is_private": false,
+        "description": "Engineering project at CK3.",
+        "tech_stack": "C++",
+        "last_update": "2026-02-25"
     }
 ]
