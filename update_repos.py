@@ -13,8 +13,8 @@ headers = {
 }
 
 def fetch_repos():
-    # Ambil semua repo yang lo punya (Public & Private)
-    url = 'https://api.github.com/user/repos?per_page=100&affiliation=owner'
+    # Gunakan visibility=all dan type=all agar private repo benar-benar dipaksa keluar
+    url = 'https://api.github.com/user/repos?per_page=100&affiliation=owner&visibility=all&type=all'
     
     try:
         response = requests.get(url, headers=headers)

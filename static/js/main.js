@@ -143,19 +143,20 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!marquee || repoData.length === 0) return;
 
         const itemsHtml = repoData.map(repo => {
-            const statusLabel = repo.private ? 
+            const statusLabel = repo.is_private ? 
                 (translations[lang]?.status_private || '🔒 Private Mission') : 
                 (translations[lang]?.status_public || '🌐 Public Interface');
             
             return `
                 <div class="repo-marquee-item">
-                    <div class="repo-status ${repo.private ? 'status-private' : 'status-public'}">
+                    <div class="repo-status ${repo.is_private ? 'status-private' : 'status-public'}">
                         ${statusLabel}
                     </div>
                     <h4 class="text-white font-black italic mb-2 uppercase tracking-tight">${repo.name}</h4>
                     <p class="text-[11px] text-slate-500 leading-relaxed mb-3 line-clamp-2">${repo.description}</p>
-                    <div class="flex items-center gap-2">
-                        <span class="text-[9px] font-mono text-slate-400 p-1 bg-white/5 rounded border border-white/5">${repo.language || 'Binary'}</span>
+                    <div class="flex items-center justify-between">
+                        <span class="text-[9px] font-mono text-eng font-bold p-1 px-2 bg-eng/10 rounded border border-eng/20 uppercase tracking-widest">${repo.tech_stack}</span>
+                        <span class="text-[8px] font-mono text-slate-600 uppercase italic">${repo.last_update}</span>
                     </div>
                 </div>
             `;
@@ -188,5 +189,66 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // --- Serial Monitor Simulator ---
+    function initSerialMonitor() {
+        const logContainer = document.getElementById('serial-logs');
+        if (!logContainer) return;
+
+        const logTypes = [
+            { label: 'INFO', color: 'text-eng-light' },
+            { label: 'SYNC', color: 'text-dev-light' },
+            { label: 'PROC', color: 'text-slate-400' },
+            { label: 'WARN', color: 'text-amber-500' },
+            { label: 'INIT', color: 'text-blue-400' }
+        ];
+
+        const actions = [
+            "Handshake with PLC_S7_BRG established",
+            "Gateway telemetry sync [OK]",
+            "K8s pod cluster internal scaling...",
+            "RS485 Modbus packet decoding...",
+            "JWT verification for encrypted OTA",
+            "Energy profile optimized via LoRaWAN",
+            "WMS core rebalancing sub-services",
+            "Hardware buffer overflow prevented",
+            "New activity detected on saiflll/core",
+            "Database commit: Indexing 102 repos",
+            "Uptime check: 99.98% system stable",
+            "Reverse engineering bitstream [1/10]",
+            "TCP connection secured on port 502",
+            "Cloud-native blueprint deploying..."
+        ];
+
+        function addLog() {
+            const now = new Date();
+            const time = now.toTimeString().split(' ')[0] + '.' + now.getMilliseconds();
+            const type = logTypes[Math.floor(Math.random() * logTypes.length)];
+            const action = actions[Math.floor(Math.random() * actions.length)];
+
+            const logLine = document.createElement('div');
+            logLine.className = 'flex gap-2';
+            logLine.innerHTML = `
+                <span class="text-slate-600">[${time}]</span>
+                <span class="${type.color} font-bold">[${type.label}]</span>
+                <span class="truncate">${action}</span>
+            `;
+
+            logContainer.appendChild(logLine);
+            logContainer.scrollTop = logContainer.scrollHeight;
+
+            // Keep log count under 50 for performance
+            if (logContainer.children.length > 50) {
+                logContainer.removeChild(logContainer.firstChild);
+            }
+
+            // Randomize next log timing
+            setTimeout(addLog, Math.random() * 2000 + 500);
+        }
+
+        // Start the sequence
+        addLog();
+    }
+
     initRepoMarquee();
+    initSerialMonitor();
 });
