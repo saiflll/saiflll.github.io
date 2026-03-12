@@ -36,7 +36,7 @@ def fetch_repos():
             showcase_data.append({
                 "name": name,
                 "is_private": repo['private'],
-                "description": repo.get('description') or "Engineering project at CK3.",
+                "description": repo.get('description') or "Personal Project for Hobbies :3",
                 "tech_stack": repo.get('language') or "Hardware/Embedded",
                 "last_update": repo.get('updated_at')[:10] # Ambil tanggalnya aja (YYYY-MM-DD)
             })
