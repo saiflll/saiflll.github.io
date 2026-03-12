@@ -1,5 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('Operational Status: System v1.5.0 - Muhammad Saifulloh [LEN_COMPLIANT]');
+    console.log('Operational Status: System v1.6.0 - Muhammad Saifulloh [MULTI_LANG_ENABLED]');
+
+    // --- Language Logic ---
+    const langPicker = document.getElementById('lang-picker');
+    const currentLang = localStorage.getItem('selectedLang') || 'en';
+
+    function applyTranslations(lang) {
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang] && translations[lang][key]) {
+                el.innerHTML = translations[lang][key];
+            }
+        });
+        localStorage.setItem('selectedLang', lang);
+    }
+
+    if (langPicker) {
+        langPicker.value = currentLang;
+        langPicker.addEventListener('change', (e) => applyTranslations(e.target.value));
+    }
+
+    applyTranslations(currentLang);
 
     // --- Modal Logic: Mechanical-Humanist ---
     const modal = document.getElementById('image-modal');

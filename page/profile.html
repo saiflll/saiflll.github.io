@@ -36,6 +36,9 @@
             }
         }
     </script>
+    <!-- Foot Scripts -->
+    <script src="../static/js/translations.js"></script>
+    <script src="../static/js/main.js"></script>
 </head>
 
 <body class="bg-dark-950 text-slate-100 font-sans grid-blueprint selection:bg-eng">
@@ -48,24 +51,32 @@
                     <img src="../static/img/hero.jpeg" alt="MS" class="w-full h-full object-cover hero">
                 </div>
                 <div class="flex flex-col">
-                    <span class="font-black tracking-tighter leading-none text-lg">BACK TO HUB</span>
-                    <span class="text-[9px] text-slate-500 font-mono tracking-[0.2em] uppercase">Human intelligence
+                    <span class="font-black tracking-tighter leading-none text-lg" data-i18n="back_to_hub">BACK TO HUB</span>
+                    <span class="text-[9px] text-slate-500 font-mono tracking-[0.2em] uppercase" data-i18n="profile_archive_label">Human intelligence
                         Archive</span>
                 </div>
             </a>
 
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-400 hover:text-white transition-colors">
-                <svg class="menu-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
-                    </path>
-                </svg>
-                <svg class="close-icon w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
-                    </path>
-                </svg>
-            </button>
-            <h1 class="section-tag italic hidden lg:block">PROFESSIONAL DOSSIER & IDENTITY</h1>
+            <div class="flex items-center gap-4">
+                <select id="lang-picker" class="bg-dark-900 text-[10px] font-bold uppercase tracking-widest text-slate-400 border border-white/10 rounded px-2 py-1 outline-none hover:border-eng transition-all appearance-none cursor-pointer">
+                    <option value="en">EN</option>
+                    <option value="id">ID</option>
+                    <option value="jp">JP</option>
+                    <option value="cn">CN</option>
+                </select>
+                <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-400 hover:text-white transition-colors">
+                    <svg class="menu-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                        </path>
+                    </svg>
+                    <svg class="close-icon w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+            <h1 class="section-tag italic hidden lg:block" data-i18n="profile_dossier">PROFESSIONAL DOSSIER & IDENTITY</h1>
         </div>
     </nav>
 
@@ -100,14 +111,14 @@
                 </div>
                 <div>
                     <span
-                        class="inline-block px-4 py-2 rounded-full bg-blue-900/20 border border-blue-500/20 text-eng text-[10px] font-black mb-8 uppercase tracking-[0.2em]">Subject:
+                        class="inline-block px-4 py-2 rounded-full bg-blue-900/20 border border-blue-500/20 text-eng text-[10px] font-black mb-8 uppercase tracking-[0.2em]" data-i18n="profile_subject_tag">Subject:
                         Muhammad Saifulloh</span>
-                    <h2 class="text-7xl md:text-9xl font-black italic tracking-tighter leading-[0.85] uppercase">Human
+                    <h2 class="text-7xl md:text-9xl font-black italic tracking-tighter leading-[0.85] uppercase" data-i18n="profile_title">Human
                         <br><span class="text-white">Profile.</span>
                     </h2>
                 </div>
             </div>
-            <p class="text-xl text-slate-400 max-w-3xl leading-relaxed industrial-border">
+            <p class="text-xl text-slate-400 max-w-3xl leading-relaxed industrial-border" data-i18n="profile_bio">
                 High-performing systems engineer yang mensintesis pemahaman hardware mendalam dengan arsitektur software
                 modern. Berfokus pada kedaulatan teknologi nasional melalui integrasi sistem yang tangguh.
             </p>
@@ -119,16 +130,16 @@
 
                 <!-- Summary Section -->
                 <section>
-                    <h3 class="section-tag mb-8">/ PHILOSOPHY & OBJECTIVE</h3>
+                    <h3 class="section-tag mb-8" data-i18n="philosophy_title">/ PHILOSOPHY & OBJECTIVE</h3>
                     <div class="text-slate-400 leading-relaxed text-lg space-y-6">
-                        <p>
+                        <p data-i18n="philosophy_p1">
                             Saya percaya bahwa masa depan infrastruktur industri terletak pada kemampuan kita untuk
                             menghubungkan <span class="text-white italic">legacy hardware</span> dengan <span
                                 class="text-white">cloud-orchestration</span> secara aman dan efisien. Dengan pengalaman
                             lebih dari 5 tahun, saya telah membangun jembatan digital yang memungkinkan data mentah dari
                             mesin pabrik berubah menjadi wawasan strategis di level manajemen.
                         </p>
-                        <p>
+                        <p data-i18n="philosophy_p2">
                             Target saya saat ini adalah berkontribusi pada ekosistem **LEN Industri (Persero)**, membawa
                             standar keandalan tinggi dan optimasi sistem yang saya asah melalui puluhan proyek IoT dan
                             implementasi backend skala enterprise.
@@ -139,30 +150,30 @@
                 <!-- Academic Section -->
                 <section class="grid md:grid-cols-2 gap-12">
                     <div>
-                        <h3 class="section-tag mb-8">/ ACADEMIC BACKGROUND</h3>
+                        <h3 class="section-tag mb-8" data-i18n="academic_title">/ ACADEMIC BACKGROUND</h3>
                         <div class="glass-card p-10 rounded-3xl border-t-2 border-eng transition-all hover:bg-eng/5">
                             <h4 class="text-2xl font-black uppercase mb-2">AMIKOM Yogyakarta</h4>
-                            <p class="text-slate-500 text-[10px] mb-6 font-mono font-bold uppercase tracking-widest">
+                            <p class="text-slate-500 text-[10px] mb-6 font-mono font-bold uppercase tracking-widest" data-i18n="academic_degree">
                                 Bachelor in Computer Engineering • 2021-2025</p>
                             <div
                                 class="inline-block px-4 py-2 bg-green-500/10 rounded-lg border border-green-500/20 text-green-400 text-sm font-black italic uppercase mb-6 tracking-widest">
                                 GPA: 3.44 / 4.00
                             </div>
                             <ul class="text-xs text-slate-400 space-y-3">
-                                <li>▹ Research: Wireless Sensor Network Optimations</li>
-                                <li>▹ Focus: Industrial Protocols & Connectivity</li>
-                                <li>▹ Active Developer & Laboratory Assistant</li>
+                                <li data-i18n="academic_li1">▹ Research: Wireless Sensor Network Optimations</li>
+                                <li data-i18n="academic_li2">▹ Focus: Industrial Protocols & Connectivity</li>
+                                <li data-i18n="academic_li3">▹ Active Developer & Laboratory Assistant</li>
                             </ul>
                         </div>
                     </div>
                     <div>
-                        <h3 class="section-tag mb-8">/ LEADERSHIP & ORGANIZATION</h3>
+                        <h3 class="section-tag mb-8" data-i18n="leadership_title">/ LEADERSHIP & ORGANIZATION</h3>
                         <div
                             class="glass-card p-10 rounded-3xl border-t-2 border-slate-700 transition-all hover:bg-white/5">
                             <h4 class="text-2xl font-black uppercase mb-2">ASSISTANT FORUM</h4>
-                            <p class="text-slate-500 text-[10px] mb-6 font-mono font-bold uppercase tracking-widest">
+                            <p class="text-slate-500 text-[10px] mb-6 font-mono font-bold uppercase tracking-widest" data-i18n="leadership_role">
                                 AMIKOM • 2022 - 2023</p>
-                            <p class="text-xs text-slate-400 leading-relaxed">
+                            <p class="text-xs text-slate-400 leading-relaxed" data-i18n="leadership_desc">
                                 Membimbing mahasiswa dalam praktikum Jaringan Komputer, Pengembangan Web, dan Sistem
                                 Operasi. Bertanggung jawab atas transfer materi teknis ke bahasa yang mudah dipahami.
                             </p>
@@ -172,24 +183,24 @@
 
                 <!-- Hobbies / Wild Side -->
                 <section>
-                    <h3 class="section-tag mb-8">/ EXPLORATORY INTERESTS (THE WILD SIDE)</h3>
+                    <h3 class="section-tag mb-8" data-i18n="interests_title">/ EXPLORATORY INTERESTS (THE WILD SIDE)</h3>
                     <div class="grid md:grid-cols-3 gap-6">
                         <div
                             class="p-8 glass-card rounded-2xl border-b-2 border-eng transition-all hover:-translate-y-2">
-                            <h4 class="font-black text-white italic mb-3 uppercase">Android Modding</h4>
-                            <p class="text-[10px] text-slate-500 leading-relaxed">Kernel optimization, Custom ROMs, and
+                            <h4 class="font-black text-white italic mb-3 uppercase" data-i18n="interest_android_title">Android Modding</h4>
+                            <p class="text-[10px] text-slate-500 leading-relaxed" data-i18n="interest_android_desc">Kernel optimization, Custom ROMs, and
                                 UBL procedures for mobile architectures.</p>
                         </div>
                         <div
                             class="p-8 glass-card rounded-2xl border-b-2 border-safety transition-all hover:-translate-y-2">
-                            <h4 class="font-black text-white italic mb-3 uppercase">Audio Design</h4>
-                            <p class="text-[10px] text-slate-500 leading-relaxed">Class AB/D/H Power Amplifier circuitry
+                            <h4 class="font-black text-white italic mb-3 uppercase" data-i18n="interest_audio_title">Audio Design</h4>
+                            <p class="text-[10px] text-slate-500 leading-relaxed" data-i18n="interest_audio_desc">Class AB/D/H Power Amplifier circuitry
                                 and high-fidelity analog systems.</p>
                         </div>
                         <div
                             class="p-8 glass-card rounded-2xl border-b-2 border-dev-light transition-all hover:-translate-y-2">
-                            <h4 class="font-black text-white italic mb-3 uppercase">Automotive ECU</h4>
-                            <p class="text-[10px] text-slate-500 leading-relaxed">Telemetry analysis and hardware-level
+                            <h4 class="font-black text-white italic mb-3 uppercase" data-i18n="interest_auto_title">Automotive ECU</h4>
+                            <p class="text-[10px] text-slate-500 leading-relaxed" data-i18n="interest_auto_desc">Telemetry analysis and hardware-level
                                 performance tuning for automotive electronics.</p>
                         </div>
                     </div>
@@ -201,48 +212,48 @@
             <div class="lg:col-span-4 space-y-12">
 
                 <div class="glass-card p-10 rounded-[2.5rem] border-l-4 border-eng">
-                    <h3 class="section-tag mb-8 uppercase italic">Identity Pillars</h3>
+                    <h3 class="section-tag mb-8 uppercase italic" data-i18n="identity_pillars">Identity Pillars</h3>
                     <div class="space-y-8">
                         <div class="group">
-                            <h4 class="text-xl font-black text-eng italic group-hover:protocol-glow transition-all">THE
+                            <h4 class="text-xl font-black text-eng italic group-hover:protocol-glow transition-all" data-i18n="pillar_engineer_title">THE
                                 ENGINEER</h4>
                             <p
-                                class="text-[10px] text-slate-500 font-mono leading-relaxed mt-2 uppercase tracking-widest">
+                                class="text-[10px] text-slate-500 font-mono leading-relaxed mt-2 uppercase tracking-widest" data-i18n="pillar_engineer_desc">
                                 Hardware Architecture • PLC Expert • Firmware Specialist</p>
                         </div>
                         <div class="group">
                             <h4
-                                class="text-xl font-black text-dev-light italic group-hover:protocol-glow transition-all">
+                                class="text-xl font-black text-dev-light italic group-hover:protocol-glow transition-all" data-i18n="pillar_developer_title">
                                 THE DEVELOPER</h4>
                             <p
-                                class="text-[10px] text-slate-500 font-mono leading-relaxed mt-2 uppercase tracking-widest">
+                                class="text-[10px] text-slate-500 font-mono leading-relaxed mt-2 uppercase tracking-widest" data-i18n="pillar_developer_desc">
                                 Backend Oracle • K8s Master • System Architect</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="glass-card p-10 rounded-[2.5rem] border-l-4 border-slate-700">
-                    <h3 class="section-tag mb-8 uppercase italic">Certifications</h3>
+                    <h3 class="section-tag mb-8 uppercase italic" data-i18n="certifications">Certifications</h3>
                     <div class="grid grid-cols-2 gap-4">
                         <div
                             class="p-4 bg-white/5 rounded-xl border border-white/5 text-center transition-all hover:bg-eng/10">
                             <span class="text-xs font-black text-white">CKA</span>
-                            <p class="text-[8px] text-slate-500">K8s Admin</p>
+                            <p class="text-[8px] text-slate-500" data-i18n="cert_cka_desc">K8s Admin</p>
                         </div>
                         <div
                             class="p-4 bg-white/5 rounded-xl border border-white/5 text-center transition-all hover:bg-eng/10">
                             <span class="text-xs font-black text-white">AWS SAA</span>
-                            <p class="text-[8px] text-slate-500">Cloud Arch</p>
+                            <p class="text-[8px] text-slate-500" data-i18n="cert_aws_desc">Cloud Arch</p>
                         </div>
                         <div
                             class="p-4 bg-white/5 rounded-xl border border-white/5 text-center transition-all hover:bg-eng/10">
                             <span class="text-xs font-black text-white">RTOS</span>
-                            <p class="text-[8px] text-slate-500">Embedded</p>
+                            <p class="text-[8px] text-slate-500" data-i18n="cert_rtos_desc">Embedded</p>
                         </div>
                         <div
                             class="p-4 bg-white/5 rounded-xl border border-white/5 text-center transition-all hover:bg-eng/10">
                             <span class="text-xs font-black text-white">CISCO</span>
-                            <p class="text-[8px] text-slate-500">Networking</p>
+                            <p class="text-[8px] text-slate-500" data-i18n="cert_cisco_desc">Networking</p>
                         </div>
                     </div>
                 </div>
@@ -252,7 +263,7 @@
     </main>
 
     <footer class="py-20 border-t border-white/5 text-center grid-blueprint">
-        <p class="text-[10px] text-slate-800 font-mono italic font-bold tracking-[0.5em]">SYSTEM STABLE • IDENTITY
+        <p class="text-[10px] text-slate-800 font-mono italic font-bold tracking-[0.5em]" data-i18n="profile_footer">SYSTEM STABLE • IDENTITY
             VERIFIED • 2026</p>
     </footer>
 

@@ -1,4 +1,7 @@
     <title>Engineering Lab | Muhammad Saifulloh</title>
+    <!-- Foot Scripts -->
+    <script src="../static/js/translations.js"></script>
+    <script src="../static/js/main.js"></script>
     
     <!-- Icons & Assets -->
     <link rel="stylesheet" href="../static/css/style.css">
@@ -34,17 +37,25 @@
             <a href="../index.html" class="flex items-center gap-3 group">
                 <div class="w-10 h-10 bg-eng rounded-lg flex items-center justify-center font-black text-white group-hover:protocol-glow transition-all">←</div>
                 <div class="flex flex-col">
-                    <span class="font-black tracking-tighter leading-none text-lg">BACK TO HUB</span>
-                    <span class="text-[9px] text-slate-500 font-mono tracking-[0.2em] uppercase">National Infrastructure Lab</span>
+                    <span class="font-black tracking-tighter leading-none text-lg" data-i18n="back_to_hub">BACK TO HUB</span>
+                    <span class="text-[9px] text-slate-500 font-mono tracking-[0.2em] uppercase" data-i18n="profile_archive_label">National Infrastructure Lab</span>
                 </div>
             </a>
             
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-400 hover:text-white transition-colors">
-                <svg class="menu-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                <svg class="close-icon w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-            <h1 class="section-tag italic hidden lg:block">HARDWARE & INTEGRATION DEEP-DIVE</h1>
+            <div class="flex items-center gap-4">
+                <select id="lang-picker" class="bg-dark-900 text-[10px] font-bold uppercase tracking-widest text-slate-400 border border-white/10 rounded px-2 py-1 outline-none hover:border-eng transition-all appearance-none cursor-pointer">
+                    <option value="en">EN</option>
+                    <option value="id">ID</option>
+                    <option value="jp">JP</option>
+                    <option value="cn">CN</option>
+                </select>
+                <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-400 hover:text-white transition-colors">
+                    <svg class="menu-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    <svg class="close-icon w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <h1 class="section-tag italic hidden lg:block" data-i18n="operational_level_field">HARDWARE & INTEGRATION DEEP-DIVE</h1>
         </div>
     </nav>
 
@@ -63,9 +74,9 @@
 
     <main class="max-w-7xl mx-auto py-48 px-6">
         <header class="mb-32">
-            <span class="inline-block px-4 py-2 rounded-full bg-blue-900/20 border border-blue-500/20 text-eng text-[10px] font-black mb-8 uppercase tracking-[0.2em]">Operational Level: Field & Edge</span>
-            <h2 class="text-7xl md:text-9xl font-black italic tracking-tighter mb-10 leading-[0.85] uppercase">Integrated <br><span class="text-eng">Systems.</span></h2>
-            <p class="text-xl text-slate-400 max-w-2xl leading-relaxed industrial-border">
+            <span class="inline-block px-4 py-2 rounded-full bg-blue-900/20 border border-blue-500/20 text-eng text-[10px] font-black mb-8 uppercase tracking-[0.2em]" data-i18n="operational_level_field">Operational Level: Field & Edge</span>
+            <h2 class="text-7xl md:text-9xl font-black italic tracking-tighter mb-10 leading-[0.85] uppercase" data-i18n="eng_header">Integrated <br><span class="text-eng">Systems.</span></h2>
+            <p class="text-xl text-slate-400 max-w-2xl leading-relaxed industrial-border" data-i18n="eng_desc">
                 Desain arsitektur hardware yang tangguh untuk lingkungan industri berat. Mengamankan alur data dari sensor mentah hingga enkripsi level gateway.
             </p>
         </header>
@@ -74,10 +85,10 @@
         <div class="grid lg:grid-cols-3 gap-12 mb-32">
             <div class="lg:col-span-2 space-y-12">
                 <section class="p-12 glass-card rounded-[2.5rem] border-l-4 border-eng hover:bg-eng/[0.02] transition-all">
-                    <h3 class="text-3xl font-black mb-8 uppercase tracking-tight italic">Low-Level Runtime</h3>
+                    <h3 class="text-3xl font-black mb-8 uppercase tracking-tight italic" data-i18n="eng_matrix_low_title">Low-Level Runtime</h3>
                     <div class="grid md:grid-cols-2 gap-12">
                         <div class="space-y-6">
-                            <h4 class="text-[10px] font-bold text-slate-500 uppercase tracking-widest border-b border-white/5 pb-2">Microarchitectures</h4>
+                            <h4 class="text-[10px] font-bold text-slate-500 uppercase tracking-widest border-b border-white/5 pb-2" data-i18n="eng_matrix_micros">Microarchitectures</h4>
                             <div class="flex flex-wrap gap-2">
                                 <span class="tech-tag">STM32 (Cortex-M)</span> <span class="tech-tag">nRF52840 (BLE)</span> 
                                 <span class="tech-tag">ESP32-S3 (Dual Core)</span> <span class="tech-tag">AVR/ATtiny</span>
@@ -85,7 +96,7 @@
                             </div>
                         </div>
                         <div class="space-y-6">
-                            <h4 class="text-[10px] font-bold text-slate-500 uppercase tracking-widest border-b border-white/5 pb-2">Industrial Bus</h4>
+                            <h4 class="text-[10px] font-bold text-slate-500 uppercase tracking-widest border-b border-white/5 pb-2" data-i18n="eng_matrix_bus">Industrial Bus</h4>
                             <div class="flex flex-wrap gap-2">
                                 <span class="tech-tag">Modbus RTU/TCP</span> <span class="tech-tag">CAN Bus 2.0B</span> 
                                 <span class="tech-tag">RS485/Differential</span> <span class="tech-tag">SPI / I2C / I2S</span>
@@ -97,32 +108,32 @@
 
                 <!-- Detailed Project Cards -->
                 <div class="space-y-8">
-                    <h3 class="section-tag italic">/ DETAILED MISSION ARCHIVE</h3>
+                    <h3 class="section-tag italic" data-i18n="eng_archive_title">/ DETAILED MISSION ARCHIVE</h3>
                     
                     <div class="project-card glass-card p-12 rounded-[3.5rem] group cursor-pointer hover:border-eng/30 transition-all" data-img="../static/img/plc-preview.jpg" data-tech-desc="Passive Sniffing Implementation for Industrial Gateways. Zero-interruption bus monitoring for legacy systems.">
                         <div class="flex justify-between items-start mb-6">
-                            <h4 class="text-4xl font-black italic uppercase tracking-tighter group-hover:text-eng transition-colors">PLC Protocol Bridge</h4>
+                            <h4 class="text-4xl font-black italic uppercase tracking-tighter group-hover:text-eng transition-colors" data-i18n="project_plc_title">PLC Protocol Bridge</h4>
                             <div class="p-3 bg-eng/10 rounded-xl protocol-glow">
                                 <svg class="w-6 h-6 text-eng" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                             </div>
                         </div>
-                        <p class="text-slate-400 text-lg leading-relaxed mb-8">
+                        <p class="text-slate-400 text-lg leading-relaxed mb-8" data-i18n="eng_project_plc_desc">
                             Reverse engineering sistem komunikasi Siemens S7 dan Hyundai PLC menggunakan teknik bus-sniffing. Mengekstrak data operasional kritis secara real-time tanpa mengubah struktur safety-logic existing.
                         </p>
                         <div class="flex items-center gap-6 text-[10px] font-mono font-bold text-slate-500 uppercase tracking-widest">
-                            <span class="flex items-center gap-2"><span class="w-2 h-2 bg-eng rounded-full"></span> RS485 Sniffing</span>
-                            <span class="flex items-center gap-2"><span class="w-2 h-2 bg-eng rounded-full"></span> Data Extraction</span>
+                            <span class="flex items-center gap-2" data-i18n="eng_project_plc_tag1"><span class="w-2 h-2 bg-eng rounded-full"></span> RS485 Sniffing</span>
+                            <span class="flex items-center gap-2" data-i18n="eng_project_plc_tag2"><span class="w-2 h-2 bg-eng rounded-full"></span> Data Extraction</span>
                         </div>
                     </div>
 
                     <div class="project-card glass-card p-12 rounded-[3.5rem] group cursor-pointer hover:border-eng/30 transition-all" data-img="../static/img/wsn-preview.jpg" data-tech-desc="LoRaWAN Network Optimization for Terrain-Challenged Areas. Power management at nano-ampere levels.">
                         <div class="flex justify-between items-start mb-6">
-                            <h4 class="text-4xl font-black italic uppercase tracking-tighter group-hover:text-eng transition-colors">WSN Journal Research</h4>
+                            <h4 class="text-4xl font-black italic uppercase tracking-tighter group-hover:text-eng transition-colors" data-i18n="project_wsn_title">WSN Journal Research</h4>
                             <div class="p-3 bg-eng/10 rounded-xl protocol-glow">
                                 <svg class="w-6 h-6 text-eng" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10l4 4v10a2 2 0 01-2 2z"></path></svg>
                             </div>
                         </div>
-                        <p class="text-slate-400 text-lg leading-relaxed mb-8">
+                        <p class="text-slate-400 text-lg leading-relaxed mb-8" data-i18n="eng_project_wsn_desc">
                             Optimasi transmisi Wireless Sensor Network pada area topografi sulit. Fokus pada manajemen energi node agar bertahan bertahun-tahun dengan sumber daya terbatas.
                         </p>
                     </div>
@@ -132,7 +143,7 @@
             <!-- Stats & Sidebar -->
             <div class="lg:col-span-1 space-y-8">
                 <div class="glass-card p-10 rounded-3xl border-t-4 border-eng">
-                    <h5 class="text-[10px] font-black text-slate-500 uppercase tracking-[0.3em] mb-6">System Integrity</h5>
+                    <h5 class="text-[10px] font-black text-slate-500 uppercase tracking-[0.3em] mb-6" data-i18n="eng_integrity_title">System Integrity</h5>
                     <div class="space-y-6">
                         <div class="bg-white/5 p-4 rounded-xl border border-white/5">
                             <p class="text-[10px] text-slate-500 uppercase mb-2">TKDN Compliance</p>
@@ -169,7 +180,7 @@
     </div>
 
     <footer class="py-20 border-t border-white/5 text-center grid-blueprint">
-        <p class="text-[10px] text-slate-800 font-mono italic font-bold tracking-[0.5em]">SYSTEM STABLE • FIELD READY • 2026</p>
+        <p class="text-[10px] text-slate-800 font-mono italic font-bold tracking-[0.5em]" data-i18n="eng_footer">SYSTEM STABLE • FIELD READY • 2026</p>
     </footer>
 
     <script src="../static/js/main.js"></script>

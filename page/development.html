@@ -1,4 +1,7 @@
     <title>Development Hub | Muhammad Saifulloh</title>
+    <!-- Foot Scripts -->
+    <script src="../static/js/translations.js"></script>
+    <script src="../static/js/main.js"></script>
     
     <!-- Icons & Assets -->
     <link rel="stylesheet" href="../static/css/style.css">
@@ -34,17 +37,25 @@
             <a href="../index.html" class="flex items-center gap-3 group">
                 <div class="w-10 h-10 bg-dev rounded-lg flex items-center justify-center font-black text-white group-hover:protocol-glow transition-all">←</div>
                 <div class="flex flex-col">
-                    <span class="font-black tracking-tighter leading-none text-lg">BACK TO HUB</span>
-                    <span class="text-[9px] text-slate-500 font-mono tracking-[0.2em] uppercase">National Infrastructure Lab</span>
+                    <span class="font-black tracking-tighter leading-none text-lg" data-i18n="back_to_hub">BACK TO HUB</span>
+                    <span class="text-[9px] text-slate-500 font-mono tracking-[0.2em] uppercase" data-i18n="profile_archive_label">National Infrastructure Lab</span>
                 </div>
             </a>
             
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-400 hover:text-white transition-colors">
-                <svg class="menu-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                <svg class="close-icon w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-            <h1 class="section-tag italic hidden lg:block">CLOUD & ORCHESTRATION HUB</h1>
+            <div class="flex items-center gap-4">
+                <select id="lang-picker" class="bg-dark-900 text-[10px] font-bold uppercase tracking-widest text-slate-400 border border-white/10 rounded px-2 py-1 outline-none hover:border-dev transition-all appearance-none cursor-pointer">
+                    <option value="en">EN</option>
+                    <option value="id">ID</option>
+                    <option value="jp">JP</option>
+                    <option value="cn">CN</option>
+                </select>
+                <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-400 hover:text-white transition-colors">
+                    <svg class="menu-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    <svg class="close-icon w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <h1 class="section-tag italic hidden lg:block" data-i18n="operational_level_core">CLOUD & ORCHESTRATION HUB</h1>
         </div>
     </nav>
 
@@ -63,9 +74,9 @@
 
     <main class="max-w-7xl mx-auto py-48 px-6">
         <header class="mb-32 text-right">
-            <span class="inline-block px-4 py-2 rounded-full bg-green-900/20 border border-green-500/20 text-dev-light text-[10px] font-black mb-8 uppercase tracking-[0.2em]">Operational Level: Orchestration & Core</span>
-            <h2 class="text-7xl md:text-9xl font-black italic tracking-tighter mb-10 leading-[0.85] uppercase">Scalable <br><span class="text-dev-light">Systems.</span></h2>
-            <p class="text-xl text-slate-400 max-w-2xl leading-relaxed border-r-4 border-dev pr-6 ml-auto italic">
+            <span class="inline-block px-4 py-2 rounded-full bg-green-900/20 border border-green-500/20 text-dev-light text-[10px] font-black mb-8 uppercase tracking-[0.2em]" data-i18n="operational_level_core">Operational Level: Orchestration & Core</span>
+            <h2 class="text-7xl md:text-9xl font-black italic tracking-tighter mb-10 leading-[0.85] uppercase" data-i18n="dev_header">Scalable <br><span class="text-dev-light">Systems.</span></h2>
+            <p class="text-xl text-slate-400 max-w-2xl leading-relaxed border-r-4 border-dev pr-6 ml-auto italic" data-i18n="dev_desc">
                 Membangun tulang punggung digital untuk data industri masif. Fokus pada high-concurrency, sub-millisecond latency, dan ketahanan klaster kritis.
             </p>
         </header>
@@ -73,17 +84,17 @@
         <div class="grid lg:grid-cols-3 gap-12 mb-32">
             <div class="lg:col-span-2 space-y-12 order-2 lg:order-1">
                 <section class="p-12 glass-card rounded-[2.5rem] border-l-4 border-dev hover:bg-dev/[0.02] transition-all">
-                    <h3 class="text-3xl font-black mb-8 uppercase tracking-tight italic">Backend Matrix</h3>
+                    <h3 class="text-3xl font-black mb-8 uppercase tracking-tight italic" data-i18n="dev_matrix_title">Backend Matrix</h3>
                     <div class="grid md:grid-cols-2 gap-12">
                         <div class="space-y-6">
-                            <h4 class="text-[10px] font-bold text-slate-500 uppercase tracking-widest border-b border-white/5 pb-2">Primary Languages</h4>
+                            <h4 class="text-[10px] font-bold text-slate-500 uppercase tracking-widest border-b border-white/5 pb-2" data-i18n="dev_matrix_langs">Primary Languages</h4>
                             <div class="flex flex-wrap gap-2">
                                 <span class="dev-tag">Go (Expert)</span> <span class="dev-tag">Python (Deep)</span> 
                                 <span class="dev-tag">Rust (Learning/Safe)</span> <span class="dev-tag">SQL / NoSQL</span>
                             </div>
                         </div>
                         <div class="space-y-6">
-                            <h4 class="text-[10px] font-bold text-slate-500 uppercase tracking-widest border-b border-white/5 pb-2">Infrastructure</h4>
+                            <h4 class="text-[10px] font-bold text-slate-500 uppercase tracking-widest border-b border-white/5 pb-2" data-i18n="dev_matrix_infra">Infrastructure</h4>
                             <div class="flex flex-wrap gap-2">
                                 <span class="dev-tag">Kubernetes (K8s)</span> <span class="dev-tag">Docker Swarm</span> 
                                 <span class="dev-tag">CI/CD Pipeline</span> <span class="dev-tag">Prometheus / Grafana</span>
@@ -93,16 +104,16 @@
                 </section>
 
                 <div class="space-y-8">
-                    <h3 class="section-tag italic">/ INFRASTRUCTURE REPOSITORY</h3>
+                    <h3 class="section-tag italic" data-i18n="dev_archive_title">/ INFRASTRUCTURE REPOSITORY</h3>
                     
                     <div class="project-card glass-card p-12 rounded-[3.5rem] group cursor-pointer hover:border-dev/30 transition-all" data-img="../static/img/wms-preview.jpg" data-tech-desc="Microservices architecture for real-time factory WMS. Handles 10k+ telemetry points per second via gRPC.">
                         <div class="flex justify-between items-start mb-6">
-                            <h4 class="text-4xl font-black italic uppercase tracking-tighter group-hover:text-dev-light transition-colors">Factory WMS Core</h4>
+                            <h4 class="text-4xl font-black italic uppercase tracking-tighter group-hover:text-dev-light transition-colors" data-i18n="project_wms_title">Factory WMS Core</h4>
                             <div class="p-3 bg-dev/10 rounded-xl protocol-glow">
                                 <svg class="w-6 h-6 text-dev-light" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
                             </div>
                         </div>
-                        <p class="text-slate-400 text-lg leading-relaxed mb-8">
+                        <p class="text-slate-400 text-lg leading-relaxed mb-8" data-i18n="dev_project_wms_desc">
                             Orkestrasi sistem logistik pintar dengan desain microservices. Mengintegrasikan telemetry gateway dengan database terdistribusi untuk monitoring inventory presisi tinggi.
                         </p>
                     </div>
@@ -111,7 +122,7 @@
 
             <div class="lg:col-span-1 space-y-8 order-1 lg:order-2">
                 <div class="glass-card p-10 rounded-3xl border-t-4 border-dev">
-                    <h5 class="text-[10px] font-black text-slate-500 uppercase tracking-[0.3em] mb-6">Operational Uptime</h5>
+                    <h5 class="text-[10px] font-black text-slate-500 uppercase tracking-[0.3em] mb-6" data-i18n="dev_uptime_title">Operational Uptime</h5>
                     <div class="space-y-6">
                         <div class="bg-white/5 p-4 rounded-xl border border-white/5">
                             <p class="text-[10px] text-slate-500 uppercase mb-2">Service Availability</p>
@@ -148,7 +159,7 @@
     </div>
 
     <footer class="py-20 border-t border-white/5 text-center grid-blueprint">
-        <p class="text-[10px] text-slate-800 font-mono italic font-bold tracking-[0.5em]">SYSTEM STABLE • CORE ACTIVE • 2026</p>
+        <p class="text-[10px] text-slate-800 font-mono italic font-bold tracking-[0.5em]" data-i18n="dev_footer">SYSTEM STABLE • CORE ACTIVE • 2026</p>
     </footer>
 
     <script src="../static/js/main.js"></script>
