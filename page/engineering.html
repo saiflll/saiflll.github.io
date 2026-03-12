@@ -1,0 +1,177 @@
+    <title>Engineering Lab | Muhammad Saifulloh</title>
+    
+    <!-- Icons & Assets -->
+    <link rel="stylesheet" href="../static/css/style.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (via CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        eng: { DEFAULT: '#00458b', light: '#3b82f6', dark: '#002a54' },
+                        dark: { 950: '#020617', 900: '#0a0f1e', 800: '#1e293b' }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark-950 text-slate-100 font-sans grid-blueprint selection:bg-eng">
+    <nav class="fixed top-0 w-full z-50 glass-card border-b border-white/5 py-4">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-eng rounded-lg flex items-center justify-center font-black text-white group-hover:protocol-glow transition-all">←</div>
+                <div class="flex flex-col">
+                    <span class="font-black tracking-tighter leading-none text-lg">BACK TO HUB</span>
+                    <span class="text-[9px] text-slate-500 font-mono tracking-[0.2em] uppercase">National Infrastructure Lab</span>
+                </div>
+            </a>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-400 hover:text-white transition-colors">
+                <svg class="menu-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                <svg class="close-icon w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h1 class="section-tag italic hidden lg:block">HARDWARE & INTEGRATION DEEP-DIVE</h1>
+        </div>
+    </nav>
+
+    <!-- Mobile Overlay Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 lg:hidden bg-dark-950/95 backdrop-blur-xl pt-24 px-6">
+        <div class="flex flex-col gap-6 text-2xl font-black italic uppercase tracking-tighter">
+            <a href="../index.html" class="hover:text-eng transition-colors">← Dashboard</a>
+            <a href="profile.html" class="hover:text-eng transition-colors">Profile</a>
+            <a href="development.html" class="hover:text-dev-light transition-colors text-dev-light">Development Hub</a>
+            
+            <div class="pt-10 mt-10 border-t border-white/5 flex gap-6">
+                 <a href="https://www.linkedin.com/in/muhammad-saifulloh-b37137209/" target="_blank" class="p-4 bg-slate-900 rounded-xl text-eng"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+            </div>
+        </div>
+    </div>
+
+    <main class="max-w-7xl mx-auto py-48 px-6">
+        <header class="mb-32">
+            <span class="inline-block px-4 py-2 rounded-full bg-blue-900/20 border border-blue-500/20 text-eng text-[10px] font-black mb-8 uppercase tracking-[0.2em]">Operational Level: Field & Edge</span>
+            <h2 class="text-7xl md:text-9xl font-black italic tracking-tighter mb-10 leading-[0.85] uppercase">Integrated <br><span class="text-eng">Systems.</span></h2>
+            <p class="text-xl text-slate-400 max-w-2xl leading-relaxed industrial-border">
+                Desain arsitektur hardware yang tangguh untuk lingkungan industri berat. Mengamankan alur data dari sensor mentah hingga enkripsi level gateway.
+            </p>
+        </header>
+
+        <!-- Technical Matrix -->
+        <div class="grid lg:grid-cols-3 gap-12 mb-32">
+            <div class="lg:col-span-2 space-y-12">
+                <section class="p-12 glass-card rounded-[2.5rem] border-l-4 border-eng hover:bg-eng/[0.02] transition-all">
+                    <h3 class="text-3xl font-black mb-8 uppercase tracking-tight italic">Low-Level Runtime</h3>
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <div class="space-y-6">
+                            <h4 class="text-[10px] font-bold text-slate-500 uppercase tracking-widest border-b border-white/5 pb-2">Microarchitectures</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="tech-tag">STM32 (Cortex-M)</span> <span class="tech-tag">nRF52840 (BLE)</span> 
+                                <span class="tech-tag">ESP32-S3 (Dual Core)</span> <span class="tech-tag">AVR/ATtiny</span>
+                                <span class="tech-tag">FreeRTOS</span> <span class="tech-tag">Bare Metal</span>
+                            </div>
+                        </div>
+                        <div class="space-y-6">
+                            <h4 class="text-[10px] font-bold text-slate-500 uppercase tracking-widest border-b border-white/5 pb-2">Industrial Bus</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="tech-tag">Modbus RTU/TCP</span> <span class="tech-tag">CAN Bus 2.0B</span> 
+                                <span class="tech-tag">RS485/Differential</span> <span class="tech-tag">SPI / I2C / I2S</span>
+                                <span class="tech-tag">EtherCAT Ready</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Detailed Project Cards -->
+                <div class="space-y-8">
+                    <h3 class="section-tag italic">/ DETAILED MISSION ARCHIVE</h3>
+                    
+                    <div class="project-card glass-card p-12 rounded-[3.5rem] group cursor-pointer hover:border-eng/30 transition-all" data-img="../static/img/plc-preview.jpg" data-tech-desc="Passive Sniffing Implementation for Industrial Gateways. Zero-interruption bus monitoring for legacy systems.">
+                        <div class="flex justify-between items-start mb-6">
+                            <h4 class="text-4xl font-black italic uppercase tracking-tighter group-hover:text-eng transition-colors">PLC Protocol Bridge</h4>
+                            <div class="p-3 bg-eng/10 rounded-xl protocol-glow">
+                                <svg class="w-6 h-6 text-eng" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-lg leading-relaxed mb-8">
+                            Reverse engineering sistem komunikasi Siemens S7 dan Hyundai PLC menggunakan teknik bus-sniffing. Mengekstrak data operasional kritis secara real-time tanpa mengubah struktur safety-logic existing.
+                        </p>
+                        <div class="flex items-center gap-6 text-[10px] font-mono font-bold text-slate-500 uppercase tracking-widest">
+                            <span class="flex items-center gap-2"><span class="w-2 h-2 bg-eng rounded-full"></span> RS485 Sniffing</span>
+                            <span class="flex items-center gap-2"><span class="w-2 h-2 bg-eng rounded-full"></span> Data Extraction</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card glass-card p-12 rounded-[3.5rem] group cursor-pointer hover:border-eng/30 transition-all" data-img="../static/img/wsn-preview.jpg" data-tech-desc="LoRaWAN Network Optimization for Terrain-Challenged Areas. Power management at nano-ampere levels.">
+                        <div class="flex justify-between items-start mb-6">
+                            <h4 class="text-4xl font-black italic uppercase tracking-tighter group-hover:text-eng transition-colors">WSN Journal Research</h4>
+                            <div class="p-3 bg-eng/10 rounded-xl protocol-glow">
+                                <svg class="w-6 h-6 text-eng" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10l4 4v10a2 2 0 01-2 2z"></path></svg>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-lg leading-relaxed mb-8">
+                            Optimasi transmisi Wireless Sensor Network pada area topografi sulit. Fokus pada manajemen energi node agar bertahan bertahun-tahun dengan sumber daya terbatas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats & Sidebar -->
+            <div class="lg:col-span-1 space-y-8">
+                <div class="glass-card p-10 rounded-3xl border-t-4 border-eng">
+                    <h5 class="text-[10px] font-black text-slate-500 uppercase tracking-[0.3em] mb-6">System Integrity</h5>
+                    <div class="space-y-6">
+                        <div class="bg-white/5 p-4 rounded-xl border border-white/5">
+                            <p class="text-[10px] text-slate-500 uppercase mb-2">TKDN Compliance</p>
+                            <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-eng w-[85%]"></div>
+                            </div>
+                        </div>
+                        <div class="bg-white/5 p-4 rounded-xl border border-white/5">
+                            <p class="text-[10px] text-slate-500 uppercase mb-2">Firmware Hardening</p>
+                            <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-eng w-[95%]"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Mechanical-Humanist Modal -->
+    <div id="image-modal">
+        <div class="modal-content glass-card p-1">
+            <div class="bg-dark-900 rounded-[20px] p-10 relative">
+                <button id="modal-close" class="absolute top-6 right-6 text-white font-black text-2xl hover:text-eng transition-colors">&times;</button>
+                <div class="flex flex-col gap-8">
+                    <img id="modal-img" src="" alt="Project Preview" class="w-full rounded-xl border border-white/5 shadow-2xl">
+                    <div class="modal-info text-left">
+                        <h4 id="modal-title" class="text-3xl font-black italic uppercase mb-2">Project Title</h4>
+                        <p id="modal-desc" class="text-slate-400 text-sm leading-relaxed max-w-2xl"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-20 border-t border-white/5 text-center grid-blueprint">
+        <p class="text-[10px] text-slate-800 font-mono italic font-bold tracking-[0.5em]">SYSTEM STABLE • FIELD READY • 2026</p>
+    </footer>
+
+    <script src="../static/js/main.js"></script>
+</body>
+</html>

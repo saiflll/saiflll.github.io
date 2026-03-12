@@ -1,0 +1,337 @@
+/* Main Design Tokens */
+:root {
+    --eng-blue: #00458b;
+    /* BUMN/LEN Strategic Blue */
+    --dev-green: #064e3b;
+    --safety-orange: #d97706;
+    --dark-950: #020617;
+    --dark-900: #0a0f1e;
+    --accent-blue: #3b82f6;
+}
+
+body {
+    background-color: var(--dark-950);
+    color: #f1f5f9;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+/* Blueprint Grid Background */
+.grid-blueprint {
+    background-image: radial-gradient(rgba(37, 99, 235, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+/* Glassmorphism Cards with Transparent Edges */
+.glass-card {
+    background: rgba(10, 15, 30, 0.6);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, transparent 40%, rgba(37, 99, 235, 0.1), transparent 60%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Translucent Glowing Edges */
+.project-card {
+    border: 1px solid rgba(37, 99, 235, 0.15);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: pointer;
+}
+
+.project-card:hover {
+    border-color: rgba(37, 99, 235, 0.5);
+    background: rgba(10, 15, 30, 0.8);
+    box-shadow: 0 0 30px -5px rgba(37, 99, 235, 0.2);
+}
+
+.project-card:active {
+    transform: scale(0.97);
+    border-color: var(--eng-blue);
+    background: rgba(0, 69, 139, 0.2);
+}
+
+/* Section Tags */
+.section-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: #64748b;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Timeline */
+.timeline-line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--eng-blue), transparent);
+}
+
+/* Tech Tags */
+.tech-tag {
+    background: rgba(37, 99, 235, 0.1);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    color: #93c5fd;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.65rem;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.dev-tag {
+    background: rgba(5, 150, 105, 0.1);
+    border: 1px solid rgba(5, 150, 105, 0.2);
+    color: #6ee7b7;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.65rem;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Utilities */
+.horizontal-scroll {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.hero {
+    object-position: center 20%;
+}
+
+.project-card {
+    min-width: 320px;
+    scroll-snap-align: start;
+}
+
+.about {
+    width: 100%;
+    height: 33vh;
+    object-fit: cover;
+    /* User can adjust this value to crop: [center, top, bottom, X% Y%] */
+    object-position: center 20%;
+    transition: transform 0.5s ease;
+}
+
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px -10px rgba(37, 99, 235, 0.3);
+}
+
+.industrial-border {
+    border-left: 4px solid var(--eng-blue);
+    padding-left: 1.5rem;
+}
+
+.gradient-text-blue {
+    background: linear-gradient(to right, #60a5fa, var(--eng-blue));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Performance Optimized Animations */
+@keyframes glow-pulse {
+
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+}
+
+.protocol-glow {
+    transition: filter 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+    will-change: transform, opacity;
+}
+
+.project-card:hover .protocol-glow {
+    filter: drop-shadow(0 0 8px var(--eng-blue));
+    color: var(--eng-blue);
+    /* Ensure icon glows too */
+    transform: scale(1.3);
+    opacity: 1;
+}
+
+/* System Architecture Diagram */
+.arch-node {
+    position: relative;
+    padding: 1.5rem;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+    will-change: transform;
+}
+
+.arch-node:hover {
+    transform: scale(1.02);
+    border-color: var(--eng-blue);
+}
+
+.arch-arrow {
+    height: 2px;
+    background: linear-gradient(90deg, var(--eng-blue), transparent);
+    flex-grow: 1;
+    position: relative;
+    min-width: 40px;
+}
+
+.arch-arrow::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -4px;
+    border-left: 6px solid var(--eng-blue);
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+}
+
+/* GitHub Repository Card */
+.repo-card {
+    background: rgba(30, 41, 59, 0.4);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.repo-card:hover {
+    background: rgba(30, 41, 59, 0.6);
+    border-color: var(--eng-blue);
+    transform: translateX(5px);
+}
+
+/* Mechanical-Humanist Modal */
+#image-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    background: rgba(2, 6, 23, 0.95);
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(12px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#image-modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    max-width: 1000px;
+    width: 90%;
+    transform: translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#image-modal.active .modal-content {
+    transform: translateY(0);
+}
+
+/* Mobile Navigation & Layout Utility */
+@media (max-width: 768px) {
+    .grid-blueprint {
+        background-size: 30px 30px;
+    }
+
+    .project-card {
+        min-width: 280px;
+    }
+
+    h1 {
+        font-size: 3.5rem !important;
+    }
+
+    h2 {
+        font-size: 2.5rem !important;
+    }
+
+    .arch-arrow {
+        display: none;
+    }
+
+    .modal-content {
+        width: 95%;
+        height: 90%;
+        overflow-y: auto;
+    }
+}
+
+/* Responsive Hidden Utility */
+.mobile-nav-active body {
+    overflow: hidden;
+}
+
+#mobile-menu {
+    transform: translateY(-100%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#mobile-menu.active {
+    transform: translateY(0);
+}
+
+/* Profile Image Framework */
+.profile-frame {
+    position: relative;
+    mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
+    -webkit-mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.profile-frame:hover {
+    transform: scale(1.03);
+    -webkit-mask-image: radial-gradient(circle at center, black 80%, transparent 100%);
+}
+
+.profile-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* User can adjust this value to crop: [center, top, bottom, X% Y%] */
+    object-position: center 20%;
+    transition: transform 0.5s ease;
+}
+
+.profile-frame:hover img {
+    transform: scale(1.1);
+}
+
+/* Blur Vignette Overlay */
+.profile-vignette {
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 40px 10px rgba(2, 6, 23, 0.8);
+    pointer-events: none;
+}
