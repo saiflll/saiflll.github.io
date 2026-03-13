@@ -1,1 +1,121 @@
-[]
+[
+    {
+        "name": "Basic-ota-code-for-esp32",
+        "is_private": false,
+        "description": "Active Engineering Project",
+        "tech_stack": "C++",
+        "last_update": "2026-03-12"
+    },
+    {
+        "name": "ESP07s-TallyLight",
+        "is_private": false,
+        "description": "Active Engineering Project",
+        "tech_stack": "C++",
+        "last_update": "2026-03-12"
+    },
+    {
+        "name": "Interactive-exhaust-system",
+        "is_private": false,
+        "description": "Active Engineering Project",
+        "tech_stack": "C++",
+        "last_update": "2025-04-15"
+    },
+    {
+        "name": "IoT-Mon-Pump",
+        "is_private": false,
+        "description": "Monitoring water pump using ESP32 + Flask",
+        "tech_stack": "HTML",
+        "last_update": "2025-04-15"
+    },
+    {
+        "name": "IoT-Project-abonden",
+        "is_private": false,
+        "description": "Active Engineering Project",
+        "tech_stack": "PHP",
+        "last_update": "2025-04-15"
+    },
+    {
+        "name": "Keyyles-nrf",
+        "is_private": false,
+        "description": "Active Engineering Project",
+        "tech_stack": "C++",
+        "last_update": "2026-02-25"
+    },
+    {
+        "name": "Mach_Liver1",
+        "is_private": false,
+        "description": "klasifikasi liver",
+        "tech_stack": "Mixed Tech",
+        "last_update": "2025-07-24"
+    },
+    {
+        "name": "Metal-Detection-Wighting-Dashboard-Monitor",
+        "is_private": false,
+        "description": "Active Engineering Project",
+        "tech_stack": "HTML",
+        "last_update": "2026-03-12"
+    },
+    {
+        "name": "Multiple-C-Code-With-Standaritation",
+        "is_private": false,
+        "description": "setup mqtt,wifi,pin useful, and treshold via web ap",
+        "tech_stack": "C++",
+        "last_update": "2026-03-12"
+    },
+    {
+        "name": "Notifier-based-espnow",
+        "is_private": false,
+        "description": "The system aims to provide ping notifications to nodes (clients) with the system mesh with painless ",
+        "tech_stack": "C++",
+        "last_update": "2026-02-25"
+    },
+    {
+        "name": "ota-system-dashboard",
+        "is_private": false,
+        "description": "Active Engineering Project",
+        "tech_stack": "JavaScript",
+        "last_update": "2026-03-12"
+    },
+    {
+        "name": "Random-select-number",
+        "is_private": false,
+        "description": "Anyone, you can select be a number to correct the random  number, it\"s game :v",
+        "tech_stack": "HTML",
+        "last_update": "2025-04-15"
+    },
+    {
+        "name": "Robotic-Rent-Management-Monitoring",
+        "is_private": false,
+        "description": "Active Engineering Project",
+        "tech_stack": "PHP",
+        "last_update": "2026-03-12"
+    },
+    {
+        "name": "saiflll",
+        "is_private": false,
+        "description": "Active Engineering Project",
+        "tech_stack": "Mixed Tech",
+        "last_update": "2026-03-11"
+    },
+    {
+        "name": "Serial-website",
+        "is_private": false,
+        "description": "Active Engineering Project",
+        "tech_stack": "Python",
+        "last_update": "2026-02-25"
+    },
+    {
+        "name": "STM8s-with-Combination-RF",
+        "is_private": false,
+        "description": "Active Engineering Project",
+        "tech_stack": "C",
+        "last_update": "2026-03-12"
+    },
+    {
+        "name": "t12-solder-station",
+        "is_private": false,
+        "description": "Active Engineering Project",
+        "tech_stack": "C++",
+        "last_update": "2026-02-25"
+    }
+]
