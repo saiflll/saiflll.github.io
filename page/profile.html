@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -38,7 +38,7 @@
     </script>
     <!-- Foot Scripts -->
     <script src="../static/js/translations.js"></script>
-    <script src="../static/js/main.js"></script>
+
 </head>
 
 <body class="bg-dark-950 text-slate-100 font-sans grid-blueprint selection:bg-eng">
@@ -51,20 +51,13 @@
                     <img src="../static/img/hero.jpeg" alt="MS" class="w-full h-full object-cover hero">
                 </div>
                 <div class="flex flex-col">
-                    <span class="font-black tracking-tighter leading-none text-lg" data-i18n="back_to_hub">BACK TO HUB</span>
-                    <span class="text-[9px] text-slate-500 font-mono tracking-[0.2em] uppercase" data-i18n="profile_archive_label">Human intelligence
-                        Archive</span>
+                    <span class="font-black tracking-tighter leading-none text-lg">MUHAMMAD SAIFULLOH</span>
+                    <span class="text-[9px] text-slate-500 font-mono tracking-[0.2em] uppercase" data-i18n="profile_archive_label">IoT Architect | Full-Stack Dev | Embedded Systems Engineer</span>
                 </div>
             </a>
 
             <!-- Mobile Menu Button -->
             <div class="flex items-center gap-4">
-                <select id="lang-picker" class="bg-dark-900 text-[10px] font-bold uppercase tracking-widest text-slate-400 border border-white/10 rounded px-2 py-1 outline-none hover:border-eng transition-all appearance-none cursor-pointer">
-                    <option value="en">EN</option>
-                    <option value="id">ID</option>
-                    <option value="jp">JP</option>
-                    <option value="cn">CN</option>
-                </select>
                 <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-400 hover:text-white transition-colors">
                     <svg class="menu-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
@@ -119,8 +112,7 @@
                 </div>
             </div>
             <p class="text-xl text-slate-400 max-w-3xl leading-relaxed industrial-border" data-i18n="profile_bio">
-                High-performing systems engineer yang mensintesis pemahaman hardware mendalam dengan arsitektur software
-                modern. Berfokus pada kedaulatan teknologi nasional melalui integrasi sistem yang tangguh.
+                Synergizing physical hardware expertise with modern distributed logic. Focused on architecting high-reliability systems and driving technical innovation through strategic synergy.
             </p>
         </header>
 
@@ -133,16 +125,10 @@
                     <h3 class="section-tag mb-8" data-i18n="philosophy_title">/ PHILOSOPHY & OBJECTIVE</h3>
                     <div class="text-slate-400 leading-relaxed text-lg space-y-6">
                         <p data-i18n="philosophy_p1">
-                            Saya percaya bahwa masa depan infrastruktur industri terletak pada kemampuan kita untuk
-                            menghubungkan <span class="text-white italic">legacy hardware</span> dengan <span
-                                class="text-white">cloud-orchestration</span> secara aman dan efisien. Dengan pengalaman
-                            lebih dari 5 tahun, saya telah membangun jembatan digital yang memungkinkan data mentah dari
-                            mesin pabrik berubah menjadi wawasan strategis di level manajemen.
+                            I operate on the principle that industrial infrastructure must seamlessly synchronize <span class="text-white italic">physical dynamics</span> with <span class="text-white">digital intelligence</span>.
                         </p>
                         <p data-i18n="philosophy_p2">
-                            Target saya saat ini adalah berkontribusi pada ekosistem **LEN Industri (Persero)**, membawa
-                            standar keandalan tinggi dan optimasi sistem yang saya asah melalui puluhan proyek IoT dan
-                            implementasi backend skala enterprise.
+                            Focused on the orchestration of complex industrial ecosystems. I transform technical challenges into robust, efficient, and future-proof systems through deep collaborative engineering.
                         </p>
                     </div>
                 </section>
@@ -167,16 +153,20 @@
                         </div>
                     </div>
                     <div>
-                        <h3 class="section-tag mb-8" data-i18n="leadership_title">/ LEADERSHIP & ORGANIZATION</h3>
+                        <h3 class="section-tag mb-8" data-i18n="leadership_title">/ LEADERSHIP &amp; ORGANIZATION</h3>
                         <div
-                            class="glass-card p-10 rounded-3xl border-t-2 border-slate-700 transition-all hover:bg-white/5">
-                            <h4 class="text-2xl font-black uppercase mb-2">ASSISTANT FORUM</h4>
+                            class="glass-card p-10 rounded-3xl border-t-2 border-slate-700 transition-all hover:bg-white/5 hover:border-eng/30 cursor-pointer group"
+                            data-img="../static/img/assistant-forum.jpg"
+                            data-title="Assistant Forum — AMIKOM 2022–2023"
+                            data-tech-desc="Laboratory Assistant Forum, AMIKOM Yogyakarta (2022–2023). Mentoring undergraduate students in Computer Networks, Web Systems, and OS Architecture. Responsible for translating complex technical concepts into structured, accessible lab modules. Active as module author and practical exam assessor for 3 semesters."
+                            onclick="if(window.openProjectModal) openProjectModal(this.getAttribute('data-title'), this.getAttribute('data-tech-desc'), this.getAttribute('data-img'), false)">
+                            <h4 class="text-2xl font-black uppercase mb-2 group-hover:text-eng transition-colors">ASSISTANT FORUM</h4>
                             <p class="text-slate-500 text-[10px] mb-6 font-mono font-bold uppercase tracking-widest" data-i18n="leadership_role">
                                 AMIKOM • 2022 - 2023</p>
                             <p class="text-xs text-slate-400 leading-relaxed" data-i18n="leadership_desc">
-                                Membimbing mahasiswa dalam praktikum Jaringan Komputer, Pengembangan Web, dan Sistem
-                                Operasi. Bertanggung jawab atas transfer materi teknis ke bahasa yang mudah dipahami.
+                                Mentoring future engineers in Computer Networks, Web Systems, and OS Architecture. Responsible for translating complex technical concepts into accessible modules.
                             </p>
+                            <span class="block mt-4 text-[9px] font-black text-slate-600 group-hover:text-eng/60 uppercase tracking-widest transition-colors">CLICK FOR DETAILS →</span>
                         </div>
                     </div>
                 </section>
@@ -234,27 +224,8 @@
 
                 <div class="glass-card p-10 rounded-[2.5rem] border-l-4 border-slate-700">
                     <h3 class="section-tag mb-8 uppercase italic" data-i18n="certifications">Certifications</h3>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div
-                            class="p-4 bg-white/5 rounded-xl border border-white/5 text-center transition-all hover:bg-eng/10">
-                            <span class="text-xs font-black text-white">CKA</span>
-                            <p class="text-[8px] text-slate-500" data-i18n="cert_cka_desc">K8s Admin</p>
-                        </div>
-                        <div
-                            class="p-4 bg-white/5 rounded-xl border border-white/5 text-center transition-all hover:bg-eng/10">
-                            <span class="text-xs font-black text-white">AWS SAA</span>
-                            <p class="text-[8px] text-slate-500" data-i18n="cert_aws_desc">Cloud Arch</p>
-                        </div>
-                        <div
-                            class="p-4 bg-white/5 rounded-xl border border-white/5 text-center transition-all hover:bg-eng/10">
-                            <span class="text-xs font-black text-white">RTOS</span>
-                            <p class="text-[8px] text-slate-500" data-i18n="cert_rtos_desc">Embedded</p>
-                        </div>
-                        <div
-                            class="p-4 bg-white/5 rounded-xl border border-white/5 text-center transition-all hover:bg-eng/10">
-                            <span class="text-xs font-black text-white">CISCO</span>
-                            <p class="text-[8px] text-slate-500" data-i18n="cert_cisco_desc">Networking</p>
-                        </div>
+                    <div id="cert-container" class="grid grid-cols-2 gap-4">
+                        <!-- Certifications injected via certifications.js -->
                     </div>
                 </div>
 
@@ -262,12 +233,29 @@
         </div>
     </main>
 
+    <!-- Mechanical-Humanist Modal -->
+    <div id="image-modal">
+        <div class="modal-content glass-card p-1">
+            <div class="bg-dark-900 rounded-[20px] p-10 relative">
+                <button id="modal-close" class="absolute top-6 right-6 text-white font-black text-2xl hover:text-eng transition-colors">&times;</button>
+                <div class="flex flex-col gap-8">
+                    <img id="modal-img" src="" alt="Credential Preview" class="w-full rounded-xl border border-white/5 shadow-2xl">
+                    <div class="modal-info text-left">
+                        <h4 id="modal-title" class="text-3xl font-black italic uppercase mb-2">Credential Title</h4>
+                        <div id="modal-desc" class="text-slate-400 text-sm leading-relaxed max-w-2xl"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer class="py-20 border-t border-white/5 text-center grid-blueprint">
         <p class="text-[10px] text-slate-800 font-mono italic font-bold tracking-[0.5em]" data-i18n="profile_footer">SYSTEM STABLE • IDENTITY
             VERIFIED • 2026</p>
     </footer>
 
-    <script src="../static/js/main.js"></script>
+    <script src="../static/js/certifications.js"></script>
+    <script src="../static/js/core.js"></script>
 </body>
 
 </html>

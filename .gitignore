@@ -1,0 +1,18 @@
+# Environment & secrets — NEVER push these
+.env
+*.env
+.env.*
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temp/debug scripts
+_check.py
+_debug*.py
+_debug*.txt
