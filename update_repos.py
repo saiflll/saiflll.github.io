@@ -244,10 +244,24 @@ def main():
 
     for repo in repos:
         name = repo['name']
-
+        
+        # ── FILTERING LOGIC ──────────────────────────────────────────────
+        # "yang active tidak usah ditampilkan" — usually hide archived and forks
+        # If you literally want to hide non-archived ones, change condition below.
+        is_archived = repo.get('archived', False)
+        is_fork     = repo.get('fork', False)
+        
         if name.lower() in {r.lower() for r in SKIP_REPOS}:
             continue
-
+            
+        # "yang archive tidak usah ditampilkan"
+        if is_archived:
+            continue
+            
+        # Optional: skip forks (usually preferred for primary portfolio)
+        if is_fork:
+            continue
+            
         prev = existing.get(name, {})
 
         # ── Auto-detected values ──────────────────────────────────────────
