@@ -88,7 +88,7 @@ async function renderDevProjects() {
                     </svg>
                 </div>
             </div>
-            <p class="text-slate-400 text-sm leading-relaxed mb-6 line-clamp-3">${p.desc}</p>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6 line-clamp-3">${(p.desc || '').replace(/<\/?[^>]+(>|$)/g, "")}</p>
             <div class="flex flex-wrap items-center gap-2">
                 ${p.tags.map(t => `<span class="dev-tag">${t}</span>`).join('')}
                 <span class="ml-auto text-[9px] font-black text-dev-light/40 group-hover:text-dev-light/80 uppercase tracking-widest transition-colors">DETAILS →</span>

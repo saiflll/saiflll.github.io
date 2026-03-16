@@ -187,6 +187,11 @@ def fetch_readme_body(repo: str) -> str:
             
             if paragraphs:
                 blurb = " ".join(paragraphs)
+                
+                # NEW: Strip HTML tags to prevent layout breakage
+                import re
+                blurb = re.sub(r'<[^>]+>', '', blurb)
+                
                 # Trim to a reasonable length
                 if len(blurb) > 160:
                     blurb = blurb[:157] + "..."
@@ -222,9 +227,7 @@ def fetch_all_repos() -> list:
     Try authenticated /user/repos first (includes private repos).
     If token is missing or invalid, fall back to public-only endpoint.
     """
-    # Authenticated: returns ALL repos including private
     auth_url    = 'https://api.github.com/user/repos?per_page=100&type=all&sort=updated'
-    # Public-only fallback
     public_url  = f'https://api.github.com/users/{USERNAME}/repos?per_page=100&sort=updated'
 
     for label, url in [('authenticated (all repos)', auth_url), ('public fallback', public_url)]:
@@ -261,11 +264,8 @@ def fetch_all_repos() -> list:
 
 # ── MAIN ──────────────────────────────────────────────────────────────────────
 def main():
-    # 1. Load existing JSON to detect manual edits
     existing = load_existing()
     print(f"[ENGINE] Loaded {len(existing)} existing entries from {OUTPUT}.")
-
-    # 2. Fetch repos (private + public via token, fallback to public-only)
     repos = fetch_all_repos()
     if not repos:
         print("[ERROR] No repos fetched. Aborting.")
@@ -275,32 +275,17 @@ def main():
 
     for repo in repos:
         name = repo['name']
-        
-        # ── FILTERING LOGIC ──────────────────────────────────────────────
-        # "yang active tidak usah ditampilkan" — usually hide archived and forks
-        # If you literally want to hide non-archived ones, change condition below.
         is_archived = repo.get('archived', False)
         is_fork     = repo.get('fork', False)
         
         if name.lower() in {r.lower() for r in SKIP_REPOS}:
             continue
-            
-        # "yang archive tidak usah ditampilkan"
         if is_archived:
             continue
-            
-        # Optional: skip forks (usually preferred for primary portfolio)
         if is_fork:
             continue
             
         prev = existing.get(name, {})
-
-        # ── Auto-detected values ──────────────────────────────────────────
-        # Priority for Description:
-        # 1. Manual edit in JSON (preserved by resolve function later)
-        # 2. GitHub "About" description (if not default/empty)
-        # 3. First paragraph of README (if About is empty)
-        # 4. Fallback "Development Project and Hobbies"
         
         gh_desc = repo.get('description')
         auto_desc = gh_desc

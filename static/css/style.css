@@ -351,8 +351,13 @@ body {
 }
 
 @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 .repo-marquee-item {
@@ -363,7 +368,8 @@ body {
     border-radius: 1rem;
     display: inline-flex;
     flex-direction: column;
-    pointer-events: none; /* User requested: not clickable */
+    pointer-events: none;
+    /* User requested: not clickable */
 }
 
 .repo-marquee-item .repo-status {
@@ -375,8 +381,13 @@ body {
     margin-bottom: 0.5rem;
 }
 
-.repo-marquee-item .status-private { color: #f59e0b; }
-.repo-marquee-item .status-public { color: #2563eb; }
+.repo-marquee-item .status-private {
+    color: #f59e0b;
+}
+
+.repo-marquee-item .status-public {
+    color: #2563eb;
+}
 
 /* Line Clamp for project description overflow */
 .line-clamp-3 {
@@ -388,7 +399,10 @@ body {
 }
 
 /* Ensure buttons & interactive elements have min touch target */
-button, .filter-btn, .cert-card, .project-card {
+button,
+.filter-btn,
+.cert-card,
+.project-card {
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -399,7 +413,7 @@ button, .filter-btn, .cert-card, .project-card {
 
 /* Modal image: contain on mobile so tall images don't overflow */
 #modal-img {
-    max-height: 40vh;
+    max-height: 100vh;
     object-fit: cover;
 }
 
@@ -413,68 +427,174 @@ select option {
 
 /* Gentle float — use on hero/section icons */
 @keyframes icon-float {
-    0%, 100% { transform: translateY(0px); }
-    50%       { transform: translateY(-4px); }
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
 }
-.icon-float { animation: icon-float 3.5s ease-in-out infinite; }
+
+.icon-float {
+    animation: icon-float 3.5s ease-in-out infinite;
+}
 
 /* Slow spin — use on gear/cycle icons */
 @keyframes icon-spin-slow {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
-.icon-spin { animation: icon-spin-slow 10s linear infinite; }
+
+.icon-spin {
+    animation: icon-spin-slow 10s linear infinite;
+}
 
 /* Engineering glow pulse — use on hardware icons */
 @keyframes glow-eng {
-    0%, 100% { filter: drop-shadow(0 0 2px rgba(59,130,246,0.4)); }
-    50%       { filter: drop-shadow(0 0 8px rgba(59,130,246,0.9)); }
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 2px rgba(59, 130, 246, 0.4));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.9));
+    }
 }
-.icon-glow-eng { animation: glow-eng 2.5s ease-in-out infinite; }
+
+.icon-glow-eng {
+    animation: glow-eng 2.5s ease-in-out infinite;
+}
 
 /* Development glow pulse — use on dev icons */
 @keyframes glow-dev {
-    0%, 100% { filter: drop-shadow(0 0 2px rgba(16,185,129,0.4)); }
-    50%       { filter: drop-shadow(0 0 8px rgba(16,185,129,0.9)); }
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 2px rgba(16, 185, 129, 0.4));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.9));
+    }
 }
-.icon-glow-dev { animation: glow-dev 2.5s ease-in-out infinite; }
+
+.icon-glow-dev {
+    animation: glow-dev 2.5s ease-in-out infinite;
+}
 
 /* Badge shimmer — use on cert/award icons */
 @keyframes shimmer {
-    0%   { opacity: 0.6; transform: scale(1); }
-    50%  { opacity: 1;   transform: scale(1.15); }
-    100% { opacity: 0.6; transform: scale(1); }
+    0% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+
+    100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
 }
-.icon-shimmer { animation: shimmer 2.8s ease-in-out infinite; }
+
+.icon-shimmer {
+    animation: shimmer 2.8s ease-in-out infinite;
+}
 
 /* Stagger fade-in for card lists */
 @keyframes fade-up {
-    from { opacity: 0; transform: translateY(14px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-.fade-up { animation: fade-up 0.45s cubic-bezier(0.22,1,0.36,1) both; }
-.fade-up-1 { animation-delay: 0.05s; }
-.fade-up-2 { animation-delay: 0.12s; }
-.fade-up-3 { animation-delay: 0.19s; }
-.fade-up-4 { animation-delay: 0.26s; }
-.fade-up-5 { animation-delay: 0.33s; }
+
+.fade-up {
+    animation: fade-up 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.fade-up-1 {
+    animation-delay: 0.05s;
+}
+
+.fade-up-2 {
+    animation-delay: 0.12s;
+}
+
+.fade-up-3 {
+    animation-delay: 0.19s;
+}
+
+.fade-up-4 {
+    animation-delay: 0.26s;
+}
+
+.fade-up-5 {
+    animation-delay: 0.33s;
+}
 
 /* Icon wrapper — for inline SVG in filter buttons / headers */
-.btn-icon { display: inline-flex; align-items: center; justify-content: center; }
-.btn-icon svg { width: 12px; height: 12px; stroke-width: 2.2; flex-shrink: 0; }
+.btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-icon svg {
+    width: 12px;
+    height: 12px;
+    stroke-width: 2.2;
+    flex-shrink: 0;
+}
 
 /* Stat icon */
-.stat-icon { display: inline-flex; opacity: 0.5; flex-shrink: 0; transition: opacity 0.3s; }
-.stat-bar-item:hover .stat-icon { opacity: 1; }
-.stat-icon svg { width: 11px; height: 11px; stroke-width: 2; }
+.stat-icon {
+    display: inline-flex;
+    opacity: 0.5;
+    flex-shrink: 0;
+    transition: opacity 0.3s;
+}
+
+.stat-bar-item:hover .stat-icon {
+    opacity: 1;
+}
+
+.stat-icon svg {
+    width: 11px;
+    height: 11px;
+    stroke-width: 2;
+}
 
 /* Milestone/cert icon badge */
 .item-icon {
-    display: flex; align-items: center; justify-content: center;
-    width: 32px; height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
     border-radius: 10px;
     flex-shrink: 0;
 }
 
 /* Filter button active icon color */
-.filter-btn.active .btn-icon, .filter-btn[class*="bg-eng"] .btn-icon { opacity: 1; }
+.filter-btn.active .btn-icon,
+.filter-btn[class*="bg-eng"] .btn-icon {
+    opacity: 1;
+}

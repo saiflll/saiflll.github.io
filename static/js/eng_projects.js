@@ -71,6 +71,9 @@ async function renderEngProjects() {
         const safeImg = (p.img || '').replace(/"/g, '&quot;');
         const htmlFlag = p.isHtml ? 'data-html="1"' : '';
 
+        // Strip HTML tags from description for card view to prevent nesting/stacking issues
+        const cleanDesc = (p.desc || '').replace(/<\/?[^>]+(>|$)/g, "");
+
         return `
         <div class="project-card glass-card p-8 sm:p-10 rounded-[2.5rem] group cursor-pointer hover:border-eng/40 transition-all"
             data-img="${safeImg}"
@@ -88,7 +91,7 @@ async function renderEngProjects() {
                     </svg>
                 </div>
             </div>
-            <p class="text-slate-400 text-sm leading-relaxed mb-6 line-clamp-3">${p.desc}</p>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6 line-clamp-3">${cleanDesc}</p>
             <div class="flex flex-wrap items-center gap-2">
                 ${p.tags.map(t => `<span class="tech-tag">${t}</span>`).join('')}
                 <span class="ml-auto text-[9px] font-black text-eng/40 group-hover:text-eng/80 uppercase tracking-widest transition-colors">DETAILS →</span>

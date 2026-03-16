@@ -277,7 +277,7 @@ class PortfolioEngine {
                 <div class="p-8 sm:p-10 flex flex-col h-full bg-gradient-to-br from-eng/5 to-transparent relative overflow-hidden group">
                     <span class="text-[9px] font-bold text-eng-light tracking-widest uppercase mb-4">${p.category}</span>
                     <h4 class="text-xl sm:text-2xl font-black mb-4 leading-none uppercase italic">${p.title}</h4>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-8 line-clamp-3">${p.desc}</p>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-8 line-clamp-3">${(p.desc || '').replace(/<\/?[^>]+(>|$)/g, "")}</p>
                     <div class="flex flex-wrap gap-2 mt-auto">
                         ${p.tags.map(t => `<span class="tech-tag">${t}</span>`).join('')}
                     </div>

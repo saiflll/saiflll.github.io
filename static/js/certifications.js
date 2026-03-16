@@ -18,37 +18,82 @@ const certificationsData = [
         abbr: "Networking",
         title: "Cisco Networking Specialist",
         issuer: "Cisco / AMIKOM",
-        date: "2023",
-        img: "../static/img/cert-cisco.jpg",
+        date: "2022",
+        img: "../static/sertif/CIsco.png",
         path: "",
         techDesc: "Cisco Networking Specialist — focus on enterprise routing, switching, VLAN segmentation, and secure network infrastructure orchestration. Completed as part of the Cisco Networking Academy program."
     },
     {
-        abbr: "KKNI VI",
-        title: "Competency Certificate — KKNI Level VI",
-        issuer: "BNSP Indonesia",
-        date: "2024",
-        img: "../static/img/cert-kkni.jpg",
+        abbr: "Study",
+        title: "Assistent Forum Design Grafis",
+        issuer: "AMIKOM Yogyakarta",
+        date: "2022/2023",
+        img: "../static/sertif/design-asis.png",
         path: "",
-        techDesc: "BNSP (Badan Nasional Sertifikasi Profesi) KKNI Level VI — Junior Network Administrator. Covers enterprise network design, network security, and system administration at national competency standard."
+        techDesc: "Assistent Forum Design Grafis — focus on enterprise design grafis."
     },
     {
         abbr: "Lab Asst",
-        title: "Laboratory Assistant — Informatics",
+        title: "Assistent Forum Jaringan",
         issuer: "AMIKOM Yogyakarta",
-        date: "2022",
-        img: "../static/img/assistant-forum.jpg",
+        date: "2022/2023",
+        img: "../static/sertif/jaringan-asis.png",
         path: "",
-        techDesc: "Official certification as Laboratory Assistant at Department of Informatics, AMIKOM Yogyakarta (2022–2023). Modules: Computer Networks, Web Systems, Operating Systems Architecture. Responsible for lab session facilitation, module authoring, and practical assessment."
+        techDesc: "Assistent Forum Jaringan — focus on Networking and cisco."
     },
     {
-        abbr: "IoT Cert",
-        title: "IoT Engineering Practitioner",
-        issuer: "Internal / Industry",
-        date: "2024",
-        img: "../static/img/wms-preview.jpg",
+        abbr: "Lab Asst",
+        title: "Assistent Forum Pemrograman",
+        issuer: "AMIKOM Yogyakarta",
+        date: "2022/2023",
+        img: "../static/sertif/pemrograman-asis.png",
         path: "",
-        techDesc: "IoT Engineering Practitioner certification. Focus: edge device architecture, MQTT/gRPC telemetry pipelines, and industrial IoT gateway integration."
+        techDesc: "Assistent Forum Pemrograman — focus on Programing class."
+    },
+    {
+        abbr: "Lab Asst",
+        title: "Assistent E Bussines",
+        issuer: "AMIKOM Yogyakarta",
+        date: "2022/2023",
+        img: "../static/sertif/e-bussines.png",
+        path: "",
+        techDesc: "Assistent E Bussines — focus on e-bussines."
+    },
+    {
+        abbr: "Lab Asst",
+        title: "Assistent Forum Pemrograman",
+        issuer: "AMIKOM Yogyakarta",
+        date: "2022/2023",
+        img: "../static/sertif/pemrograman-asis.png",
+        path: "",
+        techDesc: "Assistent Forum Pemrograman — focus on Programing class."
+    },
+    {
+        abbr: "Lab Koor",
+        title: "Assistent Forum Design Grafis",
+        issuer: "AMIKOM Yogyakarta",
+        date: "2022/2023",
+        img: "../static/sertif/design-koor.png",
+        path: "",
+        techDesc: "Koordinator Forum Design Grafis — focus on Design Grafis class."
+    },
+    {
+        abbr: "Lab Asst",
+        title: "Assistent Forum Operational System",
+        issuer: "AMIKOM Yogyakarta",
+        date: "2022/2023",
+        img: "../static/sertif/os-asis.png",
+        path: "",
+        techDesc: "Assistent Forum Operational System — focus on Operating System."
+    },
+    {
+        abbr: "Training",
+        title: "Studi Indipendent",
+        issuer: "MSIB",
+        date: "2022/2023",
+        img: "../static/sertif/msib.png",
+        path: "",
+        techDesc: "Studi Indipendent — focus on MSIB studiying full-stack development."
     }
 ];
 
@@ -59,8 +104,8 @@ function renderCertifications() {
 
     container.innerHTML = certificationsData.map((cert, i) => {
         const safeTitle = (cert.title || '').replace(/"/g, '&quot;');
-        const safeDesc  = (cert.techDesc || '').replace(/"/g, '&quot;');
-        const safeImg   = (cert.img || '').replace(/"/g, '&quot;');
+        const safeDesc = (cert.techDesc || '').replace(/"/g, '&quot;');
+        const safeImg = (cert.img || '').replace(/"/g, '&quot;');
 
         return `
         <div class="cert-card relative p-4 bg-white/5 rounded-xl border border-white/5
