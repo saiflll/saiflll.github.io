@@ -150,7 +150,8 @@ def find_image_url(repo: str) -> str:
 
 def find_doc_url(repo: str) -> str:
     """
-    Look for docs/ or doc/ folder. If found, return URL to the folder or README inside.
+    Look for docs/ or doc/ folder. If found, return URL to folder/README inside.
+    If not found, fall back to checking for a README in the root directory.
     """
     candidate_folders = ['docs', 'doc', 'documentation']
     for folder in candidate_folders:
@@ -163,6 +164,47 @@ def find_doc_url(repo: str) -> str:
                 return item.get('html_url') or ''
         # Fallback: link to the folder on GitHub
         return f'https://github.com/{USERNAME}/{repo}/tree/HEAD/{folder}'
+    
+    # NEW: Fallback → Check root for README if no docs folder exists
+    root_contents = get_folder_contents(repo, '')
+    if root_contents:
+        for item in root_contents:
+            if item.get('type') == 'file' and 'readme' in item['name'].lower():
+                return item.get('html_url') or ''
+                
+    return ''
+
+
+def fetch_readme_body(repo: str) -> str:
+    """
+    Fetch the README and extract the first meaningful paragraph
+    to use as a repository description.
+    """
+    url = f'https://api.github.com/repos/{USERNAME}/{repo}/readme'
+    try:
+        res = requests.get(url, headers={'Authorization': headers['Authorization'], 'Accept': 'application/vnd.github.raw'}, timeout=6)
+        if res.status_code == 200:
+            content = res.text
+            # Simple cleaning: skip lines starting with # (headers), [! (alerts), or [ (images/links)
+            lines = content.split('\n')
+            paragraphs = []
+            for line in lines:
+                line = line.strip()
+                if not line or line.startswith('#') or line.startswith('[') or line.startswith('!'):
+                    continue
+                # If we get here, it's likely a text paragraph
+                paragraphs.append(line)
+                if len(paragraphs) > 1: # Get at most 2 lines for a short blurb
+                    break
+            
+            if paragraphs:
+                blurb = " ".join(paragraphs)
+                # Trim to a reasonable length
+                if len(blurb) > 160:
+                    blurb = blurb[:157] + "..."
+                return blurb
+    except Exception:
+        pass
     return ''
 
 
@@ -265,7 +307,23 @@ def main():
         prev = existing.get(name, {})
 
         # ── Auto-detected values ──────────────────────────────────────────
-        auto_desc   = repo.get('description') or 'Development Project and Hobbies'
+        # Priority for Description:
+        # 1. Manual edit in JSON (preserved by resolve function later)
+        # 2. GitHub "About" description (if not default/empty)
+        # 3. First paragraph of README (if About is empty)
+        # 4. Fallback "Development Project and Hobbies"
+        
+        gh_desc = repo.get('description')
+        auto_desc = gh_desc
+        
+        if not gh_desc or gh_desc in AUTO_DEFAULTS:
+            print(f" (no desc, fetching README...)", end='', flush=True)
+            readme_blurb = fetch_readme_body(name)
+            if readme_blurb:
+                auto_desc = readme_blurb
+            else:
+                auto_desc = 'Development Project and Hobbies'
+
         auto_tech   = repo.get('language')    or 'Mixed Tech'
         auto_update = (repo.get('updated_at') or '')[:10]
         auto_cat    = smart_category(auto_desc, auto_tech)

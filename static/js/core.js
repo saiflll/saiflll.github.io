@@ -90,6 +90,7 @@ class PortfolioEngine {
     }
 
     async init() {
+        this.updateDynamicYears();
         Modal.init();
         this.applyTranslations();
         this.setupNav();
@@ -116,6 +117,35 @@ class PortfolioEngine {
 
         // Re-attach modal to any static .project-card already in DOM
         this.bindStaticCards();
+    }
+
+    // ── DYNAMIC YEARS CALCULATION ─────────────────────────────────────────────
+    updateDynamicYears() {
+        const startYear = 2020;
+        const startMonth = 4; // May (0-indexed)
+        const now = new Date();
+        
+        let years = now.getFullYear() - startYear;
+        if (now.getMonth() < startMonth) {
+            years--;
+        }
+
+        // Update translations in memory before application
+        if (window.translations) {
+            Object.keys(window.translations).forEach(langKey => {
+                if (langKey === 'projects') return;
+                const lang = window.translations[langKey];
+                if (lang.exp_years) {
+                    lang.exp_years = lang.exp_years.replace(/\d+/, years);
+                }
+            });
+        }
+
+        // Update static UI element if it exists
+        const runtimeEl = document.getElementById('runtime-years');
+        if (runtimeEl) {
+            runtimeEl.innerText = `${years}Y`;
+        }
     }
 
     // ── TRANSLATIONS ──────────────────────────────────────────────────────────
@@ -210,6 +240,13 @@ class PortfolioEngine {
         }
 
         this.projects = [...localProjects, ...githubProjects];
+        
+        // Update System Deployments Count
+        const deployCountEl = document.getElementById('deploy-count');
+        if (deployCountEl) {
+            deployCountEl.innerText = `${this.projects.length}+`;
+        }
+
         this.renderProjects();
         this.prepareFilters();
     }

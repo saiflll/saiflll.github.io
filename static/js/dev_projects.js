@@ -10,22 +10,22 @@
 
 // ── MANUAL FEATURED ENTRIES ───────────────────────────────────────────────────
 const devProjectsData = [
-    {
-        title: "Factory IoT Orchestrator (WMS)",
-        desc: "Kubernetes-based orchestration for 100+ factory edge nodes with auto-failover and real-time telemetry visualization.",
-        img: "../static/img/wms-preview.jpg",
-        tags: ["K8s", "Golang", "gRPC", "Prometheus"],
-        techDocs: "Microservices architecture for high-availability industrial monitoring. Handles 10k+ telemetry points/sec via gRPC. Custom Grafana dashboards. Zero-downtime rolling deployments.",
-        isHtml: false
-    },
-    {
-        title: "OTA System Dashboard",
-        desc: "Centralized web dashboard for managing Over-The-Air firmware updates to distributed IoT nodes.",
-        img: "../static/img/wms-preview.jpg",
-        tags: ["JavaScript", "Flask", "REST API", "SQLite"],
-        techDocs: "Single-page app with live update status, version history, and per-device rollback. Backend in Python Flask with SQLite state management.",
-        isHtml: false
-    }
+    // {
+    //     title: "Factory IoT Orchestrator (WMS)",
+    //     desc: "Kubernetes-based orchestration for 100+ factory edge nodes with auto-failover and real-time telemetry visualization.",
+    //     img: "../static/img/wms-preview.jpg",
+    //     tags: ["K8s", "Golang", "gRPC", "Prometheus"],
+    //     techDocs: "Microservices architecture for high-availability industrial monitoring. Handles 10k+ telemetry points/sec via gRPC. Custom Grafana dashboards. Zero-downtime rolling deployments.",
+    //     isHtml: false
+    // },
+    // {
+    //     title: "OTA System Dashboard",
+    //     desc: "Centralized web dashboard for managing Over-The-Air firmware updates to distributed IoT nodes.",
+    //     img: "../static/img/wms-preview.jpg",
+    //     tags: ["JavaScript", "Flask", "REST API", "SQLite"],
+    //     techDocs: "Single-page app with live update status, version history, and per-device rollback. Backend in Python Flask with SQLite state management.",
+    //     isHtml: false
+    // }
 ];
 
 // ── RENDER ────────────────────────────────────────────────────────────────────
@@ -49,7 +49,7 @@ async function renderDevProjects() {
                     tags: [r.tech_stack || 'Mixed'],
                     techDocs: [
                         r.description || '',
-                        r.doc  ? `📄 <a href="${r.doc}" target="_blank" class="text-dev-light underline">View Documentation</a>` : '',
+                        r.doc ? `📄 <a href="${r.doc}" target="_blank" class="text-dev-light underline">View Documentation</a>` : '',
                         `🔗 <a href="${r.github_url || '#'}" target="_blank" class="text-dev-light underline">View on GitHub</a>`,
                         `🕐 Last updated: ${r.last_update || '—'}`
                     ].filter(Boolean).join('<br>'),
@@ -67,9 +67,9 @@ async function renderDevProjects() {
 
     const cards = allProjects.map((p, i) => {
         const safeTitle = (p.title || '').replace(/"/g, '&quot;');
-        const safeDocs  = (p.techDocs || p.desc || '').replace(/"/g, '&quot;');
-        const safeImg   = (p.img || '').replace(/"/g, '&quot;');
-        const htmlFlag  = p.isHtml ? 'data-html="1"' : '';
+        const safeDocs = (p.techDocs || p.desc || '').replace(/"/g, '&quot;');
+        const safeImg = (p.img || '').replace(/"/g, '&quot;');
+        const htmlFlag = p.isHtml ? 'data-html="1"' : '';
 
         return `
         <div class="project-card glass-card p-8 sm:p-10 rounded-[2.5rem] group cursor-pointer hover:border-dev/40 transition-all"

@@ -55,49 +55,49 @@ const translations = {
         "whatsapp_phone": "6281234567890" // User should update this
     },
     "projects": [
-        {
-            "id": "p1",
-            "title": "Smart WMS Dashboard",
-            "desc": "Architecting enterprise-scale logistics using Go and Kubernetes.",
-            "type": "Engineering",
-            "category": "logic",
-            "image": "static/img/wms-preview.jpg",
-            "tags": ["K8s", "Golang", "IoT"],
-            "techDesc": "Architecture Diagram for K8s-based Factory Monitoring system. Built with Go and gRPC for sub-100ms latency.",
-            "link": "#"
-        },
-        {
-            "id": "p2",
-            "title": "PLC Legacy Bridge",
-            "desc": "Reverse engineering legacy Siemens S7 telemetry for modern data pipelines.",
-            "type": "Engineering",
-            "category": "hardware",
-            "image": "static/img/plc-preview.jpg",
-            "tags": ["C/C++", "RS485", "Modbus"],
-            "techDesc": "Wiring diagram for RS485 communication with Siemens S7 Controllers via passive sniffing interface.",
-            "link": "#"
-        },
-        {
-            "id": "p3",
-            "title": "WSN Journal 2025",
-            "desc": "Energy-optimized wireless sensor networks for cellular-void areas.",
-            "type": "Development",
-            "category": "support",
-            "image": "static/img/wsn-preview.jpg",
-            "tags": ["LoRa", "WSN", "Scientific"],
-            "techDesc": "LoRaWAN Network Optimization for Rural Areas. Published in National Scientific Journal 2025.",
-            "link": "#"
-        },
-        {
-            "id": "p4",
-            "title": "IoT-Mon-Pump",
-            "desc": "Monitoring water pump using ESP32 + Flask.",
-            "type": "Engineering",
-            "category": "hardware",
-            "image": "static/img/hero.jpeg",
-            "tags": ["ESP32", "Flask", "Python"],
-            "techDesc": "Real-time pump monitoring system with remote cutoff and power consumption analysis.",
-            "link": "#"
-        }
+        // {
+        //     "id": "p1",
+        //     "title": "Smart WMS Dashboard",
+        //     "desc": "Architecting enterprise-scale logistics using Go and Kubernetes.",
+        //     "type": "Engineering",
+        //     "category": "logic",
+        //     "image": "static/img/wms-preview.jpg",
+        //     "tags": ["K8s", "Golang", "IoT"],
+        //     "techDesc": "Architecture Diagram for K8s-based Factory Monitoring system. Built with Go and gRPC for sub-100ms latency.",
+        //     "link": "#"
+        // },
+        // {
+        //     "id": "p2",
+        //     "title": "PLC Legacy Bridge",
+        //     "desc": "Reverse engineering legacy Siemens S7 telemetry for modern data pipelines.",
+        //     "type": "Engineering",
+        //     "category": "hardware",
+        //     "image": "static/img/plc-preview.jpg",
+        //     "tags": ["C/C++", "RS485", "Modbus"],
+        //     "techDesc": "Wiring diagram for RS485 communication with Siemens S7 Controllers via passive sniffing interface.",
+        //     "link": "#"
+        // },
+        // {
+        //     "id": "p3",
+        //     "title": "WSN Journal 2025",
+        //     "desc": "Energy-optimized wireless sensor networks for cellular-void areas.",
+        //     "type": "Development",
+        //     "category": "support",
+        //     "image": "static/img/wsn-preview.jpg",
+        //     "tags": ["LoRa", "WSN", "Scientific"],
+        //     "techDesc": "LoRaWAN Network Optimization for Rural Areas. Published in National Scientific Journal 2025.",
+        //     "link": "#"
+        // },
+        // {
+        //     "id": "p4",
+        //     "title": "IoT-Mon-Pump",
+        //     "desc": "Monitoring water pump using ESP32 + Flask.",
+        //     "type": "Engineering",
+        //     "category": "hardware",
+        //     "image": "static/img/hero.jpeg",
+        //     "tags": ["ESP32", "Flask", "Python"],
+        //     "techDesc": "Real-time pump monitoring system with remote cutoff and power consumption analysis.",
+        //     "link": "#"
+        // }
     ]
 };

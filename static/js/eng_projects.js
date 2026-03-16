@@ -11,27 +11,20 @@
 // ── MANUAL DEEP-DIVE ENTRIES (featured / detailed projects) ──────────────────
 // These appear FIRST and have richer detail (full techDocs, custom img, etc.)
 const engProjectsData = [
-    {
-        title: "PLC Protocol Bridge",
-        desc: "Non-intrusive bus-sniffing for industrial PLC data extraction (Siemens, Hyundai). Zero-interruption on live production lines.",
-        img: "../static/img/plc-preview.jpg",
-        tags: ["RS485 Sniffing", "C/C++", "Industrial"],
-        techDocs: "Passive bus monitoring via differential probe on RS485. Decoded Siemens S7 and Hyundai PLC proprietary frames. Output: normalized JSON → MQTT ingestion. Zero production interruption."
-    },
-    {
-        title: "WSN Journal Research",
-        desc: "Published research on energy-efficient LoRaWAN communication in signal-deprived environments.",
-        img: "../static/img/wsn-preview.jpg",
-        tags: ["LoRa", "nRF52840", "WSN", "Scientific"],
-        techDocs: "LoRaWAN network optimization for terrain-challenged areas. Power management at nano-ampere levels. Star-mesh hybrid topology. Published in National Scientific Journal 2025."
-    },
-    {
-        title: "T12 Solder Station",
-        desc: "DIY PID-controlled solder station firmware with real-time temperature display on STM32.",
-        img: "../static/img/wms-preview.jpg",
-        tags: ["STM32", "PID", "C++", "OLED"],
-        techDocs: "Custom PID controller with < 2°C steady-state error. 0.96\" OLED display. Thermocouple type-K amplified via MAX31855. Firmware in bare-metal C++."
-    }
+    // {
+    //     title: "PLC Protocol Bridge",
+    //     desc: "Non-intrusive bus-sniffing for industrial PLC data extraction (Siemens, Hyundai). Zero-interruption on live production lines.",
+    //     img: "../static/img/plc-preview.jpg",
+    //     tags: ["RS485 Sniffing", "C/C++", "Industrial"],
+    //     techDocs: "Passive bus monitoring via differential probe on RS485. Decoded Siemens S7 and Hyundai PLC proprietary frames. Output: normalized JSON → MQTT ingestion. Zero production interruption."
+    // },
+    // {
+    //     title: "WSN Journal Research",
+    //     desc: "Published research on energy-efficient LoRaWAN communication in signal-deprived environments.",
+    //     img: "../static/img/wsn-preview.jpg",
+    //     tags: ["LoRa", "nRF52840", "WSN", "Scientific"],
+    //     techDocs: "LoRaWAN network optimization for terrain-challenged areas. Power management at nano-ampere levels. Star-mesh hybrid topology. Published in National Scientific Journal 2025."
+    // }
 ];
 
 // ── RENDER ────────────────────────────────────────────────────────────────────
@@ -56,7 +49,7 @@ async function renderEngProjects() {
                     tags: [r.tech_stack || 'C/C++'],
                     techDocs: [
                         r.description || '',
-                        r.doc  ? `📄 <a href="${r.doc}" target="_blank" class="text-eng underline">View Documentation</a>` : '',
+                        r.doc ? `📄 <a href="${r.doc}" target="_blank" class="text-eng underline">View Documentation</a>` : '',
                         `🔗 <a href="${r.github_url || '#'}" target="_blank" class="text-eng underline">View on GitHub</a>`,
                         `🕐 Last updated: ${r.last_update || '—'}`
                     ].filter(Boolean).join('<br>'),
@@ -74,9 +67,9 @@ async function renderEngProjects() {
 
     const cards = allProjects.map((p, i) => {
         const safeTitle = (p.title || '').replace(/"/g, '&quot;');
-        const safeDocs  = (p.techDocs || p.desc || '').replace(/"/g, '&quot;');
-        const safeImg   = (p.img || '').replace(/"/g, '&quot;');
-        const htmlFlag  = p.isHtml ? 'data-html="1"' : '';
+        const safeDocs = (p.techDocs || p.desc || '').replace(/"/g, '&quot;');
+        const safeImg = (p.img || '').replace(/"/g, '&quot;');
+        const htmlFlag = p.isHtml ? 'data-html="1"' : '';
 
         return `
         <div class="project-card glass-card p-8 sm:p-10 rounded-[2.5rem] group cursor-pointer hover:border-eng/40 transition-all"

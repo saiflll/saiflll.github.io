@@ -9,31 +9,28 @@ const milestonesData = [
         company: "PT PESTA PORA ABADI",
         role: "IT IoT Development SPV",
         period: "2025 — Present",
-        summary: "Memimpin orkestrasi infrastruktur IoT pabrik dengan uptime 99.9% menggunakan K8s dan Golang.",
+        summary: "Designing Industrial Data Infrastructure: Integrating legacy machines with MQTT via Passive Sniffing, managing production In-Out logic, and environmental monitoring in a unified IoT system.",
         accentColor: "border-blue-500",
         details: [
-            "Orchestrated 100+ factory IoT edge nodes using Kubernetes for zero-downtime operations.",
-            "Developed real-time telemetry pipeline: sensor → gateway → gRPC → cloud dashboard.",
-            "Managed cross-functional team of 5 engineers across firmware, backend, and infra roles.",
-            "Achieved 99.9% uptime SLA through automated failover and health-check mechanisms.",
-            "Standardized firmware OTA deployment across all edge devices."
+            "Engineered a real-time telemetry pipeline: Edge Sensors → IoT Gateway (MQTT) → gRPC/Webhooks → Redis & Cloud Analytics.",
+            "Handle cross-functional team of firmware, backend, Frontend, Analytics and infra roles.",
+            "Organizing cross-functional collaboration: Managing Firmware, Backend, Frontend, and Network Infrastructure.",
+            "Centralized Management Node: A unified platform for device monitoring, OTA deployment, and production analytics."
         ],
-        img: "../static/img/hero.jpeg",
+        img: "../static/img/ppa.jpeg",
         link: "development.html"
     },
     {
-        company: "Freelance Hardware Engineer",
-        role: "Global Operations",
+        company: "Independent Technical Solutions ( Freelance )",
+        role: "Freelance IoT & Systems Developer",
         period: "2020 — Present",
-        summary: "Menyelesaikan 32+ proyek IoT kecil hingga menengah untuk berbagai industri.",
+        summary: "Delivered dozens of versatile IoT and software solutions, ranging from high-end Smart Home systems and custom Embedded Devices to commercial-grade retail and inventory management applications.",
         accentColor: "border-slate-600",
         details: [
-            "Delivered 32+ end-to-end IoT projects spanning agriculture, logistics, and manufacturing.",
-            "Specialization: custom PCB design, STM32/ESP32 firmware, industrial protocol bridging.",
-            "Reverse-engineered Siemens S7 and Hyundai PLC proprietary protocols for client integrations.",
-            "Developed LoRaWAN WSN research prototype published in a national scientific journal.",
-            "Managed full project lifecycle: requirement gathering → prototyping → deployment → handover."
-        ],
+            "Built tailored software for retail needs, inventory tracking, and general data logging applications.",
+            "Handled full-cycle development from circuit prototyping (PCB) to firmware and mobile/web app integration.",
+            "Integrated various sensors and communication protocols based on specific client requirements.",
+            "Provided end-to-end technical support, from initial concept to ready-to-use deployment."],
         img: "../static/img/plc-preview.jpg",
         link: "engineering.html"
     }
@@ -73,7 +70,7 @@ function renderMilestones() {
     `).join('');
 }
 
-window.openMilestoneModal = function(index) {
+window.openMilestoneModal = function (index) {
     const m = milestonesData[index];
     if (!m) return;
 
