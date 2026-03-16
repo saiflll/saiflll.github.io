@@ -37,7 +37,6 @@ def _load_token() -> str:
       Set a repository secret named TOKEN_CLASS with your classic token value.
       The workflow passes it as:  env: TOKEN_CLASS: ${{ secrets.TOKEN_CLASS }}
     """
-    # ── 1 & 2: Try .env file first (local development) ───────────────────────
     env_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '.env')
     found = {}
     if os.path.exists(env_path):
@@ -63,7 +62,6 @@ def _load_token() -> str:
             print(f"[ENGINE] Token source: .env ({'classic' if found.get('token_class') else 'fine-grained'})")
             return token
 
-    # ── 3 & 4: Fallback → OS environment (GitHub Actions secrets) ────────────
     for env_key in ('TOKEN_CLASS', 'MY_GITHUB_TOKEN', 'GITHUB_TOKEN'):
         val = os.getenv(env_key, '').strip()
         if val:
@@ -74,17 +72,11 @@ def _load_token() -> str:
     return ''
 
 
-# ── CONFIG ────────────────────────────────────────────────────────────────────
 TOKEN    = _load_token()
 USERNAME = 'saiflll'
-# Write output relative to script location (works from any working directory)
 OUTPUT   = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'repos_data.json')
 
-# Repos to always skip
 SKIP_REPOS = {'saiflll.github.io', 'saiflll.github.io'.lower()}
-
-# These values are considered "auto-generated defaults" — safe to overwrite
-# Anything else is treated as a manual edit → preserved
 AUTO_DEFAULTS = {
     None, '', 
     'Development Project and Hobbies',
@@ -100,7 +92,6 @@ headers = {
 
 IMAGE_EXTS = {'.jpg', '.jpeg', '.png', '.webp', '.gif', '.svg'}
 
-# ── UTILITIES ─────────────────────────────────────────────────────────────────
 def load_existing() -> dict:
     """Load current repos_data.json, keyed by repo name."""
     try:
@@ -162,10 +153,8 @@ def find_doc_url(repo: str) -> str:
         for item in contents:
             if item.get('type') == 'file' and 'readme' in item['name'].lower():
                 return item.get('html_url') or ''
-        # Fallback: link to the folder on GitHub
         return f'https://github.com/{USERNAME}/{repo}/tree/HEAD/{folder}'
     
-    # NEW: Fallback → Check root for README if no docs folder exists
     root_contents = get_folder_contents(repo, '')
     if root_contents:
         for item in root_contents:
@@ -185,7 +174,6 @@ def fetch_readme_body(repo: str) -> str:
         res = requests.get(url, headers={'Authorization': headers['Authorization'], 'Accept': 'application/vnd.github.raw'}, timeout=6)
         if res.status_code == 200:
             content = res.text
-            # Simple cleaning: skip lines starting with # (headers), [! (alerts), or [ (images/links)
             lines = content.split('\n')
             paragraphs = []
             for line in lines:
@@ -218,7 +206,8 @@ def smart_category(desc: str, tech: str) -> str:
                           'hardware', 'embedded', 'modbus', 'rs485', 'i2c', 'spi'}
     support_keywords   = {'dashboard', 'monitor', 'support', 'admin', 'management',
                           'website', 'web', 'utility', 'helper', 'tool', 'portal',
-                          'ui', 'interface'}
+                          'ui', 'interface', '.env'}
+
 
     if any(k in t for k in hardware_keywords) or any(k in d for k in hardware_keywords):
         return 'hardware'
