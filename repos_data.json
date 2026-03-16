@@ -1,5 +1,16 @@
 [
     {
+        "name": "Basic-Keyles-System-using-Nrf52",
+        "is_private": false,
+        "description": "Keyless Entry & Security System for vehicles based on nRF52840. Focused on industrial-grade stability and functional safety for daily use. ---",
+        "tech_stack": "C++",
+        "category": "hardware",
+        "img": "https://raw.githubusercontent.com/saiflll/Basic-Keyles-System-using-Nrf52/master/img/preview.png",
+        "doc": "https://github.com/saiflll/Basic-Keyles-System-using-Nrf52/blob/master/README.md",
+        "last_update": "2026-03-16",
+        "github_url": "https://github.com/saiflll/Basic-Keyles-System-using-Nrf52"
+    },
+    {
         "name": "Basic-WMS-Core",
         "is_private": true,
         "description": "Template Warehouse Management System (WMS) menggunakan perpaduan **Next.js**, **NestJS**, **Mantine UI**, dan **PostgreSQL**. - **Frontend**: Next.js 15 (App...",
@@ -53,17 +64,6 @@
         "doc": "https://github.com/saiflll/Custom-Solder-Station-T12-/blob/master/README.md",
         "last_update": "2026-03-16",
         "github_url": "https://github.com/saiflll/Custom-Solder-Station-T12-"
-    },
-    {
-        "name": "Basic-Keyles-System-using-Nrf52",
-        "is_private": false,
-        "description": "Keyless Entry & Security System for vehicles based on nRF52840. Focused on industrial-grade stability and functional safety for daily use. ---",
-        "tech_stack": "C++",
-        "category": "hardware",
-        "img": "",
-        "doc": "https://github.com/saiflll/Basic-Keyles-System-using-Nrf52/blob/master/README.md",
-        "last_update": "2026-03-16",
-        "github_url": "https://github.com/saiflll/Basic-Keyles-System-using-Nrf52"
     },
     {
         "name": "BE-Monitoring-Env",
