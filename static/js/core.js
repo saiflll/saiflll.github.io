@@ -6,7 +6,8 @@
 const CONFIG = {
     IP_API: 'https://ipapi.co/json/',
     // Resolve path relative to root, works from both / and /page/
-    REPO_DATA: document.location.pathname.includes('/page/') ? '../repos_data.json' : 'repos_data.json'
+    REPO_DATA: document.location.pathname.match(/\/page\/.*\//) ? '../../repos_data.json' : 
+               (document.location.pathname.includes('/page/') ? '../repos_data.json' : 'repos_data.json')
 };
 
 // ─── MODAL SINGLETON ─────────────────────────────────────────────────────────
