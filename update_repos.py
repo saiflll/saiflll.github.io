@@ -62,7 +62,7 @@ def _load_token() -> str:
             print(f"[ENGINE] Token source: .env ({'classic' if found.get('token_class') else 'fine-grained'})")
             return token
 
-    for env_key in ('TOKEN_CLASS'): , #'MY_GITHUB_TOKEN', 'GITHUB_TOKEN'
+    for env_key in ('TOKEN_CLASS'): #'MY_GITHUB_TOKEN', 'GITHUB_TOKEN'
         val = os.getenv(env_key, '').strip()
         if val:
             print(f"[ENGINE] Token source: OS env → {env_key} (GitHub Actions secret)")
