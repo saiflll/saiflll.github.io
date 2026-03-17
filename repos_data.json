@@ -1,5 +1,16 @@
 [
     {
+        "name": "Custom-Solder-Station-T12-",
+        "is_private": false,
+        "description": "T12 Soldering Station firmware for ESP32. Includes a Go Gin backend and a web dashboard for remote temp + power monitoring (optimize the logging yourself :3)...",
+        "tech_stack": "C++",
+        "category": "hardware",
+        "img": "https://raw.githubusercontent.com/saiflll/Custom-Solder-Station-T12-/master/img/preview.png",
+        "doc": "https://github.com/saiflll/Custom-Solder-Station-T12-/blob/master/README.md",
+        "last_update": "2026-03-16",
+        "github_url": "https://github.com/saiflll/Custom-Solder-Station-T12-"
+    },
+    {
         "name": "Basic-Keyles-System-using-Nrf52",
         "is_private": false,
         "description": "Keyless Entry & Security System for vehicles based on nRF52840. Focused on industrial-grade stability and functional safety for daily use. ---",
@@ -9,116 +20,6 @@
         "doc": "https://github.com/saiflll/Basic-Keyles-System-using-Nrf52/blob/master/README.md",
         "last_update": "2026-03-16",
         "github_url": "https://github.com/saiflll/Basic-Keyles-System-using-Nrf52"
-    },
-    {
-        "name": "Basic-WMS-Core",
-        "is_private": true,
-        "description": "Template Warehouse Management System (WMS) menggunakan perpaduan **Next.js**, **NestJS**, **Mantine UI**, dan **PostgreSQL**. - **Frontend**: Next.js 15 (App...",
-        "tech_stack": "TypeScript",
-        "category": "hardware",
-        "img": "",
-        "doc": "https://github.com/saiflll/Basic-WMS-Core/blob/master/README.md",
-        "last_update": "2026-03-16",
-        "github_url": "https://github.com/saiflll/Basic-WMS-Core"
-    },
-    {
-        "name": "Develop-Suport-Script",
-        "is_private": true,
-        "description": "Development Project and Hobbies",
-        "tech_stack": "Python",
-        "category": "hardware",
-        "img": "",
-        "doc": "",
-        "last_update": "2026-03-16",
-        "github_url": "https://github.com/saiflll/Develop-Suport-Script"
-    },
-    {
-        "name": "S3-QR-Core",
-        "is_private": true,
-        "description": "**ESP32-S3 Based Industrial QR-Code Data Processing Engine** A high-performance processing unit designed to interface with industrial QR scanners (RS232/TTL)...",
-        "tech_stack": "C++",
-        "category": "hardware",
-        "img": "",
-        "doc": "https://github.com/saiflll/S3-QR-Core/blob/main/README.md",
-        "last_update": "2026-03-16",
-        "github_url": "https://github.com/saiflll/S3-QR-Core"
-    },
-    {
-        "name": "UUID-Auth-in-BLE-Beacon-ESP32",
-        "is_private": true,
-        "description": "Implementing Secure Power Control using an ESP32 and Linear/Solenoid Actuators, authenticated via UUID-based BLE Beacon validation. The system acts as a wire...",
-        "tech_stack": "C++",
-        "category": "hardware",
-        "img": "",
-        "doc": "https://github.com/saiflll/UUID-Auth-in-BLE-Beacon-ESP32/blob/master/README.md",
-        "last_update": "2026-03-16",
-        "github_url": "https://github.com/saiflll/UUID-Auth-in-BLE-Beacon-ESP32"
-    },
-    {
-        "name": "Custom-Solder-Station-T12-",
-        "is_private": false,
-        "description": "T12 Soldering Station firmware for ESP32. Includes a Go Gin backend and a web dashboard for remote temp + power monitoring (optimize the logging yourself :3)...",
-        "tech_stack": "C++",
-        "category": "hardware",
-        "img": "",
-        "doc": "https://github.com/saiflll/Custom-Solder-Station-T12-/blob/master/README.md",
-        "last_update": "2026-03-16",
-        "github_url": "https://github.com/saiflll/Custom-Solder-Station-T12-"
-    },
-    {
-        "name": "BE-Monitoring-Env",
-        "is_private": true,
-        "description": "Backend ini ditulis pakai Go Fiber. Database pake PostgreSQL, Broker pake EMQX.",
-        "tech_stack": "Go",
-        "category": "hardware",
-        "img": "",
-        "doc": "https://github.com/saiflll/BE-Monitoring-Env/blob/main/README.md",
-        "last_update": "2026-03-16",
-        "github_url": "https://github.com/saiflll/BE-Monitoring-Env"
-    },
-    {
-        "name": "Metal-Detection-Check-Weight-Sniffer",
-        "is_private": true,
-        "description": "Passive RS-485 Sniffing on Modbus RTU to bypass closed-ecosystem constraints. Since the TK Series HMI is non-configurable (Legacy/Locked), I've integrated a ...",
-        "tech_stack": "C++",
-        "category": "hardware",
-        "img": "",
-        "doc": "https://github.com/saiflll/Metal-Detection-Check-Weight-Sniffer/blob/master/README.md",
-        "last_update": "2026-03-16",
-        "github_url": "https://github.com/saiflll/Metal-Detection-Check-Weight-Sniffer"
-    },
-    {
-        "name": "Support-Management-Device-Pipeline",
-        "is_private": true,
-        "description": "Development Project and Hobbies",
-        "tech_stack": "Go",
-        "category": "hardware",
-        "img": "",
-        "doc": "https://github.com/saiflll/Support-Management-Device-Pipeline/tree/HEAD/docs",
-        "last_update": "2026-03-16",
-        "github_url": "https://github.com/saiflll/Support-Management-Device-Pipeline"
-    },
-    {
-        "name": "Code-Model-Temp-HW",
-        "is_private": true,
-        "description": "<div align=\"center\"> **ESP32-based Embedded System | Multi-Sensor Monitoring | MQTT Integration**",
-        "tech_stack": "C++",
-        "category": "hardware",
-        "img": "",
-        "doc": "https://github.com/saiflll/Code-Model-Temp-HW/blob/main/README.md",
-        "last_update": "2026-03-16",
-        "github_url": "https://github.com/saiflll/Code-Model-Temp-HW"
-    },
-    {
-        "name": "Fe-Monitoring-Env",
-        "is_private": true,
-        "description": "Frontend Flutter buat monitoring suhu. API URL diatur di `lib/config/api_config.dart`.",
-        "tech_stack": "Dart",
-        "category": "hardware",
-        "img": "https://raw.githubusercontent.com/saiflll/Fe-Monitoring-Env/main/assets/Notif.png?token=BKBRWBTSO65XHZKBWBL5ZBDJW547JAA",
-        "doc": "https://github.com/saiflll/Fe-Monitoring-Env/blob/main/README.md",
-        "last_update": "2026-03-16",
-        "github_url": "https://github.com/saiflll/Fe-Monitoring-Env"
     },
     {
         "name": "Basic-ota-code-for-esp32",
@@ -229,50 +130,6 @@
         "doc": "https://github.com/saiflll/Serial-website/blob/master/README.md",
         "last_update": "2026-02-25",
         "github_url": "https://github.com/saiflll/Serial-website"
-    },
-    {
-        "name": "serv-poll-forw",
-        "is_private": true,
-        "description": "Development Project and Hobbies",
-        "tech_stack": "Go",
-        "category": "hardware",
-        "img": "",
-        "doc": "https://github.com/saiflll/serv-poll-forw/blob/main/README.md",
-        "last_update": "2025-11-10",
-        "github_url": "https://github.com/saiflll/serv-poll-forw"
-    },
-    {
-        "name": "servfi",
-        "is_private": true,
-        "description": "Development Project and Hobbies",
-        "tech_stack": "Go",
-        "category": "hardware",
-        "img": "",
-        "doc": "",
-        "last_update": "2025-11-10",
-        "github_url": "https://github.com/saiflll/servfi"
-    },
-    {
-        "name": "profil",
-        "is_private": true,
-        "description": "<p align=\"center\"> <img width=\"100px\" src=\"https://res.cloudinary.com/anuraghazra/image/upload/v1594908242/logo_ccswme.svg\" align=\"center\" alt=\"GitHub Readme...",
-        "tech_stack": "JavaScript",
-        "category": "hardware",
-        "img": "",
-        "doc": "https://github.com/saiflll/profil/blob/main/readme.md",
-        "last_update": "2025-10-09",
-        "github_url": "https://github.com/saiflll/profil"
-    },
-    {
-        "name": "fix",
-        "is_private": true,
-        "description": "Development Project and Hobbies",
-        "tech_stack": "C++",
-        "category": "hardware",
-        "img": "",
-        "doc": "",
-        "last_update": "2025-10-08",
-        "github_url": "https://github.com/saiflll/fix"
     },
     {
         "name": "IoT-Project-abonden",
