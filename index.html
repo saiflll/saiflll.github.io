@@ -10,17 +10,15 @@
     <meta name="description"
         content="Senior Systems Architect specializing in Industrial IoT, Mission-Critical Systems, and Infrastructure Orchestration.">
 
-    <!-- Icons & Assets -->
+    <!-- CSS -->
     <link rel="stylesheet" href="static/css/style.css">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS (via CDN) -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -28,10 +26,10 @@
             theme: {
                 extend: {
                     colors: {
-                        eng: { DEFAULT: '#2563eb', light: '#3b82f6', dark: '#1e40af' },
-                        dev: { DEFAULT: '#059669', light: '#10b981', dark: '#047857' },
+                        eng:    { DEFAULT: '#2563eb', light: '#3b82f6', dark: '#1e40af' },
+                        dev:    { DEFAULT: '#059669', light: '#10b981', dark: '#047857' },
                         safety: { DEFAULT: '#f59e0b', dark: '#d97706' },
-                        dark: { 950: '#020617', 900: '#0a0f1e', 800: '#1e293b' }
+                        dark:   { 950: '#020617', 900: '#0a0f1e', 800: '#1e293b' }
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -41,98 +39,142 @@
             }
         }
     </script>
-    <!-- Foot Scripts -->
+    <!-- Translations must load first -->
     <script src="static/js/translations.js"></script>
+    <!-- Loader: runs synchronously before page paints -->
+    <script src="static/js/loader.js"></script>
 </head>
 
 <body class="font-sans antialiased selection:bg-eng selection:text-white grid-blueprint">
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass-card border-b border-white/5 py-4">
-        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+    <!-- ═══ NAVIGATION ═══════════════════════════════════════════════════════ -->
+    <nav class="fixed top-0 w-full z-50 glass-card border-b border-white/5 py-3">
+        <div class="max-w-7xl mx-auto px-5 flex justify-between items-center gap-4">
+
+            <!-- Brand -->
             <div class="flex items-center gap-3">
-                <div
-                    class="w-10 h-10 bg-dark-900 rounded-xl flex items-center justify-center shadow-lg border border-white/10 overflow-hidden">
+                <div class="w-9 h-9 bg-dark-900 rounded-xl flex items-center justify-center shadow-lg border border-white/10 overflow-hidden flex-shrink-0">
                     <img src="static/img/hero.jpeg" alt="MS" class="w-full h-full object-cover hero">
                 </div>
                 <div class="flex flex-col">
-                    <span class="font-black tracking-tighter leading-none text-lg">MUHAMMAD SAIFULLOH</span>
-                    <span class="text-[9px] text-slate-500 font-mono tracking-[0.2em] uppercase"
+                    <span class="font-black tracking-tighter leading-none text-base">MUHAMMAD SAIFULLOH</span>
+                    <span class="text-[8px] text-slate-500 font-mono tracking-[0.15em] uppercase hidden sm:block"
                         data-i18n="profile_archive_label"></span>
                 </div>
             </div>
-            <div class="hidden lg:flex gap-8 text-[10px] font-bold uppercase tracking-widest text-slate-400">
-                <a href="page/profile/" class="hover:text-eng transition-colors" data-i18n="nav_profile">Profile</a>
-                <a href="#projects" class="hover:text-eng transition-colors" data-i18n="nav_showcase">Showcase</a>
-                <a href="page/engineering/" class="hover:text-eng transition-colors"
-                    data-i18n="nav_engineering">Engineering</a>
-                <a href="page/development/" class="hover:text-eng transition-colors"
-                    data-i18n="nav_development">Development</a>
-                <a href="#experience" class="hover:text-eng transition-colors" data-i18n="nav_career">Career</a>
+
+            <!-- Desktop Nav Links -->
+            <div class="hidden lg:flex gap-7 text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                <a href="page/profile/"     class="hover:text-eng transition-colors" data-i18n="nav_profile">Profile</a>
+                <a href="#projects"         class="hover:text-eng transition-colors" data-i18n="nav_showcase">Showcase</a>
+                <a href="page/engineering/" class="hover:text-eng transition-colors" data-i18n="nav_engineering">Engineering</a>
+                <a href="page/development/" class="hover:text-eng transition-colors" data-i18n="nav_development">Development</a>
+                <a href="#experience"       class="hover:text-eng transition-colors" data-i18n="nav_career">Career</a>
             </div>
 
-            <div class="flex items-center gap-4">
+            <!-- Actions -->
+            <div class="flex items-center gap-2">
+
+                <!-- Language Picker -->
+                <select id="lang-picker" title="Select Language">
+                    <option value="en">EN</option>
+                    <option value="id">ID</option>
+                    <option value="ja">JA</option>
+                    <option value="zh">ZH</option>
+                </select>
+
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" title="Toggle Theme" aria-label="Toggle theme">
+                    <!-- Icon injected by JS -->
+                </button>
+
+                <!-- LinkedIn -->
                 <a href="https://www.linkedin.com/in/muhammad-saifulloh-b37137209/" target="_blank"
-                    class="hidden sm:block p-2 bg-slate-800 text-white rounded-lg hover:bg-eng transition-colors">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path
-                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    title="LinkedIn"
+                    class="hidden sm:flex w-9 h-9 items-center justify-center bg-slate-800 text-white rounded-lg hover:bg-eng transition-colors border border-white/5">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+
+                <!-- WhatsApp -->
+                <a href="https://wa.me/6282221294931" target="_blank"
+                    title="WhatsApp"
+                    class="hidden sm:flex w-9 h-9 items-center justify-center bg-slate-800 text-white rounded-lg hover:bg-green-600 transition-colors border border-white/5">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.198.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                </a>
+
+                <!-- Email -->
+                <a href="mailto:lezztb@gmail.com"
+                    title="Email"
+                    class="hidden sm:flex w-9 h-9 items-center justify-center bg-slate-800 text-white rounded-lg hover:bg-safety transition-colors border border-white/5">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                     </svg>
                 </a>
 
                 <!-- Mobile Menu Button -->
                 <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-400 hover:text-white transition-colors">
                     <svg class="menu-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                     <svg class="close-icon w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
-                        </path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
             </div>
         </div>
     </nav>
 
-    <!-- Mobile Overlay Menu -->
-    <div id="mobile-menu" class="fixed inset-0 z-40 lg:hidden bg-dark-950/95 backdrop-blur-xl pt-24 px-6">
+    <!-- ═══ MOBILE OVERLAY MENU ══════════════════════════════════════════════ -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 lg:hidden pt-20 px-6">
         <div class="flex flex-col gap-6 text-2xl font-black italic uppercase tracking-tighter">
-            <a href="page/profile/" class="hover:text-eng transition-colors" data-i18n="nav_profile">Profile</a>
-            <a href="#projects" class="hover:text-eng transition-colors" data-i18n="nav_showcase">Showcase</a>
-            <a href="page/engineering/" class="hover:text-eng transition-colors text-eng"
-                data-i18n="nav_engineering">Engineering Hub</a>
-            <a href="page/development/" class="hover:text-dev-light transition-colors text-dev-light"
-                data-i18n="nav_development">Development
-                Hub</a>
-            <a href="#experience" class="hover:text-eng transition-colors" data-i18n="nav_career">Career</a>
+            <a href="page/profile/"     class="hover:text-eng transition-colors" data-i18n="nav_profile">Profile</a>
+            <a href="#projects"         class="hover:text-eng transition-colors" data-i18n="nav_showcase">Showcase</a>
+            <a href="page/engineering/" class="hover:text-eng transition-colors text-eng" data-i18n="nav_engineering">Engineering Hub</a>
+            <a href="page/development/" class="hover:text-dev-light transition-colors text-dev-light" data-i18n="nav_development">Development Hub</a>
+            <a href="#experience"       class="hover:text-eng transition-colors" data-i18n="nav_career">Career</a>
 
-            <div class="pt-10 mt-10 border-t border-white/5 flex gap-6">
+            <div class="pt-8 mt-4 border-t border-white/5 flex gap-4 flex-wrap">
                 <a href="https://www.linkedin.com/in/muhammad-saifulloh-b37137209/" target="_blank"
-                    class="p-4 bg-slate-900 rounded-xl text-eng"><svg class="w-6 h-6" fill="currentColor"
-                        viewBox="0 0 24 24">
-                        <path
-                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                    </svg></a>
-                <a href="mailto:lezztb@gmail.com" class="p-4 bg-slate-900 rounded-xl text-white">EMAIL</a>
+                    class="p-3.5 bg-slate-900 rounded-xl text-eng hover:bg-eng hover:text-white transition-all">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+                <a href="https://wa.me/6282221294931" target="_blank"
+                    class="p-3.5 bg-slate-900 rounded-xl text-green-400 hover:bg-green-600 hover:text-white transition-all">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.198.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                </a>
+                <a href="mailto:lezztb@gmail.com"
+                    class="p-3.5 bg-slate-900 rounded-xl text-yellow-400 hover:bg-yellow-600 hover:text-white transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                </a>
             </div>
         </div>
     </div>
 
-    <!-- Hero Section -->
+    <!-- ═══ HERO SECTION ══════════════════════════════════════════════════════ -->
     <header class="pt-48 pb-24 px-6 max-w-7xl mx-auto">
         <div class="grid lg:grid-cols-12 gap-16 items-center">
             <div class="lg:col-span-12 xl:col-span-7">
                 <a href="page/profile/"
                     class="inline-block px-4 py-2 rounded-full bg-blue-900/20 border border-blue-500/20 text-eng text-[10px] font-black mb-8 uppercase tracking-[0.2em] hover:bg-eng/10 transition-all"
                     data-i18n="hero_tag">Muhammad Saifulloh</a>
-                <h1 class="text-6xl md:text-9xl font-black mb-10 tracking-tighter leading-[0.85]"
-                    data-i18n="hero_title">
-                    The Architecture of <br><span class="gradient-text-blue">Resilience.</span>
+                <h1 class="text-6xl md:text-9xl font-black mb-10 tracking-tighter leading-[0.85]">
+                    <span class="title-hover-word">The</span>
+                    <span class="title-hover-word">Architecture</span>
+                    <span class="title-hover-word">of</span><br>
+                    <span class="gradient-text-blue title-hover-word">Resilience.</span>
                 </h1>
                 <p class="text-xl text-slate-400 max-w-2xl leading-relaxed mb-12 industrial-border"
-                    data-i18n="hero_subtitle">
-                </p>
+                    data-i18n="hero_subtitle"></p>
                 <div class="flex flex-wrap gap-6 items-center">
                     <a href="mailto:lezztb@gmail.com"
                         class="px-10 py-5 bg-eng hover:bg-eng-dark text-white rounded-sm font-black transition-all shadow-xl shadow-eng/20 uppercase tracking-widest text-xs"
@@ -142,10 +184,8 @@
                         <button id="cv-toggle"
                             class="px-10 py-5 border border-slate-700 hover:bg-slate-800 rounded-sm font-black transition-all text-slate-300 uppercase tracking-widest text-xs flex items-center gap-3">
                             <span data-i18n="hero_btn_brief">Technical Brief</span>
-                            <svg class="w-3 h-3 transition-transform group-hover/cv:rotate-180" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7"></path>
+                            <svg class="w-3 h-3 transition-transform group-hover/cv:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
                         <div id="cv-menu"
@@ -164,41 +204,31 @@
                 <div class="glass-card p-2 rounded-3xl relative">
                     <div class="bg-dark-900 p-8 rounded-[22px] border border-white/5">
                         <div class="flex items-center gap-6 mb-10">
-
                             <div>
                                 <h3 class="font-black text-2xl tracking-tight">Muhammad Saifulloh</h3>
-                                <p class="text-[10px] font-mono text-eng uppercase tracking-[0.3em] font-bold"
-                                    data-i18n="exp_years"></p>
+                                <p class="text-[10px] font-mono text-eng uppercase tracking-[0.3em] font-bold" data-i18n="exp_years"></p>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-4 mb-8">
-                            <div
-                                class="p-4 bg-white/5 rounded-xl border border-white/5 text-center transition-all hover:bg-white/10">
-                                <p class="text-[10px] text-slate-500 uppercase mb-1" data-i18n="stats_deploy">System
-                                    Deployments</p>
+                            <div class="p-4 bg-white/5 rounded-xl border border-white/5 text-center transition-all hover:bg-white/10">
+                                <p class="text-[10px] text-slate-500 uppercase mb-1" data-i18n="stats_deploy">System Deployments</p>
                                 <p id="deploy-count" class="text-2xl font-black italic">0+</p>
                             </div>
-                            <div
-                                class="p-4 bg-white/5 rounded-xl border border-white/5 text-center transition-all hover:bg-white/10">
-                                <p class="text-[10px] text-slate-500 uppercase mb-1" data-i18n="stats_runtime">
-                                    Architecture Runtime</p>
+                            <div class="p-4 bg-white/5 rounded-xl border border-white/5 text-center transition-all hover:bg-white/10">
+                                <p class="text-[10px] text-slate-500 uppercase mb-1" data-i18n="stats_runtime">Architecture Runtime</p>
                                 <p id="runtime-years" class="text-2xl font-black italic">5Y</p>
                             </div>
                         </div>
                         <div class="space-y-3">
-                            <div
-                                class="flex items-center group gap-3 text-xs text-slate-400 bg-eng/5 p-3 rounded-lg border border-eng/10 transition-all hover:border-eng/30">
-                                <svg class="w-4 h-4 tech-tag p-0 border-0 bg-transparent group-hover:protocol-glow"
-                                    viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                            <div class="flex items-center group gap-3 text-xs text-slate-400 bg-eng/5 p-3 rounded-lg border border-eng/10 transition-all hover:border-eng/30">
+                                <svg class="w-4 h-4 tech-tag p-0 border-0 bg-transparent group-hover:protocol-glow" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                                 </svg>
                                 <span class="group-hover:text-white transition-colors" data-i18n="tech_hardware"></span>
                             </div>
-                            <div
-                                class="flex items-center group gap-3 text-xs text-slate-400 bg-dev/5 p-3 rounded-lg border border-dev/10 transition-all hover:border-dev/30">
-                                <svg class="w-4 h-4 dev-tag p-0 border-0 bg-transparent group-hover:protocol-glow"
-                                    viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M4 4h16v16H4V4zm2 4v10h12V8H6z" />
+                            <div class="flex items-center group gap-3 text-xs text-slate-400 bg-dev/5 p-3 rounded-lg border border-dev/10 transition-all hover:border-dev/30">
+                                <svg class="w-4 h-4 dev-tag p-0 border-0 bg-transparent group-hover:protocol-glow" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M4 4h16v16H4V4zm2 4v10h12V8H6z"/>
                                 </svg>
                                 <span class="group-hover:text-white transition-colors" data-i18n="tech_software"></span>
                             </div>
@@ -209,31 +239,25 @@
         </div>
     </header>
 
-    <!-- System Architecture Logic -->
+    <!-- ═══ SYSTEM ARCHITECTURE ═══════════════════════════════════════════════ -->
     <section class="py-24 bg-dark-900/30">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="section-tag mb-12 text-center italic" data-i18n="arch_flow_title">/ SYSTEM ARCHITECTURE FLOW</h2>
+            <h2 class="section-tag mb-12 text-center italic"><span class="text-hover-line" data-i18n="arch_flow_title">/ SYSTEM ARCHITECTURE FLOW</span></h2>
             <div class="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-0">
                 <div class="arch-node w-full md:w-64">
-                    <span class="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-2 block"
-                        data-i18n="arch_level_1">Level 1:
-                        Field</span>
+                    <span class="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-2 block" data-i18n="arch_level_1">Level 1: Field</span>
                     <h4 class="font-black text-white italic">Distributed Sensory & Actuator Nodes.</h4>
                     <p class="text-[10px] text-slate-500 mt-2" data-i18n="arch_desc_1"></p>
                 </div>
                 <div class="arch-arrow hidden md:block"></div>
                 <div class="arch-node w-full md:w-64">
-                    <span class="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-2 block"
-                        data-i18n="arch_level_2">Level 2:
-                        Edge</span>
+                    <span class="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-2 block" data-i18n="arch_level_2">Level 2: Edge</span>
                     <h4 class="font-black text-eng italic">Tactical Edge Gateway</h4>
                     <p class="text-[10px] text-slate-500 mt-2" data-i18n="arch_desc_2"></p>
                 </div>
                 <div class="arch-arrow hidden md:block"></div>
                 <div class="arch-node w-full md:w-64">
-                    <span class="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-2 block"
-                        data-i18n="arch_level_3">Level 3:
-                        Core</span>
+                    <span class="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-2 block" data-i18n="arch_level_3">Level 3: Core</span>
                     <h4 class="font-black text-dev italic">Centralized Infrastructure Orchestration.</h4>
                     <p class="text-[10px] text-slate-500 mt-2" data-i18n="arch_desc_3"></p>
                 </div>
@@ -241,50 +265,48 @@
         </div>
     </section>
 
-    <!-- Project Gallery (Horizontal) -->
+    <!-- ═══ PROJECT GALLERY ════════════════════════════════════════════════════ -->
     <section id="projects" class="py-24 overflow-hidden border-y border-white/5">
         <div class="max-w-7xl mx-auto px-6 mb-12">
             <h2 class="section-tag mb-4">/ WORK SHOWCASE</h2>
-            <h3 class="text-5xl font-black tracking-tighter leading-none italic uppercase"
-                data-i18n="showcase_subtitle"></h3>
+            <h3 class="text-5xl font-black tracking-tighter leading-none italic uppercase"><span class="text-shimmer" data-i18n="showcase_subtitle"></span></h3>
             <div id="filter-hub" class="flex flex-wrap gap-4 mt-8"></div>
         </div>
-
-        <div class="flex gap-8 overflow-x-auto horizontal-scroll px-6 snap-x pb-12" id="project-container">
-            <!-- Projects will be injected from Google Sheets -->
-        </div>
+        <div class="flex gap-6 overflow-x-auto horizontal-scroll px-6 snap-x pb-12" id="project-container">
+            <!-- Projects injected via core.js -->
         </div>
     </section>
 
+    <!-- ═══ REPO MARQUEE ══════════════════════════════════════════════════════ -->
     <section class="py-12 bg-dark-900/50 border-b border-white/5 overflow-hidden">
-        <div class="repo-marquee-container flex flex-nowrap whitespace-nowrap" id="repo-marquee">
-        </div>
+        <div class="repo-marquee-container flex flex-nowrap whitespace-nowrap" id="repo-marquee"></div>
     </section>
 
+    <!-- ═══ CAREER MILESTONES ════════════════════════════════════════════════ -->
     <section id="experience" class="py-24">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="section-tag mb-12" data-i18n="career_title">/ CAREER MILESTONES</h2>
+            <h2 class="section-tag mb-12"><span class="text-hover-line" data-i18n="career_title">/ CAREER MILESTONES</span></h2>
             <div class="grid md:grid-cols-2 gap-12" id="milestone-container">
                 <!-- Milestones injected via milestones.js -->
             </div>
         </div>
     </section>
 
-    <!-- About & Service Hub -->
+    <!-- ═══ ABOUT / SERVICE HUB ═══════════════════════════════════════════════ -->
     <section id="about" class="py-24 border-t border-white/5">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="section-tag mb-12 uppercase italic" data-i18n="nav_hub">/ OPERATIONAL HUB</h2>
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h3 class="text-5xl font-black italic tracking-tighter mb-8 uppercase" data-i18n="profile_title">
-                    </h3>
+                    <h3 class="text-5xl font-black italic tracking-tighter mb-8 uppercase" data-i18n="profile_title"></h3>
                     <p class="text-xl text-slate-400 leading-relaxed industrial-border" data-i18n="profile_bio"></p>
                 </div>
-                <!-- WhatsApp Form will be appended here by core.js -->
+                <!-- WhatsApp Form injected by core.js -->
             </div>
         </div>
     </section>
 
+    <!-- ═══ GITHUB / STATS ════════════════════════════════════════════════════ -->
     <section class="py-24 bg-dark-950">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-16">
@@ -294,38 +316,31 @@
                         <div class="animate-pulse flex space-x-4">
                             <div class="flex-1 space-y-4 py-1">
                                 <div class="h-4 bg-slate-700 rounded w-3/4"></div>
-                                <div class="space-y-2">
-                                    <div class="h-4 bg-slate-700 rounded"></div>
-                                </div>
+                                <div class="space-y-2"><div class="h-4 bg-slate-700 rounded"></div></div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <h2 class="section-tag mb-8 uppercase italic" data-i18n="github_stats_title">/ LOGISTICS TELEMENTRY
-                        (STATS)</h2>
+                    <h2 class="section-tag mb-8 uppercase italic" data-i18n="github_stats_title">/ LOGISTICS TELEMETRY (STATS)</h2>
                     <div class="space-y-6">
-                        <div style="display: flex;gap: 1vh;">
+                        <div style="display:flex;gap:1vh;">
                             <div class="glass-card p-1 rounded-2xl overflow-hidden border border-eng/20">
                                 <img src="https://nirzak-streak-stats.vercel.app/?user=saiflll&theme=tokyonight&hide_border=true&background=0a0f1e&stroke=00458b&ring=3b82f6&fire=3b82f6"
-                                    class="w-full transition-transform hover:scale-[1.01]" />
+                                    class="w-full transition-transform hover:scale-[1.01]"/>
                             </div>
                             <div class="glass-card p-1 rounded-2xl overflow-hidden border border-dev/20">
                                 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=saiflll&theme=tokyonight&hide_border=true&layout=compact&bg_color=0a0f1e&title_color=3b82f6&text_color=93c5fd"
-                                    class="w-full transition-transform hover:scale-[1.01]" />
+                                    class="w-full transition-transform hover:scale-[1.01]"/>
                             </div>
                         </div>
-
                     </div>
-
                     <div class="mt-12">
                         <div class="flex items-center gap-3 mb-4">
                             <div class="w-2 h-2 bg-eng-light rounded-full animate-pulse"></div>
-                            <span class="text-[10px] font-mono font-bold text-eng tracking-widest uppercase">Live System
-                                Logs</span>
+                            <span class="text-[10px] font-mono font-bold text-eng tracking-widest uppercase">Live System Logs</span>
                         </div>
-                        <div
-                            class="glass-card rounded-xl border border-white/5 overflow-hidden font-mono text-[9px] bg-black/40">
+                        <div class="glass-card rounded-xl border border-white/5 overflow-hidden font-mono text-[9px] bg-black/40">
                             <div class="bg-white/5 px-4 py-2 border-b border-white/5 flex items-center justify-between">
                                 <span class="text-slate-500">TERMINAL [TTY/S0] - saiflll_core</span>
                                 <div class="flex gap-1.5 opacity-50">
@@ -334,8 +349,7 @@
                                     <div class="w-1.5 h-1.5 rounded-full bg-green-400"></div>
                                 </div>
                             </div>
-                            <div id="serial-logs" class="p-5 h-40 overflow-y-auto space-y-1 text-slate-400">
-                            </div>
+                            <div id="serial-logs" class="p-5 h-40 overflow-y-auto space-y-1 text-slate-400"></div>
                         </div>
                     </div>
                 </div>
@@ -343,38 +357,27 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ═══ FOOTER ════════════════════════════════════════════════════════════ -->
     <footer class="py-32 bg-dark-950 border-t border-white/10 text-center grid-blueprint">
-        <h3 class="text-5xl font-black italic mb-8 italic" data-i18n="footer_slogan">Integrated Strategic Independence.
-        </h3>
-        <div
-            class="flex justify-center gap-12 font-mono text-[10px] text-slate-600 tracking-[0.3em] font-bold mb-20 uppercase">
-            <a href="page/engineering/" class="hover:text-eng transition-colors"
-                data-i18n="nav_engineering">Engineering</a>
-            <a href="page/development/" class="hover:text-dev-colors transition-colors"
-                data-i18n="nav_development">Development</a>
-            <a href="#about" class="hover:text-white transition-colors text-white" data-i18n="nav_hub">Operational
-                Hub</a>
+        <h3 class="text-5xl font-black italic mb-8" data-i18n="footer_slogan">Integrated Strategic Independence.</h3>
+        <div class="flex justify-center gap-12 font-mono text-[10px] text-slate-600 tracking-[0.3em] font-bold mb-20 uppercase">
+            <a href="page/engineering/"  class="hover:text-eng transition-colors"       data-i18n="nav_engineering">Engineering</a>
+            <a href="page/development/"  class="hover:text-dev-light transition-colors"  data-i18n="nav_development">Development</a>
+            <a href="#about"             class="hover:text-white transition-colors text-white" data-i18n="nav_hub">Hub</a>
         </div>
         <p class="text-[9px] text-slate-800 font-bold uppercase tracking-widest italic tracking-[0.5em]"
-            data-i18n="footer_text">SYSTEM STABLE •
-            BUILT FOR STRATEGIC DEFENSE • 2026</p>
+            data-i18n="footer_text">SYSTEM STABLE • BUILT FOR STRATEGIC DEFENSE • 2026</p>
     </footer>
 
+    <!-- ═══ MODAL ═════════════════════════════════════════════════════════════ -->
     <div id="image-modal">
-        <div class="modal-content glass-card p-1">
-            <div class="bg-dark-900 rounded-[20px] p-6 md:p-10 relative">
-                <button id="modal-close"
-                    class="absolute top-6 right-6 text-white font-black text-2xl hover:text-eng transition-colors">&times;</button>
-                <div class="flex flex-col gap-8">
-                    <img id="modal-img" src="" alt="Project Preview"
-                        class="w-full rounded-xl border border-white/5 shadow-2xl">
-                    <div class="modal-info">
-                        <h4 id="modal-title" class="text-3xl font-black italic uppercase mb-2">Project Title</h4>
-                        <p id="modal-desc" class="text-slate-400 text-sm leading-relaxed max-w-2xl">Project technical
-                            descriptions and system architecture notes will be injected here.</p>
-                    </div>
-                </div>
+        <div class="modal-content">
+            <div class="modal-inner">
+                <button id="modal-close" aria-label="Close">&times;</button>
+                <img id="modal-img" src="" alt="Project Preview">
+                <h4 id="modal-title">Project Title</h4>
+                <div class="modal-divider"></div>
+                <div id="modal-desc" class="text-slate-400 text-sm leading-relaxed"></div>
             </div>
         </div>
     </div>

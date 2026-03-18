@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Engineering Lab | Muhammad Saifulloh</title>
-    <!-- Foot Scripts -->
+    <!-- Translations must load first -->
     <script src="../../static/js/translations.js"></script>
+    <!-- Loader -->
+    <script src="../../static/js/loader.js"></script>
 
     <!-- Icons & Assets -->
     <link rel="stylesheet" href="../../static/css/style.css">
@@ -40,35 +42,43 @@
 </head>
 
 <body class="bg-dark-950 text-slate-100 font-sans grid-blueprint selection:bg-eng">
-    <nav class="fixed top-0 w-full z-50 glass-card border-b border-white/5 py-4">
-        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+    <nav class="fixed top-0 w-full z-50 glass-card border-b border-white/5 py-3">
+        <div class="max-w-7xl mx-auto px-5 flex justify-between items-center gap-4">
             <a href="../../" class="flex items-center gap-3 group">
-                <div
-                    class="w-10 h-10 bg-eng rounded-lg flex items-center justify-center font-black text-white group-hover:protocol-glow transition-all">
-                    ←</div>
+                <div class="w-9 h-9 bg-eng rounded-lg flex items-center justify-center font-black text-white text-sm group-hover:protocol-glow transition-all flex-shrink-0">←</div>
                 <div class="flex flex-col">
-                    <span class="font-black tracking-tighter leading-none text-lg">MUHAMMAD SAIFULLOH</span>
-                    <span class="text-[9px] text-slate-500 font-mono tracking-[0.2em] uppercase"
-                        data-i18n="profile_archive_label">IoT Architect | Full-Stack Dev | Embedded Systems
-                        Engineer</span>
+                    <span class="font-black tracking-tighter leading-none text-base">MUHAMMAD SAIFULLOH</span>
+                    <span class="text-[8px] text-slate-500 font-mono tracking-[0.15em] uppercase hidden sm:block" data-i18n="profile_archive_label">IoT Architect | Full-Stack Dev | Embedded Systems Engineer</span>
                 </div>
             </a>
 
-            <!-- Mobile Menu Button -->
-            <div class="flex items-center gap-4">
+            <h1 class="section-tag italic hidden lg:block flex-1 text-center" data-i18n="operational_level_field">HARDWARE & INTEGRATION DEEP-DIVE</h1>
+
+            <div class="flex items-center gap-2">
+                <select id="lang-picker" title="Select Language">
+                    <option value="en">EN</option>
+                    <option value="id">ID</option>
+                    <option value="ja">JA</option>
+                    <option value="zh">ZH</option>
+                </select>
+                <button id="theme-toggle" title="Toggle Theme" aria-label="Toggle theme"></button>
+                <a href="https://www.linkedin.com/in/muhammad-saifulloh-b37137209/" target="_blank" title="LinkedIn"
+                    class="hidden sm:flex w-9 h-9 items-center justify-center bg-slate-800 text-white rounded-lg hover:bg-eng transition-colors border border-white/5">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="https://wa.me/6281234567890" target="_blank" title="WhatsApp"
+                    class="hidden sm:flex w-9 h-9 items-center justify-center bg-slate-800 text-white rounded-lg hover:bg-green-600 transition-colors border border-white/5">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.198.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                </a>
+                <a href="mailto:lezztb@gmail.com" title="Email"
+                    class="hidden sm:flex w-9 h-9 items-center justify-center bg-slate-800 text-white rounded-lg hover:bg-safety transition-colors border border-white/5">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                </a>
                 <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-400 hover:text-white transition-colors">
-                    <svg class="menu-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                    <svg class="close-icon w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
-                        </path>
-                    </svg>
+                    <svg class="menu-icon w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    <svg class="close-icon w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
             </div>
-            <h1 class="section-tag italic hidden lg:block" data-i18n="operational_level_field">HARDWARE & INTEGRATION
-                DEEP-DIVE</h1>
         </div>
     </nav>
 
@@ -164,20 +174,15 @@
         </div>
     </main>
 
-    <!-- Mechanical-Humanist Modal -->
+    <!-- Modal -->
     <div id="image-modal">
-        <div class="modal-content glass-card p-1">
-            <div class="bg-dark-900 rounded-[20px] p-10 relative">
-                <button id="modal-close"
-                    class="absolute top-6 right-6 text-white font-black text-2xl hover:text-eng transition-colors">&times;</button>
-                <div class="flex flex-col gap-8">
-                    <img id="modal-img" src="" alt="Project Preview"
-                        class="w-full rounded-xl border border-white/5 shadow-2xl">
-                    <div class="modal-info text-left">
-                        <h4 id="modal-title" class="text-3xl font-black italic uppercase mb-2">Project Title</h4>
-                        <div id="modal-desc" class="text-slate-400 text-sm leading-relaxed max-w-2xl"></div>
-                    </div>
-                </div>
+        <div class="modal-content">
+            <div class="modal-inner">
+                <button id="modal-close" aria-label="Close">&times;</button>
+                <img id="modal-img" src="" alt="Project Preview">
+                <h4 id="modal-title">Project Title</h4>
+                <div class="modal-divider"></div>
+                <div id="modal-desc" class="text-slate-400 text-sm leading-relaxed"></div>
             </div>
         </div>
     </div>

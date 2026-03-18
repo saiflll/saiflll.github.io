@@ -78,10 +78,12 @@ OUTPUT   = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'repos_data.
 
 SKIP_REPOS = {'saiflll.github.io', 'saiflll.github.io'.lower()}
 AUTO_DEFAULTS = {
-    None, '', 
+    None, '',
     'Development Project and Hobbies',
     'Active Engineering Project',
     'Mixed Tech',
+    # 'hardware' is intentionally NOT here — we want manual 'hardware' to persist,
+    # but the script re-evaluates category every run anyway via smart_category.
 }
 
 headers = {
@@ -201,24 +203,75 @@ def fetch_readme_body(repo: str) -> str:
     return ''
 
 
-def smart_category(desc: str, tech: str) -> str:
-    """Auto-guess category from description and tech_stack."""
-    d = (desc  or '').lower()
-    t = (tech  or '').lower()
+def smart_category(desc: str, tech: str, name: str = '') -> str:
+    """
+    Auto-guess category from repo name, description, and tech_stack.
 
-    hardware_keywords  = {'c++', 'c', 'esp32', 'esp8266', 'stm', 'arduino', 'nrf',
-                          'avr', 'rtos', 'plc', 'firmware', 'pcb', 'rf', 'uart',
-                          'hardware', 'embedded', 'modbus', 'rs485', 'i2c', 'spi'}
-    support_keywords   = {'dashboard', 'monitor', 'support', 'admin', 'management',
-                          'website', 'web', 'utility', 'helper', 'tool', 'portal',
-                          'ui', 'interface', '.env'}
+    Categories:
+      'hardware' → C/C++/embedded/firmware projects → shown in Engineering
+      'logic'    → backend, app, service, API projects → shown in Development
+      'support'  → dashboards, tools, scripts, monitoring → shown in Development
+    """
+    d = (desc or '').lower()
+    t = (tech or '').lower()
+    n = (name or '').lower().replace('-', ' ').replace('_', ' ')
 
+    # Definitive hardware indicators (tech stack or keywords)
+    hardware_tech = {'c++', 'c'}
+    hardware_keywords = {
+        'esp32', 'esp8266', 'stm32', 'stm', 'arduino', 'nrf', 'nrf52',
+        'avr', 'rtos', 'plc', 'firmware', 'pcb', 'rf', 'uart', 'i2c', 'spi',
+        'hardware', 'embedded', 'modbus', 'rs485', 'rs232', 'ble', 'beacon',
+        'microcontroller', 'sensor', 'actuator', 'soldering', 'keyless',
+        'relay', 'pwm', 'adc', 'gpio',
+    }
 
-    if any(k in t for k in hardware_keywords) or any(k in d for k in hardware_keywords):
+    # Support / tool / utility indicators
+    support_keywords = {
+        'dashboard', 'monitor', 'support', 'admin', 'management',
+        'website', 'web', 'utility', 'helper', 'tool', 'portal',
+        'script', 'hobbies', 'hobby',
+    }
+
+    # Logic / app / backend indicators
+    logic_tech = {
+        'typescript', 'javascript', 'python', 'go', 'rust', 'java',
+        'kotlin', 'swift', 'php', 'ruby', 'dart', 'elixir', 'scala',
+    }
+    logic_keywords = {
+        'api', 'backend', 'frontend', 'fullstack', 'full stack', 'full-stack',
+        'app', 'mobile', 'server', 'service', 'microservice', 'wms',
+        'warehouse', 'inventory', 'database', 'ml', 'ai', 'machine learning',
+        'nextjs', 'next.js', 'nestjs', 'react', 'vue', 'angular', 'django',
+        'flask', 'fastapi', 'spring',
+    }
+
+    # 1. If tech stack is C/C++, almost certainly hardware
+    if t in hardware_tech:
+        # But check if description clearly contradicts (unlikely, but safe)
+        if any(k in d for k in hardware_keywords) or any(k in n for k in hardware_keywords):
+            return 'hardware'
+        return 'hardware'  # C/C++ defaults to hardware
+
+    # 2. Check description/name for clear hardware signals
+    if any(k in d for k in hardware_keywords) or any(k in n for k in hardware_keywords):
         return 'hardware'
-    if any(k in d for k in support_keywords):
+
+    # 3. Logic/backend tech stack → logic
+    if t in logic_tech:
+        # Check if it's more of a support/tool
+        if any(k in d for k in support_keywords) or any(k in n for k in support_keywords):
+            return 'support'
+        return 'logic'
+
+    # 4. Keywords in description/name
+    if any(k in d for k in logic_keywords) or any(k in n for k in logic_keywords):
+        return 'logic'
+    if any(k in d for k in support_keywords) or any(k in n for k in support_keywords):
         return 'support'
-    return 'logic'
+
+    # 5. Default fallback
+    return 'support'
 
 
 # ── MAIN ─────────────────────────────────────────────────────────────────────
@@ -300,7 +353,7 @@ def main():
 
         auto_tech   = repo.get('language')    or 'Mixed Tech'
         auto_update = (repo.get('updated_at') or '')[:10]
-        auto_cat    = smart_category(auto_desc, auto_tech)
+        auto_cat    = smart_category(auto_desc, auto_tech, name)
 
         print(f"  → Scanning: {name} ...", end=' ', flush=True)
         auto_img = find_image_url(name)

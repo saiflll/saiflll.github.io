@@ -19,7 +19,7 @@ const certificationsData = [
         title: "Cisco Networking Specialist",
         issuer: "Cisco / AMIKOM",
         date: "2022",
-        img: "../static/sertif/CIsco.png",
+        img: "../../static/sertif/CIsco.png",
         path: "",
         techDesc: "Cisco Networking Specialist — focus on enterprise routing, switching, VLAN segmentation, and secure network infrastructure orchestration. Completed as part of the Cisco Networking Academy program."
     },
@@ -28,7 +28,7 @@ const certificationsData = [
         title: "Assistent Forum Design Grafis",
         issuer: "AMIKOM Yogyakarta",
         date: "2022/2023",
-        img: "../static/sertif/design-asis.png",
+        img: "../../static/sertif/design-asis.png",
         path: "",
         techDesc: "Assistent Forum Design Grafis — focus on enterprise design grafis."
     },
@@ -37,7 +37,7 @@ const certificationsData = [
         title: "Assistent Forum Jaringan",
         issuer: "AMIKOM Yogyakarta",
         date: "2022/2023",
-        img: "../static/sertif/jaringan-asis.png",
+        img: "../../static/sertif/jaringan-asis.png",
         path: "",
         techDesc: "Assistent Forum Jaringan — focus on Networking and cisco."
     },
@@ -46,7 +46,7 @@ const certificationsData = [
         title: "Assistent Forum Pemrograman",
         issuer: "AMIKOM Yogyakarta",
         date: "2022/2023",
-        img: "../static/sertif/pemrograman-asis.png",
+        img: "../../static/sertif/pemrograman-asis.png",
         path: "",
         techDesc: "Assistent Forum Pemrograman — focus on Programing class."
     },
@@ -55,7 +55,7 @@ const certificationsData = [
         title: "Assistent E Bussines",
         issuer: "AMIKOM Yogyakarta",
         date: "2022/2023",
-        img: "../static/sertif/e-bussines.png",
+        img: "../../static/sertif/e-bussines.png",
         path: "",
         techDesc: "Assistent E Bussines — focus on e-bussines."
     },
@@ -64,7 +64,7 @@ const certificationsData = [
         title: "Assistent Forum Pemrograman",
         issuer: "AMIKOM Yogyakarta",
         date: "2022/2023",
-        img: "../static/sertif/pemrograman-asis.png",
+        img: "../../static/sertif/pemrograman-asis.png",
         path: "",
         techDesc: "Assistent Forum Pemrograman — focus on Programing class."
     },
@@ -73,7 +73,7 @@ const certificationsData = [
         title: "Assistent Forum Design Grafis",
         issuer: "AMIKOM Yogyakarta",
         date: "2022/2023",
-        img: "../static/sertif/design-koor.png",
+        img: "../../static/sertif/design-koor.png",
         path: "",
         techDesc: "Koordinator Forum Design Grafis — focus on Design Grafis class."
     },
@@ -82,7 +82,7 @@ const certificationsData = [
         title: "Assistent Forum Operational System",
         issuer: "AMIKOM Yogyakarta",
         date: "2022/2023",
-        img: "../static/sertif/os-asis.png",
+        img: "../../static/sertif/os-asis.png",
         path: "",
         techDesc: "Assistent Forum Operational System — focus on Operating System."
     },
@@ -91,7 +91,7 @@ const certificationsData = [
         title: "Studi Indipendent",
         issuer: "MSIB",
         date: "2022/2023",
-        img: "../static/sertif/msib.png",
+        img: "../../static/sertif/msib.png",
         path: "",
         techDesc: "Studi Indipendent — focus on MSIB studiying full-stack development."
     }
@@ -129,6 +129,7 @@ function renderCertifications() {
             ${cert.img ? `
             <div class="w-full h-10 mb-2 rounded-lg overflow-hidden bg-white/5 border border-white/5">
                 <img src="${cert.img}" alt="${cert.abbr}"
+                 
                     class="w-full h-full object-cover opacity-40 group-hover:opacity-75 transition-opacity"
                     onerror="this.parentElement.style.display='none'">
             </div>` : ''}
@@ -138,18 +139,28 @@ function renderCertifications() {
         </div>`;
     }).join('');
 
-    // Bind click → modal
-    container.querySelectorAll('.cert-card').forEach(card => {
-        card.addEventListener('click', () => {
-            if (!window.openProjectModal) return;
-            window.openProjectModal(
-                card.getAttribute('data-title'),
-                card.getAttribute('data-tech-desc'),
-                card.getAttribute('data-img'),
-                false   // plain text desc
-            );
-        });
+    // Use event delegation on container — works regardless of script load order
+    container.addEventListener('click', (e) => {
+        const card = e.target.closest('.cert-card');
+        if (!card) return;
+
+        const title = card.getAttribute('data-title');
+        const desc = card.getAttribute('data-tech-desc');
+        const img = card.getAttribute('data-img');
+
+        // Prefer the new Modal singleton if it exists
+        if (window.Modal && window.Modal.open) {
+            window.Modal.open(img, title, null, desc);
+        } else if (window.openProjectModal) {
+            // Fallback to the global wrapper
+            window.openProjectModal(title, desc, img, false);
+        }
     });
 }
 
-document.addEventListener('DOMContentLoaded', renderCertifications);
+// Run after DOM — core.js may already be loaded by then
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderCertifications);
+} else {
+    renderCertifications();
+}

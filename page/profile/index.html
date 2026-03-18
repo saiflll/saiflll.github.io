@@ -38,6 +38,8 @@
     </script>
     <!-- Foot Scripts -->
     <script src="../../static/js/translations.js"></script>
+    <!-- Loader -->
+    <script src="../../static/js/loader.js"></script>
 
 </head>
 
@@ -165,7 +167,8 @@
                     <div>
                         <h3 class="section-tag mb-8" data-i18n="leadership_title">/ LEADERSHIP &amp; ORGANIZATION</h3>
                         <div class="glass-card p-10 rounded-3xl border-t-2 border-slate-700 transition-all hover:bg-white/5 hover:border-eng/30 cursor-pointer group"
-                            data-img="../../static/img/assistant-forum.jpg" data-title="Assistant Forum — AMIKOM 2022–2023"
+                            data-img="../../static/img/assistant-forum.jpg"
+                            data-title="Assistant Forum — AMIKOM 2022–2023"
                             data-tech-desc="Laboratory Assistant Forum, AMIKOM Yogyakarta (2022–2023). Mentoring undergraduate students in Computer Networks, Web Systems, and OS Architecture. Responsible for translating complex technical concepts into structured, accessible lab modules. Active as module author and practical exam assessor for 3 semesters."
                             onclick="if(window.openProjectModal) openProjectModal(this.getAttribute('data-title'), this.getAttribute('data-tech-desc'), this.getAttribute('data-img'), false)">
                             <h4 class="text-2xl font-black uppercase mb-2 group-hover:text-eng transition-colors">
@@ -254,20 +257,15 @@
         </div>
     </main>
 
-    <!-- Mechanical-Humanist Modal -->
+    <!-- Modal -->
     <div id="image-modal">
-        <div class="modal-content glass-card p-1">
-            <div class="bg-dark-900 rounded-[20px] p-10 relative">
-                <button id="modal-close"
-                    class="absolute top-6 right-6 text-white font-black text-2xl hover:text-eng transition-colors">&times;</button>
-                <div class="flex flex-col gap-8">
-                    <img id="modal-img" src="" alt="Credential Preview"
-                        class="w-full rounded-xl border border-white/5 shadow-2xl">
-                    <div class="modal-info text-left">
-                        <h4 id="modal-title" class="text-3xl font-black italic uppercase mb-2">Credential Title</h4>
-                        <div id="modal-desc" class="text-slate-400 text-sm leading-relaxed max-w-2xl"></div>
-                    </div>
-                </div>
+        <div class="modal-content">
+            <div class="modal-inner">
+                <button id="modal-close" aria-label="Close">&times;</button>
+                <img id="modal-img" src="" alt="Credential Preview">
+                <h4 id="modal-title">Credential Title</h4>
+                <div class="modal-divider"></div>
+                <div id="modal-desc" class="text-slate-400 text-sm leading-relaxed"></div>
             </div>
         </div>
     </div>
@@ -278,8 +276,8 @@
             VERIFIED • 2026</p>
     </footer>
 
-    <script src="../../static/js/certifications.js"></script>
     <script src="../../static/js/core.js"></script>
+    <script src="../../static/js/certifications.js"></script>
 </body>
 
 </html>
