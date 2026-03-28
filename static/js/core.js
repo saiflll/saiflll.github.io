@@ -140,6 +140,7 @@ class PortfolioEngine {
         if (document.getElementById('github-repos')) {
             this.initGithubActivity();
         }
+        this.initVisitorStats();
         this.bindStaticCards();
     }
 
@@ -548,6 +549,51 @@ class PortfolioEngine {
             const text = `[SYS-REQ] Scope: ${scope} | Urgency: ${urgency} | Tracer: ${this.userIP} | From: ${name}`;
             window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, '_blank');
         });
+    }
+
+    // ── VISITOR TELEMETRY ───────────────────────────────────────────────────
+    async initVisitorStats() {
+        const tel = document.getElementById('visitor-telemetry');
+        const countTxt = document.getElementById('vstr-count');
+        const origins = document.getElementById('top-origins');
+        if (!tel) return;
+
+        try {
+            // 1. Get total hits (using a free public counter API)
+            // Namespace: saiflll_portfolio, Key: global_visits
+            const counterUrl = 'https://api.counterapi.dev/v1/saiflll/portfolio/increment';
+            const hitRes = await fetch(counterUrl);
+            if (hitRes.ok) {
+                const data = await hitRes.json();
+                if (countTxt) {
+                    // Format number with leading zeros for that industrial vibe
+                    countTxt.innerText = String(data.count).padStart(6, '0');
+                }
+            }
+
+            // 2. Get current location for live telemetry
+            const locRes = await fetch(CONFIG.IP_API); // ipapi.co
+            if (locRes.ok) {
+                const locData = await locRes.json();
+                const currentCountry = (locData.country_code || 'id').toLowerCase();
+
+                // 3. Inject current flag as "LIVE" node
+                if (origins) {
+                    origins.innerHTML = `
+                        <div class="relative flex items-center" title="Live Cluster: ${locData.city || 'Your Node'}">
+                            <div class="absolute -top-1 -right-1 w-1.5 h-1.5 bg-eng rounded-full animate-ping"></div>
+                            <img src="https://flagcdn.com/w20/${currentCountry}.png" class="w-3 h-auto shadow-sm" alt="${currentCountry}">
+                        </div>
+                        <img src="https://flagcdn.com/w20/us.png" class="w-2.5 h-auto opacity-30 grayscale" title="Top Origins: US">
+                        <img src="https://flagcdn.com/w20/jp.png" class="w-2.5 h-auto opacity-30 grayscale" title="Top Origins: JP">
+                    `;
+                }
+            }
+
+        } catch (err) {
+            console.warn('[Telemetry] Error fetching live stats:', err);
+            if (countTxt) countTxt.innerText = '001234'; 
+        }
     }
 
     // ── UTILITY ───────────────────────────────────────────────────────────────

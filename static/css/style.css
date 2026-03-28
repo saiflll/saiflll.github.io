@@ -1473,3 +1473,37 @@ html.light select {
     transform: translateY(-4px) skewX(-4deg);
     color: var(--eng-light);
 }
+
+/* ═══════════════════════════════════════════
+   VISITOR TELEMETRY (Bottom Left)
+   ═══════════════════════════════════════════ */
+#visitor-telemetry {
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+#visitor-telemetry:hover {
+    transform: scale(1.05) translateY(-4px);
+    opacity: 1 !important;
+}
+
+#visitor-telemetry .glass-card {
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+html.light #visitor-telemetry .glass-card {
+    background: rgba(255, 255, 255, 0.8) !important;
+    border-color: rgba(37, 99, 235, 0.1) !important;
+    box-shadow: 0 10px 30px -10px rgba(37, 99, 235, 0.15);
+}
+
+#top-origins img {
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+#visitor-telemetry:hover #top-origins img {
+    opacity: 1 !important;
+    filter: grayscale(0) !important;
+}
