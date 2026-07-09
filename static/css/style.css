@@ -2,67 +2,51 @@
    DESIGN TOKENS — Dark Mode (Default)
    ═══════════════════════════════════════════ */
 :root {
-    --eng-blue: #2563eb;
-    --eng-light: #3b82f6;
-    --eng-dark: #1e40af;
-    --dev-green: #059669;
-    --dev-light: #10b981;
-    --safety-orange: #f59e0b;
-    --dark-950: #020617;
-    --dark-900: #0a0f1e;
-    --dark-800: #1e293b;
-    --accent-blue: #3b82f6;
+    --eng-blue: #2a6df4;
+    --eng-light: #4b8bfa;
+    --eng-dark: #1a4db8;
+    --dev-green: #0e8c6a;
+    --dev-light: #1da87a;
+    --safety-orange: #d4940a;
+    --dark-950: #0a0b0e;
+    --dark-900: #111216;
+    --dark-800: #1e2029;
+    --accent-blue: #4b8bfa;
 
     /* Semantic aliases — dark */
-    --bg-base: #020617;
-    --bg-surface: #0a0f1e;
-    --bg-elevated: #111827;
-    --bg-card: rgba(10, 15, 30, 0.65);
+    --bg-base: #0a0b0e;
+    --bg-surface: #111216;
+    --bg-elevated: #181a22;
+    --bg-card: rgba(17, 18, 22, 0.65);
     --border-subtle: rgba(255, 255, 255, 0.08);
     --border-mid: rgba(255, 255, 255, 0.14);
     --text-primary: #f1f5f9;
     --text-secondary: #94a3b8;
     --text-muted: #475569;
-    --blueprint-dot: rgba(37, 99, 235, 0.10);
-    --glass-shimmer: linear-gradient(45deg, transparent 40%, rgba(37, 99, 235, 0.08), transparent 60%);
-    --card-hover-bg: rgba(10, 15, 30, 0.85);
-    --modal-overlay: rgba(2, 6, 23, 0.95);
+    --blueprint-dot: rgba(42, 109, 244, 0.10);
+    --glass-shimmer: linear-gradient(45deg, transparent 40%, rgba(42, 109, 244, 0.08), transparent 60%);
+    --card-hover-bg: rgba(17, 18, 22, 0.85);
+    --modal-overlay: rgba(10, 11, 14, 0.95);
     --input-bg: rgba(255, 255, 255, 0.05);
-    --scrollbar-thumb: #1e293b;
+    --scrollbar-thumb: #1e2029;
 }
 
 /* ── LIGHT MODE ─────────────────────────────── */
 /* ── LIGHT MODE ─────────────────────────────── */
 html.light {
-    /* Base paling bawah, sedikit abu-abu/biru pucat */
-    --bg-base: #e8edf5;
-
-    /* Surface naik sedikit, lebih putih */
-    --bg-surface: #f0f4f8;
-
-    /* Elevated paling atas, putih bersih atau mendekati putih */
+    --bg-base: #ece8e0;
+    --bg-surface: #f5f2ed;
     --bg-elevated: #ffffff;
-
-    /* Card dengan glassmorphism */
     --bg-card: rgba(255, 255, 255, 0.85);
-
     --border-subtle: rgba(0, 0, 0, 0.08);
     --border-mid: rgba(0, 0, 0, 0.14);
-
-    /* Teks sudah aman */
-    --text-primary: #0f172a;
-    --text-secondary: #334155;
-    --text-muted: #64748b;
-
-    --blueprint-dot: rgba(37, 99, 235, 0.07);
+    --text-primary: #1a1a1a;
+    --text-secondary: #3a3a4a;
+    --text-muted: #6b7280;
+    --blueprint-dot: rgba(42, 109, 244, 0.08);
     --glass-shimmer: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.6), transparent 60%);
-    /* Shimmer di light mode lebih logis pakai putih daripada biru redup */
-
     --card-hover-bg: rgba(255, 255, 255, 1);
-
-    /* Overlay sedikit dikurangi kepekatannya agar tidak terlalu 'mengisolasi' */
-    --modal-overlay: rgba(15, 23, 42, 0.65);
-
+    --modal-overlay: rgba(26, 26, 26, 0.65);
     --input-bg: rgba(0, 0, 0, 0.04);
     --scrollbar-thumb: #cbd5e1;
 }
@@ -351,7 +335,7 @@ nav.glass-card {
 }
 
 html.light nav.glass-card {
-    background: rgba(240, 244, 248, 0.88);
+    background: rgba(245, 242, 237, 0.88);
 }
 
 /* Mobile dark nav overlay */
@@ -748,19 +732,19 @@ html.light .text-white {
 }
 
 html.light .bg-dark-950 {
-    background-color: #f0f4f8 !important;
+    background-color: #ece8e0 !important;
 }
 
 html.light .bg-dark-900 {
-    background-color: #e8edf5 !important;
+    background-color: #f5f2ed !important;
 }
 
 html.light .bg-dark-900\/30 {
-    background-color: rgba(232, 237, 245, 0.6) !important;
+    background-color: rgba(245, 242, 237, 0.6) !important;
 }
 
 html.light .bg-dark-900\/50 {
-    background-color: rgba(232, 237, 245, 0.8) !important;
+    background-color: rgba(245, 242, 237, 0.8) !important;
 }
 
 html.light .glass-card {
@@ -821,29 +805,29 @@ html.light .project-card-desc {
 }
 
 html.light #mobile-menu {
-    background-color: rgba(240, 244, 248, 0.97);
+    background-color: rgba(245, 242, 237, 0.97);
 }
 
 html.light #mobile-menu a {
-    color: #0f172a;
+    color: #1a1a1a;
 }
 
 html.light select option {
-    background: #e8edf5;
-    color: #0f172a;
+    background: #f5f2ed;
+    color: #1a1a1a;
 }
 
 html.light .modal-content {
-    background: #f8fafc;
+    background: #f5f2ed;
     border-color: rgba(0, 0, 0, 0.1);
 }
 
 html.light #modal-title {
-    color: #0f172a;
+    color: #1a1a1a;
 }
 
 html.light #modal-desc {
-    color: #334155;
+    color: #3a3a4a;
 }
 
 html.light .bg-slate-800 {
@@ -854,16 +838,12 @@ html.light .bg-slate-900 {
     background-color: rgba(0, 0, 0, 0.06) !important;
 }
 
-html.light .bg-dark-950 {
-    background-color: #f0f4f8 !important;
-}
-
 html.light .arch-node {
     background: rgba(255, 255, 255, 0.75);
 }
 
 html.light .grid-blueprint {
-    background-image: radial-gradient(rgba(37, 99, 235, 0.07) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(42, 109, 244, 0.08) 1px, transparent 1px);
 }
 
 /* ═══════════════════════════════════════════
