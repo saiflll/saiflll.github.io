@@ -2,16 +2,16 @@
    DESIGN TOKENS — Dark Mode (Default)
    ═══════════════════════════════════════════ */
 :root {
-    --eng-blue: #2a6df4;
-    --eng-light: #4b8bfa;
-    --eng-dark: #1a4db8;
+    --eng-blue: #3b82f6;
+    --eng-light: #60a5fa;
+    --eng-dark: #2563eb;
     --dev-green: #0e8c6a;
     --dev-light: #1da87a;
     --safety-orange: #d4940a;
     --dark-950: #0a0b0e;
     --dark-900: #111216;
     --dark-800: #1e2029;
-    --accent-blue: #4b8bfa;
+    --accent-blue: #60a5fa;
 
     /* Semantic aliases — dark */
     --bg-base: #0a0b0e;
@@ -20,11 +20,11 @@
     --bg-card: rgba(17, 18, 22, 0.65);
     --border-subtle: rgba(255, 255, 255, 0.08);
     --border-mid: rgba(255, 255, 255, 0.14);
-    --text-primary: #f1f5f9;
-    --text-secondary: #94a3b8;
-    --text-muted: #475569;
-    --blueprint-dot: rgba(42, 109, 244, 0.10);
-    --glass-shimmer: linear-gradient(45deg, transparent 40%, rgba(42, 109, 244, 0.08), transparent 60%);
+    --text-primary: #ffffff;
+    --text-secondary: #e2e8f0;
+    --text-muted: #a8b8d0;
+    --blueprint-dot: rgba(59, 130, 246, 0.10);
+    --glass-shimmer: linear-gradient(45deg, transparent 40%, rgba(59, 130, 246, 0.08), transparent 60%);
     --card-hover-bg: rgba(17, 18, 22, 0.85);
     --modal-overlay: rgba(10, 11, 14, 0.95);
     --input-bg: rgba(255, 255, 255, 0.05);
@@ -34,19 +34,27 @@
 /* ── LIGHT MODE ─────────────────────────────── */
 /* ── LIGHT MODE ─────────────────────────────── */
 html.light {
-    --bg-base: #ece8e0;
-    --bg-surface: #f5f2ed;
+    --eng-blue: #22344d;
+    --eng-light: #2a4a6b;
+    --eng-dark: #1a2838;
+    --dev-green: #1f6f6b;
+    --dev-light: #2a8a85;
+    --dev-dark: #15504d;
+    --safety-orange: #a87308;
+    --accent-blue: #2a4a6b;
+    --bg-base: #f4f6f9;
+    --bg-surface: #ffffff;
     --bg-elevated: #ffffff;
     --bg-card: rgba(255, 255, 255, 0.85);
     --border-subtle: rgba(0, 0, 0, 0.08);
-    --border-mid: rgba(0, 0, 0, 0.14);
-    --text-primary: #1a1a1a;
-    --text-secondary: #3a3a4a;
-    --text-muted: #6b7280;
-    --blueprint-dot: rgba(42, 109, 244, 0.08);
+    --border-mid: rgba(0, 0, 0, 0.12);
+    --text-primary: #1a1a2e;
+    --text-secondary: #323a5e;
+    --text-muted: #4e5a7a;
+    --blueprint-dot: rgba(34, 52, 77, 0.07);
     --glass-shimmer: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.6), transparent 60%);
     --card-hover-bg: rgba(255, 255, 255, 1);
-    --modal-overlay: rgba(26, 26, 26, 0.65);
+    --modal-overlay: rgba(26, 26, 40, 0.65);
     --input-bg: rgba(0, 0, 0, 0.04);
     --scrollbar-thumb: #cbd5e1;
 }
@@ -120,7 +128,7 @@ body {
    PROJECT CARDS — Index (Horizontal Scroll)
    ═══════════════════════════════════════════ */
 .project-card {
-    border: 1px solid rgba(37, 99, 235, 0.18);
+    border: 1px solid rgba(59, 130, 246, 0.18);
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
@@ -134,7 +142,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.06) 0%, transparent 60%);
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.06) 0%, transparent 60%);
     opacity: 0;
     transition: opacity 0.4s ease;
     pointer-events: none;
@@ -142,10 +150,10 @@ body {
 }
 
 .project-card:hover {
-    border-color: rgba(37, 99, 235, 0.55);
+    border-color: rgba(59, 130, 246, 0.55);
     background: var(--card-hover-bg);
-    box-shadow: 0 8px 40px -8px rgba(37, 99, 235, 0.25),
-        0 0 0 1px rgba(37, 99, 235, 0.1);
+    box-shadow: 0 8px 40px -8px rgba(59, 130, 246, 0.25),
+        0 0 0 1px rgba(59, 130, 246, 0.1);
     transform: translateY(-6px);
 }
 
@@ -209,15 +217,15 @@ body {
 }
 
 .privacy-badge.private {
-    background: rgba(245, 158, 11, 0.15);
-    border: 1px solid rgba(245, 158, 11, 0.30);
-    color: #f59e0b;
+    background: rgba(212, 148, 10, 0.15);
+    border: 1px solid rgba(212, 148, 10, 0.30);
+    color: var(--safety-orange);
 }
 
 .privacy-badge.public {
-    background: rgba(16, 185, 129, 0.12);
-    border: 1px solid rgba(16, 185, 129, 0.25);
-    color: #10b981;
+    background: rgba(14, 140, 106, 0.12);
+    border: 1px solid rgba(14, 140, 106, 0.25);
+    color: var(--dev-light);
 }
 
 .privacy-badge svg {
@@ -239,7 +247,7 @@ body {
 }
 
 .project-card:hover .project-card-title {
-    color: #60a5fa;
+    color: var(--eng-light);
 }
 
 .project-card-desc {
@@ -269,7 +277,7 @@ body {
     font-weight: 900;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: rgba(37, 99, 235, 0.4);
+    color: rgba(59, 130, 246, 0.4);
     transition: color 0.3s ease, transform 0.3s ease;
     display: flex;
     align-items: center;
@@ -298,9 +306,9 @@ body {
    TECH TAGS
    ═══════════════════════════════════════════ */
 .tech-tag {
-    background: rgba(37, 99, 235, 0.1);
-    border: 1px solid rgba(37, 99, 235, 0.22);
-    color: #93c5fd;
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.22);
+    color: #a3c6ff;
     padding: 2px 9px;
     border-radius: 5px;
     font-size: 0.62rem;
@@ -310,14 +318,14 @@ body {
 }
 
 .tech-tag:hover {
-    background: rgba(37, 99, 235, 0.2);
-    border-color: rgba(37, 99, 235, 0.4);
+    background: rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.4);
 }
 
 .dev-tag {
-    background: rgba(16, 185, 129, 0.1);
-    border: 1px solid rgba(16, 185, 129, 0.22);
-    color: #6ee7b7;
+    background: rgba(29, 168, 122, 0.1);
+    border: 1px solid rgba(29, 168, 122, 0.22);
+    color: var(--dev-light);
     padding: 2px 9px;
     border-radius: 5px;
     font-size: 0.62rem;
@@ -335,7 +343,7 @@ nav.glass-card {
 }
 
 html.light nav.glass-card {
-    background: rgba(245, 242, 237, 0.88);
+    background: rgba(255, 255, 255, 0.88);
 }
 
 /* Mobile dark nav overlay */
@@ -350,7 +358,7 @@ html.light nav.glass-card {
 }
 
 html.light #mobile-menu {
-    background-color: rgba(240, 244, 248, 0.97);
+    background-color: rgba(255, 255, 255, 0.97);
 }
 
 /* ═══════════════════════════════════════════
@@ -386,7 +394,7 @@ html.light #mobile-menu {
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     background: var(--bg-surface);
     border: 1px solid var(--border-mid);
-    box-shadow: 0 32px 80px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(37, 99, 235, 0.1);
+    box-shadow: 0 32px 80px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(59, 130, 246, 0.1);
 }
 
 #image-modal.active .modal-content {
@@ -488,7 +496,7 @@ html.light #modal-close {
 }
 
 #modal-desc a:hover {
-    color: #93c5fd;
+    color: #a3c6ff;
 }
 
 /* Modal description text */
@@ -519,18 +527,18 @@ html.light #modal-close {
     letter-spacing: 0.08em;
     text-decoration: none !important;
     transition: all 0.25s ease;
-    background: rgba(37, 99, 235, 0.1);
-    border: 1px solid rgba(37, 99, 235, 0.25);
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.25);
     color: var(--eng-light) !important;
     cursor: pointer;
 }
 
 .modal-link-btn:hover {
-    background: rgba(37, 99, 235, 0.2);
-    border-color: rgba(37, 99, 235, 0.5);
+    background: rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.5);
     color: #fff !important;
     transform: translateY(-1px);
-    box-shadow: 0 4px 16px -4px rgba(37, 99, 235, 0.35);
+    box-shadow: 0 4px 16px -4px rgba(59, 130, 246, 0.35);
 }
 
 /* GitHub button — darker variant */
@@ -589,12 +597,12 @@ html.light #modal-close {
 html.light .modal-link-github {
     background: rgba(0, 0, 0, 0.05);
     border-color: rgba(0, 0, 0, 0.1);
-    color: #334155 !important;
+    color: #323a5e !important;
 }
 
 html.light .modal-link-github:hover {
     background: rgba(0, 0, 0, 0.08);
-    color: #0f172a !important;
+    color: #1a1a2e !important;
 }
 
 /* ═══════════════════════════════════════════
@@ -616,8 +624,8 @@ html.light .modal-link-github:hover {
 }
 
 #theme-toggle:hover {
-    background: rgba(37, 99, 235, 0.12);
-    border-color: rgba(37, 99, 235, 0.35);
+    background: rgba(59, 130, 246, 0.12);
+    border-color: rgba(59, 130, 246, 0.35);
     color: var(--eng-light);
 }
 
@@ -652,7 +660,7 @@ html.light .modal-link-github:hover {
 
 #lang-picker:hover,
 #lang-picker:focus {
-    border-color: rgba(37, 99, 235, 0.45);
+    border-color: rgba(59, 130, 246, 0.45);
     color: var(--text-primary);
     outline: none;
 }
@@ -687,7 +695,7 @@ html.light .modal-link-github:hover {
 
 .hover-lift:hover {
     transform: translateY(-6px);
-    box-shadow: 0 12px 40px -10px rgba(37, 99, 235, 0.28);
+    box-shadow: 0 12px 40px -10px rgba(59, 130, 246, 0.28);
 }
 
 .industrial-border {
@@ -696,7 +704,14 @@ html.light .modal-link-github:hover {
 }
 
 .gradient-text-blue {
-    background: linear-gradient(to right, #60a5fa, var(--eng-blue));
+    background: linear-gradient(to right, #7bb3fe, var(--eng-blue));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+html.light .gradient-text-blue {
+    background: linear-gradient(to right, #3a5a7a, var(--eng-blue));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -712,39 +727,43 @@ html.light .modal-link-github:hover {
 
 /* Light mode text adjustments */
 html.light .text-slate-400 {
-    color: #475569 !important;
+    color: #323a5e !important;
 }
 
 html.light .text-slate-500 {
-    color: #64748b !important;
+    color: #4e5a7a !important;
 }
 
 html.light .text-slate-600 {
-    color: #94a3b8 !important;
+    color: #5a6a8e !important;
 }
 
 html.light .text-slate-100 {
-    color: #0f172a !important;
+    color: #1a1a2e !important;
 }
 
 html.light .text-white {
-    color: #0f172a !important;
+    color: #1a1a2e !important;
+}
+
+html.light .bg-black\/40 {
+    background-color: rgba(244, 246, 249, 0.9) !important;
 }
 
 html.light .bg-dark-950 {
-    background-color: #ece8e0 !important;
+    background-color: #f4f6f9 !important;
 }
 
 html.light .bg-dark-900 {
-    background-color: #f5f2ed !important;
+    background-color: #ffffff !important;
 }
 
 html.light .bg-dark-900\/30 {
-    background-color: rgba(245, 242, 237, 0.6) !important;
+    background-color: rgba(255, 255, 255, 0.6) !important;
 }
 
 html.light .bg-dark-900\/50 {
-    background-color: rgba(245, 242, 237, 0.8) !important;
+    background-color: rgba(255, 255, 255, 0.8) !important;
 }
 
 html.light .glass-card {
@@ -764,28 +783,24 @@ html.light .bg-white\/5 {
     background-color: rgba(0, 0, 0, 0.04) !important;
 }
 
-html.light .bg-black\/40 {
-    background-color: rgba(240, 244, 248, 0.9) !important;
-}
-
 html.light .tech-tag {
-    background: rgba(37, 99, 235, 0.08);
-    border-color: rgba(37, 99, 235, 0.18);
-    color: #1d4ed8;
+    background: rgba(34, 52, 77, 0.08);
+    border-color: rgba(34, 52, 77, 0.18);
+    color: #22344d;
 }
 
 html.light .dev-tag {
-    background: rgba(16, 185, 129, 0.08);
-    border-color: rgba(16, 185, 129, 0.18);
-    color: #047857;
+    background: rgba(31, 111, 107, 0.08);
+    border-color: rgba(31, 111, 107, 0.18);
+    color: #1f6f6b;
 }
 
 html.light .section-tag {
-    color: #64748b;
+    color: #4e5a7a;
 }
 
 html.light .project-card {
-    border-color: rgba(37, 99, 235, 0.15);
+    border-color: rgba(34, 52, 77, 0.15);
 }
 
 html.light .project-card:hover {
@@ -793,57 +808,81 @@ html.light .project-card:hover {
 }
 
 html.light .project-card-title {
-    color: #0f172a;
+    color: #1a1a2e;
 }
 
 html.light .project-card:hover .project-card-title {
-    color: #1d4ed8;
+    color: #22344d;
 }
 
 html.light .project-card-desc {
-    color: #475569;
+    color: #323a5e;
 }
 
 html.light #mobile-menu {
-    background-color: rgba(245, 242, 237, 0.97);
+    background-color: rgba(255, 255, 255, 0.97);
 }
 
 html.light #mobile-menu a {
-    color: #1a1a1a;
+    color: #1a1a2e;
 }
 
 html.light select option {
-    background: #f5f2ed;
-    color: #1a1a1a;
+    background: #ffffff;
+    color: #1a1a2e;
 }
 
 html.light .modal-content {
-    background: #f5f2ed;
+    background: #ffffff;
     border-color: rgba(0, 0, 0, 0.1);
 }
 
 html.light #modal-title {
-    color: #1a1a1a;
+    color: #1a1a2e;
 }
 
 html.light #modal-desc {
-    color: #3a3a4a;
+    color: #323a5e;
 }
 
 html.light .bg-slate-800 {
-    background-color: rgba(0, 0, 0, 0.08) !important;
-}
-
-html.light .bg-slate-900 {
     background-color: rgba(0, 0, 0, 0.06) !important;
 }
 
+html.light .bg-slate-900 {
+    background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
 html.light .arch-node {
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.85);
 }
 
 html.light .grid-blueprint {
-    background-image: radial-gradient(rgba(42, 109, 244, 0.08) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(34, 52, 77, 0.07) 1px, transparent 1px);
+}
+
+html.light .bg-eng {
+    background-color: #22344d !important;
+}
+
+html.light .text-eng {
+    color: #22344d !important;
+}
+
+html.light .border-eng {
+    border-color: #22344d !important;
+}
+
+html.light .bg-dev {
+    background-color: #1f6f6b !important;
+}
+
+html.light .text-dev {
+    color: #1f6f6b !important;
+}
+
+html.light .border-dev {
+    border-color: #1f6f6b !important;
 }
 
 /* ═══════════════════════════════════════════
@@ -852,8 +891,8 @@ html.light .grid-blueprint {
 .arch-node {
     position: relative;
     padding: 1.5rem;
-    background: rgba(15, 23, 42, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-mid);
     border-radius: 1rem;
     text-align: center;
     transition: transform 0.3s ease, border-color 0.3s ease;
@@ -886,15 +925,15 @@ html.light .grid-blueprint {
    GITHUB REPO CARD
    ═══════════════════════════════════════════ */
 .repo-card {
-    background: rgba(30, 41, 59, 0.4);
+    background: var(--bg-elevated);
     border-radius: 0.75rem;
     padding: 1.25rem;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
     transition: all 0.3s ease;
 }
 
 .repo-card:hover {
-    background: rgba(30, 41, 59, 0.6);
+    background: var(--card-hover-bg);
     border-color: var(--eng-blue);
     transform: translateX(5px);
 }
@@ -932,7 +971,7 @@ html.light .grid-blueprint {
 .profile-vignette {
     position: absolute;
     inset: 0;
-    box-shadow: inset 0 0 40px 10px rgba(2, 6, 23, 0.8);
+    box-shadow: inset 0 0 40px 10px rgba(10, 11, 14, 0.8);
     pointer-events: none;
 }
 
@@ -965,8 +1004,8 @@ html.light .grid-blueprint {
 
 .repo-marquee-item {
     min-width: 350px;
-    background: rgba(15, 23, 42, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
     padding: 1.5rem;
     border-radius: 1rem;
     display: inline-flex;
@@ -984,11 +1023,11 @@ html.light .grid-blueprint {
 }
 
 .repo-marquee-item .status-private {
-    color: #f59e0b;
+    color: var(--safety-orange);
 }
 
 .repo-marquee-item .status-public {
-    color: #2563eb;
+    color: var(--eng-blue);
 }
 
 /* ═══════════════════════════════════════════
@@ -1055,11 +1094,11 @@ html.light .grid-blueprint {
 
     0%,
     100% {
-        filter: drop-shadow(0 0 2px rgba(59, 130, 246, 0.4));
+        filter: drop-shadow(0 0 2px rgba(75, 139, 250, 0.4));
     }
 
     50% {
-        filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.9));
+        filter: drop-shadow(0 0 8px rgba(75, 139, 250, 0.9));
     }
 }
 
@@ -1071,11 +1110,11 @@ html.light .grid-blueprint {
 
     0%,
     100% {
-        filter: drop-shadow(0 0 2px rgba(16, 185, 129, 0.4));
+        filter: drop-shadow(0 0 2px rgba(29, 168, 122, 0.4));
     }
 
     50% {
-        filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.9));
+        filter: drop-shadow(0 0 8px rgba(29, 168, 122, 0.9));
     }
 }
 
@@ -1272,6 +1311,46 @@ html.light select {
     }
 }
 
+/* ── Tablet ─────────────────────────────────── */
+@media (max-width: 1024px) {
+    .project-card {
+        min-width: 260px;
+        height: 28vh !important;
+    }
+
+    nav .flex.items-center.gap-3 {
+        gap: 0.5rem;
+    }
+
+    .hero-gap {
+        gap: 1.5rem;
+    }
+}
+
+/* ── Mobile kecil ───────────────────────────── */
+@media (max-width: 640px) {
+    .project-card {
+        min-width: 240px;
+        height: 26vh !important;
+    }
+
+    .project-card-inner {
+        padding: 1.25rem 1.25rem;
+    }
+
+    .section-tag {
+        font-size: 0.55rem !important;
+    }
+
+    #visitor-telemetry {
+        max-width: 180px;
+    }
+
+    #visitor-telemetry .glass-card {
+        padding: 0.5rem !important;
+    }
+}
+
 /* ═══════════════════════════════════════════
    PAGE LOADER
    ═══════════════════════════════════════════ */
@@ -1405,7 +1484,7 @@ html.light select {
     content: '';
     position: absolute;
     inset: -2px -6px;
-    background: rgba(37, 99, 235, 0.12);
+    background: rgba(59, 130, 246, 0.12);
     border-radius: 4px;
     transform: scaleX(0);
     transform-origin: left;
@@ -1417,7 +1496,7 @@ html.light select {
 }
 
 .text-hover-highlight:hover {
-    color: #93c5fd;
+    color: #7bb3fe;
 }
 
 .text-shimmer {
@@ -1473,8 +1552,8 @@ html.light select {
 
 html.light #visitor-telemetry .glass-card {
     background: rgba(255, 255, 255, 0.8) !important;
-    border-color: rgba(37, 99, 235, 0.1) !important;
-    box-shadow: 0 10px 30px -10px rgba(37, 99, 235, 0.15);
+    border-color: rgba(34, 52, 77, 0.1) !important;
+    box-shadow: 0 10px 30px -10px rgba(34, 52, 77, 0.15);
 }
 
 #top-origins img {

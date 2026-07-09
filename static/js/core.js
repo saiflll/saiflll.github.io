@@ -70,6 +70,10 @@ const Modal = {
         this.desc = document.getElementById('modal-desc');
         if (!this.el) return;
 
+        this.img.addEventListener('error', () => {
+            this.img.style.display = 'none';
+        });
+
         document.getElementById('modal-close')?.addEventListener('click', () => this.close());
         this.el.addEventListener('click', (e) => { if (e.target === this.el) this.close(); });
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape') this.close(); });
