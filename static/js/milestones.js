@@ -18,7 +18,7 @@ const milestonesData = [
             "Centralized Management Node: A unified platform for device monitoring, OTA deployment, and production analytics."
         ],
         img: "../static/img/ppa.jpeg",
-        link: "development.html"
+        link: "/page/development/"
     },
     {
         company: "Independent Technical Solutions ( Freelance )",
@@ -32,7 +32,7 @@ const milestonesData = [
             "Integrated various sensors and communication protocols based on specific client requirements.",
             "Provided end-to-end technical support, from initial concept to ready-to-use deployment."],
         img: "../static/img/plc-preview.jpg",
-        link: "engineering.html"
+        link: "/page/engineering/"
     }
 ];
 
