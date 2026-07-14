@@ -51,6 +51,13 @@
 - Keep comments minimal.
 - Explain only complex or non-obvious logic.
 
+## Naming & Formatting (Indonesian Context)
+
+- **Function naming**: Use Indonesian abbreviations for clarity
+  - `snake_case` (ular) for simple, readable functions (e.g., `hitung_rata`, `ambil_data`)
+  - `camelCase` (unta) for init/complex subjects (e.g., `initDatabase`, `processUserRequest`)
+- Prefer existing utilities over creating new ones
+- Don't rename existing code unless refactoring is explicitly requested
 ---
 
 # Performance
